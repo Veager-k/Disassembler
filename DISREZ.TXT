@@ -1,0 +1,25 @@
+0100 E87667       CALL   6879
+0103 FFD3         CALL   BX
+0105 FF5C41       CALL   far [SI+41]
+0108 9A8754F86A   CALL   6AF8:5487
+010D D7           XLAT   
+010E 9E           SAHF   
+010F 9C           PUSHF  
+0110 9D           POPF   
+0111 37           AAA    
+0112 27           DAA    
+0113 3F           AAS    
+0114 2F           DAS    
+0115 98           CBW    
+0116 99           CWD    
+0117 D40A         AAM    
+0119 D50A         AAD    
+011B 8D3E0C00     LEA    DI, [000C]
+011F C54A36       LDS    CX, [BP+SI+36]
+0122 C45600       LES    DX, [BP]
+0125 8EDB         MOV    DS, BX
+0127 8E5002       MOV    SS, [BX+SI+02]
+012A 8CC8         MOV    AX, CS
+012C 8C857568     MOV    [DI+6875], ES
+0130 FFB7EAF5     PUSH   [BX+F5EA]
+0134 8F4505       POP    [DI+05]
