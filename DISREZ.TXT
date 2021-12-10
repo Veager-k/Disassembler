@@ -1,25 +1,998 @@
-0100 E87667       CALL   6879
-0103 FFD3         CALL   BX
-0105 FF5C41       CALL   far [SI+41]
-0108 9A8754F86A   CALL   6AF8:5487
-010D D7           XLAT   
-010E 9E           SAHF   
-010F 9C           PUSHF  
-0110 9D           POPF   
-0111 37           AAA    
-0112 27           DAA    
-0113 3F           AAS    
-0114 2F           DAS    
-0115 98           CBW    
-0116 99           CWD    
-0117 D40A         AAM    
-0119 D50A         AAD    
-011B 8D3E0C00     LEA    DI, [000C]
-011F C54A36       LDS    CX, [BP+SI+36]
-0122 C45600       LES    DX, [BP]
-0125 8EDB         MOV    DS, BX
-0127 8E5002       MOV    SS, [BX+SI+02]
-012A 8CC8         MOV    AX, CS
-012C 8C857568     MOV    [DI+6875], ES
-0130 FFB7EAF5     PUSH   [BX+F5EA]
-0134 8F4505       POP    [DI+05]
+0734:0100 741E              JZ      0120
+0734:0102 741D              JZ      0121
+0734:0104 7CFA              JL      0100
+0734:0106 7E48              JLE     0150
+0734:0108 72F6              JB      0100
+0734:010A 7614              JBE     0120
+0734:010C 7A14              JPE     0122
+0734:010E 70F0              JO      0100
+0734:0110 78F0              JS      0102
+0734:0112 75F0              JNZ     0104
+0734:0114 75EC              JNZ     0102
+0734:0116 7D08              JGE     0120
+0734:0118 7F09              JG      0123
+0734:011A 73E6              JAE     0102
+0734:011C 77E2              JA      0100
+0734:011E 7BF0              JPO     0110
+0734:0120 71DE              JNO     0100
+0734:0122 792C              JNS     0150
+0734:0124 E22C              LOOPW   0152
+0734:0126 E1D8              LOOPZW  0100
+0734:0128 E1D7              LOOPZW  0101
+0734:012A E0D6              LOOPNZW 0102
+0734:012C E0D5              LOOPNZW 0103
+0734:012E E3F5              JCXZ    0125
+0734:0130 E82333            CALL    3456
+0734:0133 FF17              CALL    WORD PTR [BX]
+0734:0135 FF5778            CALL    WORD PTR [BX+78]
+0734:0138 FF975634          CALL    WORD PTR [BX+3456]
+0734:013C FF10              CALL    WORD PTR [BX+SI]
+0734:013E FF5079            CALL    WORD PTR [BX+SI+79]
+0734:0141 FF907856          CALL    WORD PTR [BX+SI+5678]
+0734:0145 FF11              CALL    WORD PTR [BX+DI]
+0734:0147 FF5129            CALL    WORD PTR [BX+DI+29]
+0734:014A FF917856          CALL    WORD PTR [BX+DI+5678]
+0734:014E FF14              CALL    WORD PTR [SI]
+0734:0150 FF5428            CALL    WORD PTR [SI+28]
+0734:0153 FF945634          CALL    WORD PTR [SI+3456]
+0734:0157 FF15              CALL    WORD PTR [DI]
+0734:0159 FFD0              CALL    AX
+0734:015B FFD3              CALL    BX
+0734:015D FFD1              CALL    CX
+0734:015F FFD2              CALL    DX
+0734:0161 FFD4              CALL    SP
+0734:0163 FFD7              CALL    DI
+0734:0165 FFD5              CALL    BP
+0734:0167 FFD6              CALL    SI
+0734:0169 FFD5              CALL    BP
+0734:016B 9A45225634        CALL    3456:2245
+0734:0170 FF1F              CALL    FAR [BX]
+0734:0172 FF5F78            CALL    FAR [BX+78]
+0734:0175 FF9F5634          CALL    FAR [BX+3456]
+0734:0179 FF18              CALL    FAR [BX+SI]
+0734:017B FF5879            CALL    FAR [BX+SI+79]
+0734:017E FF987856          CALL    FAR [BX+SI+5678]
+0734:0182 FF19              CALL    FAR [BX+DI]
+0734:0184 FF5929            CALL    FAR [BX+DI+29]
+0734:0187 FF997856          CALL    FAR [BX+DI+5678]
+0734:018B FF1C              CALL    FAR [SI]
+0734:018D FF5C28            CALL    FAR [SI+28]
+0734:0190 FF9C5634          CALL    FAR [SI+3456]
+0734:0194 FF1D              CALL    FAR [DI]
+0734:0196 E9BD32            JMP     3456
+0734:0199 EB15              JMP     01B0
+0734:019B FF27              JMP     WORD PTR [BX]
+0734:019D FF6778            JMP     WORD PTR [BX+78]
+0734:01A0 FFA75634          JMP     WORD PTR [BX+3456]
+0734:01A4 FF20              JMP     WORD PTR [BX+SI]
+0734:01A6 FF6079            JMP     WORD PTR [BX+SI+79]
+0734:01A9 FFA07856          JMP     WORD PTR [BX+SI+5678]
+0734:01AD FF21              JMP     WORD PTR [BX+DI]
+0734:01AF FF6129            JMP     WORD PTR [BX+DI+29]
+0734:01B2 FFA17856          JMP     WORD PTR [BX+DI+5678]
+0734:01B6 FF24              JMP     WORD PTR [SI]
+0734:01B8 FF6428            JMP     WORD PTR [SI+28]
+0734:01BB FFA45634          JMP     WORD PTR [SI+3456]
+0734:01BF FF25              JMP     WORD PTR [DI]
+0734:01C1 FFE0              JMP     AX
+0734:01C3 FFE3              JMP     BX
+0734:01C5 FFE1              JMP     CX
+0734:01C7 FFE2              JMP     DX
+0734:01C9 FFE4              JMP     SP
+0734:01CB FFE7              JMP     DI
+0734:01CD FFE5              JMP     BP
+0734:01CF FFE6              JMP     SI
+0734:01D1 FFE5              JMP     BP
+0734:01D3 EA45225634        JMP     3456:2245
+0734:01D8 FF2F              JMP     FAR [BX]
+0734:01DA FF6F78            JMP     FAR [BX+78]
+0734:01DD FFAF5634          JMP     FAR [BX+3456]
+0734:01E1 FF28              JMP     FAR [BX+SI]
+0734:01E3 FF6879            JMP     FAR [BX+SI+79]
+0734:01E6 FFA87856          JMP     FAR [BX+SI+5678]
+0734:01EA FF29              JMP     FAR [BX+DI]
+0734:01EC FF6929            JMP     FAR [BX+DI+29]
+0734:01EF FFA97856          JMP     FAR [BX+DI+5678]
+0734:01F3 FF2C              JMP     FAR [SI]
+0734:01F5 FF6C28            JMP     FAR [SI+28]
+0734:01F8 FFAC5634          JMP     FAR [SI+3456]
+0734:01FC FF2D              JMP     FAR [DI]
+0734:01FE C3                RET     
+0734:01FF C22301            RET     0123
+0734:0202 CB                RETF    
+0734:0203 CA4523            RETF    2345
+0734:0206 CC                INT     03
+0734:0207 CE                INTO    
+0734:0208 CD21              INT     21
+0734:020A CD80              INT     80
+0734:020C 8B0F              MOV     CX,[BX]
+0734:020E 8B5778            MOV     DX,[BX+78]
+0734:0211 8B9F5634          MOV     BX,[BX+3456]
+0734:0215 8B30              MOV     SI,[BX+SI]
+0734:0217 8B7879            MOV     DI,[BX+SI+79]
+0734:021A 8BA87856          MOV     BP,[BX+SI+5678]
+0734:021E 8B31              MOV     SI,[BX+DI]
+0734:0220 8B7929            MOV     DI,[BX+DI+29]
+0734:0223 8BA97856          MOV     BP,[BX+DI+5678]
+0734:0227 8B24              MOV     SP,[SI]
+0734:0229 8B5428            MOV     DX,[SI+28]
+0734:022C 8B9C5634          MOV     BX,[SI+3456]
+0734:0230 8B05              MOV     AX,[DI]
+0734:0232 8B5558            MOV     DX,[DI+58]
+0734:0235 8B9D5634          MOV     BX,[DI+3456]
+0734:0239 8B4E00            MOV     CX,[BP+00]
+0734:023C 8B5658            MOV     DX,[BP+58]
+0734:023F 8B9E5634          MOV     BX,[BP+3456]
+0734:0243 8B32              MOV     SI,[BP+SI]
+0734:0245 8B7A39            MOV     DI,[BP+SI+39]
+0734:0248 8BAA7856          MOV     BP,[BP+SI+5678]
+0734:024C 8B33              MOV     SI,[BP+DI]
+0734:024E 8B7B49            MOV     DI,[BP+DI+49]
+0734:0251 8BAB7856          MOV     BP,[BP+DI+5678]
+0734:0255 890F              MOV     [BX],CX
+0734:0257 895778            MOV     [BX+78],DX
+0734:025A 899F5634          MOV     [BX+3456],BX
+0734:025E 8900              MOV     [BX+SI],AX
+0734:0260 896069            MOV     [BX+SI+69],SP
+0734:0263 89B87856          MOV     [BX+SI+5678],DI
+0734:0267 8929              MOV     [BX+DI],BP
+0734:0269 897149            MOV     [BX+DI+49],SI
+0734:026C 89B97856          MOV     [BX+DI+5678],DI
+0734:0270 8904              MOV     [SI],AX
+0734:0272 894C78            MOV     [SI+78],CX
+0734:0275 89945634          MOV     [SI+3456],DX
+0734:0279 892D              MOV     [DI],BP
+0734:027B 896578            MOV     [DI+78],SP
+0734:027E 89B55634          MOV     [DI+3456],SI
+0734:0282 897E00            MOV     [BP+00],DI
+0734:0285 894E78            MOV     [BP+78],CX
+0734:0288 89965634          MOV     [BP+3456],DX
+0734:028C 8932              MOV     [BP+SI],SI
+0734:028E 897A59            MOV     [BP+SI+59],DI
+0734:0291 89827856          MOV     [BP+SI+5678],AX
+0734:0295 893B              MOV     [BP+DI],DI
+0734:0297 895B19            MOV     [BP+DI+19],BX
+0734:029A 89937856          MOV     [BP+DI+5678],DX
+0734:029E 8A05              MOV     AL,[DI]
+0734:02A0 8A6578            MOV     AH,[DI+78]
+0734:02A3 8ABD5634          MOV     BH,[DI+3456]
+0734:02A7 8A4E00            MOV     CL,[BP+00]
+0734:02AA 8A5678            MOV     DL,[BP+78]
+0734:02AD 8A9E5634          MOV     BL,[BP+3456]
+0734:02B1 8A2A              MOV     CH,[BP+SI]
+0734:02B3 887578            MOV     [DI+78],DH
+0734:02B6 88955634          MOV     [DI+3456],DL
+0734:02BA 886E00            MOV     [BP+00],CH
+0734:02BD 884E56            MOV     [BP+56],CL
+0734:02C0 88BE5634          MOV     [BP+3456],BH
+0734:02C4 881A              MOV     [BP+SI],BL
+0734:02C6 886245            MOV     [BP+SI+45],AH
+0734:02C9 88827856          MOV     [BP+SI+5678],AL
+0734:02CD C6457815          MOV     BYTE PTR [DI+78],15
+0734:02D1 C685563416        MOV     BYTE PTR [DI+3456],16
+0734:02D6 C6460028          MOV     BYTE PTR [BP+00],28
+0734:02DA C6465688          MOV     BYTE PTR [BP+56],88
+0734:02DE C78656343412      MOV     WORD PTR [BP+3456],1234
+0734:02E4 C7021534          MOV     WORD PTR [BP+SI],3415
+0734:02E8 C742458547        MOV     WORD PTR [BP+SI+45],4785
+0734:02ED C78278563615      MOV     WORD PTR [BP+SI+5678],1536
+0734:02F3 B015              MOV     AL,15
+0734:02F5 B416              MOV     AH,16
+0734:02F7 B128              MOV     CL,28
+0734:02F9 B688              MOV     DH,88
+0734:02FB BB3412            MOV     BX,1234
+0734:02FE BE1534            MOV     SI,3415
+0734:0301 BC8547            MOV     SP,4785
+0734:0304 BD3615            MOV     BP,1536
+0734:0307 C7C51254          MOV     WORD PTR BP,5412
+0734:030B A13412            MOV     AX,[1234]
+0734:030E A03412            MOV     AL,[1234]
+0734:0311 A31234            MOV     [3412],AX
+0734:0314 A21234            MOV     [3412],AL
+0734:0317 8C0F              MOV     WORD PTR [BX],CS
+0734:0319 8C5778            MOV     WORD PTR [BX+78],SS
+0734:031C 8C9F5634          MOV     WORD PTR [BX+3456],DS
+0734:0320 8C00              MOV     WORD PTR [BX+SI],ES
+0734:0322 8C4869            MOV     WORD PTR [BX+SI+69],CS
+0734:0325 8E1F              MOV     DS,WORD PTR [BX]
+0734:0327 8E4F78            MOV     CS,WORD PTR [BX+78]
+0734:032A 8E975634          MOV     SS,WORD PTR [BX+3456]
+0734:032E 8E00              MOV     ES,WORD PTR [BX+SI]
+0734:0330 8E5869            MOV     DS,WORD PTR [BX+SI+69]
+0734:0333 D127              SHL     WORD PTR [BX],1
+0734:0335 D26778            SHL     BYTE PTR [BX+78],CL
+0734:0338 D1A75634          SHL     WORD PTR [BX+3456],1
+0734:033C D3E7              SHL     DI,CL
+0734:033E D06069            SHL     BYTE PTR [BX+SI+69],1
+0734:0341 D3A07856          SHL     WORD PTR [BX+SI+5678],CL
+0734:0345 D121              SHL     WORD PTR [BX+DI],1
+0734:0347 D36149            SHL     WORD PTR [BX+DI+49],CL
+0734:034A D1E6              SHL     SI,1
+0734:034C D224              SHL     BYTE PTR [SI],CL
+0734:034E D16478            SHL     WORD PTR [SI+78],1
+0734:0351 D2A45634          SHL     BYTE PTR [SI+3456],CL
+0734:0355 D125              SHL     WORD PTR [DI],1
+0734:0357 D26578            SHL     BYTE PTR [DI+78],CL
+0734:035A D1A55634          SHL     WORD PTR [DI+3456],1
+0734:035E D36600            SHL     WORD PTR [BP+00],CL
+0734:0361 D16678            SHL     WORD PTR [BP+78],1
+0734:0364 D2E6              SHL     DH,CL
+0734:0366 D022              SHL     BYTE PTR [BP+SI],1
+0734:0368 D36259            SHL     WORD PTR [BP+SI+59],CL
+0734:036B D1A27856          SHL     WORD PTR [BP+SI+5678],1
+0734:036F D223              SHL     BYTE PTR [BP+DI],CL
+0734:0371 D16319            SHL     WORD PTR [BP+DI+19],1
+0734:0374 D3A37856          SHL     WORD PTR [BP+DI+5678],CL
+0734:0378 D12F              SHR     WORD PTR [BX],1
+0734:037A D26F78            SHR     BYTE PTR [BX+78],CL
+0734:037D D1AF5634          SHR     WORD PTR [BX+3456],1
+0734:0381 D328              SHR     WORD PTR [BX+SI],CL
+0734:0383 D06869            SHR     BYTE PTR [BX+SI+69],1
+0734:0386 D3A87856          SHR     WORD PTR [BX+SI+5678],CL
+0734:038A D129              SHR     WORD PTR [BX+DI],1
+0734:038C D36949            SHR     WORD PTR [BX+DI+49],CL
+0734:038F D1A97856          SHR     WORD PTR [BX+DI+5678],1
+0734:0393 D22C              SHR     BYTE PTR [SI],CL
+0734:0395 D16C78            SHR     WORD PTR [SI+78],1
+0734:0398 D2AC5634          SHR     BYTE PTR [SI+3456],CL
+0734:039C D12D              SHR     WORD PTR [DI],1
+0734:039E D2E8              SHR     AL,CL
+0734:03A0 D1AD5634          SHR     WORD PTR [DI+3456],1
+0734:03A4 D36E00            SHR     WORD PTR [BP+00],CL
+0734:03A7 D16E78            SHR     WORD PTR [BP+78],1
+0734:03AA D3E9              SHR     CX,CL
+0734:03AC D02A              SHR     BYTE PTR [BP+SI],1
+0734:03AE D36A59            SHR     WORD PTR [BP+SI+59],CL
+0734:03B1 D1AA7856          SHR     WORD PTR [BP+SI+5678],1
+0734:03B5 D22B              SHR     BYTE PTR [BP+DI],CL
+0734:03B7 D1ED              SHR     BP,1
+0734:03B9 D3AB7856          SHR     WORD PTR [BP+DI+5678],CL
+0734:03BD D107              ROL     WORD PTR [BX],1
+0734:03BF D24778            ROL     BYTE PTR [BX+78],CL
+0734:03C2 D1875634          ROL     WORD PTR [BX+3456],1
+0734:03C6 D3C7              ROL     DI,CL
+0734:03C8 D04069            ROL     BYTE PTR [BX+SI+69],1
+0734:03CB D3807856          ROL     WORD PTR [BX+SI+5678],CL
+0734:03CF D101              ROL     WORD PTR [BX+DI],1
+0734:03D1 D34149            ROL     WORD PTR [BX+DI+49],CL
+0734:03D4 D1C6              ROL     SI,1
+0734:03D6 D204              ROL     BYTE PTR [SI],CL
+0734:03D8 D14478            ROL     WORD PTR [SI+78],1
+0734:03DB D2845634          ROL     BYTE PTR [SI+3456],CL
+0734:03DF D105              ROL     WORD PTR [DI],1
+0734:03E1 D24578            ROL     BYTE PTR [DI+78],CL
+0734:03E4 D1855634          ROL     WORD PTR [DI+3456],1
+0734:03E8 D34600            ROL     WORD PTR [BP+00],CL
+0734:03EB D14678            ROL     WORD PTR [BP+78],1
+0734:03EE D2C6              ROL     DH,CL
+0734:03F0 D002              ROL     BYTE PTR [BP+SI],1
+0734:03F2 D34259            ROL     WORD PTR [BP+SI+59],CL
+0734:03F5 D1827856          ROL     WORD PTR [BP+SI+5678],1
+0734:03F9 D203              ROL     BYTE PTR [BP+DI],CL
+0734:03FB D14319            ROL     WORD PTR [BP+DI+19],1
+0734:03FE D3837856          ROL     WORD PTR [BP+DI+5678],CL
+0734:0402 D10F              ROR     WORD PTR [BX],1
+0734:0404 D24F78            ROR     BYTE PTR [BX+78],CL
+0734:0407 D18F5634          ROR     WORD PTR [BX+3456],1
+0734:040B D3CF              ROR     DI,CL
+0734:040D D04869            ROR     BYTE PTR [BX+SI+69],1
+0734:0410 D3887856          ROR     WORD PTR [BX+SI+5678],CL
+0734:0414 D109              ROR     WORD PTR [BX+DI],1
+0734:0416 D34949            ROR     WORD PTR [BX+DI+49],CL
+0734:0419 D1CE              ROR     SI,1
+0734:041B D20C              ROR     BYTE PTR [SI],CL
+0734:041D D14C78            ROR     WORD PTR [SI+78],1
+0734:0420 D28C5634          ROR     BYTE PTR [SI+3456],CL
+0734:0424 D10D              ROR     WORD PTR [DI],1
+0734:0426 D24D78            ROR     BYTE PTR [DI+78],CL
+0734:0429 D18D5634          ROR     WORD PTR [DI+3456],1
+0734:042D D34E00            ROR     WORD PTR [BP+00],CL
+0734:0430 D14E78            ROR     WORD PTR [BP+78],1
+0734:0433 D2CE              ROR     DH,CL
+0734:0435 D00A              ROR     BYTE PTR [BP+SI],1
+0734:0437 D34A59            ROR     WORD PTR [BP+SI+59],CL
+0734:043A D18A7856          ROR     WORD PTR [BP+SI+5678],1
+0734:043E D20B              ROR     BYTE PTR [BP+DI],CL
+0734:0440 D14B19            ROR     WORD PTR [BP+DI+19],1
+0734:0443 D38B7856          ROR     WORD PTR [BP+DI+5678],CL
+0734:0447 D11F              RCR     WORD PTR [BX],1
+0734:0449 D25F78            RCR     BYTE PTR [BX+78],CL
+0734:044C D19F5634          RCR     WORD PTR [BX+3456],1
+0734:0450 D3DF              RCR     DI,CL
+0734:0452 D05869            RCR     BYTE PTR [BX+SI+69],1
+0734:0455 D3987856          RCR     WORD PTR [BX+SI+5678],CL
+0734:0459 D119              RCR     WORD PTR [BX+DI],1
+0734:045B D35949            RCR     WORD PTR [BX+DI+49],CL
+0734:045E D1DE              RCR     SI,1
+0734:0460 D21C              RCR     BYTE PTR [SI],CL
+0734:0462 D15C78            RCR     WORD PTR [SI+78],1
+0734:0465 D29C5634          RCR     BYTE PTR [SI+3456],CL
+0734:0469 D11D              RCR     WORD PTR [DI],1
+0734:046B D25D78            RCR     BYTE PTR [DI+78],CL
+0734:046E D19D5634          RCR     WORD PTR [DI+3456],1
+0734:0472 D35E00            RCR     WORD PTR [BP+00],CL
+0734:0475 D15E78            RCR     WORD PTR [BP+78],1
+0734:0478 D2DE              RCR     DH,CL
+0734:047A D01A              RCR     BYTE PTR [BP+SI],1
+0734:047C D35A59            RCR     WORD PTR [BP+SI+59],CL
+0734:047F D19A7856          RCR     WORD PTR [BP+SI+5678],1
+0734:0483 D21B              RCR     BYTE PTR [BP+DI],CL
+0734:0485 D15B19            RCR     WORD PTR [BP+DI+19],1
+0734:0488 D39B7856          RCR     WORD PTR [BP+DI+5678],CL
+0734:048C D117              RCL     WORD PTR [BX],1
+0734:048E D25778            RCL     BYTE PTR [BX+78],CL
+0734:0491 D1975634          RCL     WORD PTR [BX+3456],1
+0734:0495 D3D7              RCL     DI,CL
+0734:0497 D05069            RCL     BYTE PTR [BX+SI+69],1
+0734:049A D3907856          RCL     WORD PTR [BX+SI+5678],CL
+0734:049E D111              RCL     WORD PTR [BX+DI],1
+0734:04A0 D35149            RCL     WORD PTR [BX+DI+49],CL
+0734:04A3 D1D6              RCL     SI,1
+0734:04A5 D214              RCL     BYTE PTR [SI],CL
+0734:04A7 D15478            RCL     WORD PTR [SI+78],1
+0734:04AA D2945634          RCL     BYTE PTR [SI+3456],CL
+0734:04AE D115              RCL     WORD PTR [DI],1
+0734:04B0 D25578            RCL     BYTE PTR [DI+78],CL
+0734:04B3 D1955634          RCL     WORD PTR [DI+3456],1
+0734:04B7 D35600            RCL     WORD PTR [BP+00],CL
+0734:04BA D15678            RCL     WORD PTR [BP+78],1
+0734:04BD D2D6              RCL     DH,CL
+0734:04BF D012              RCL     BYTE PTR [BP+SI],1
+0734:04C1 D35259            RCL     WORD PTR [BP+SI+59],CL
+0734:04C4 D1927856          RCL     WORD PTR [BP+SI+5678],1
+0734:04C8 D213              RCL     BYTE PTR [BP+DI],CL
+0734:04CA D15319            RCL     WORD PTR [BP+DI+19],1
+0734:04CD D3937856          RCL     WORD PTR [BP+DI+5678],CL
+0734:04D1 F7D5              NOT     BP
+0734:04D3 F75658            NOT     WORD PTR [BP+58]
+0734:04D6 F7965634          NOT     WORD PTR [BP+3456]
+0734:04DA F7D1              NOT     CX
+0734:04DC F75239            NOT     WORD PTR [BP+SI+39]
+0734:04DF F7927856          NOT     WORD PTR [BP+SI+5678]
+0734:04E3 F7D2              NOT     DX
+0734:04E5 F75349            NOT     WORD PTR [BP+DI+49]
+0734:04E8 F7D6              NOT     SI
+0734:04EA F65578            NOT     BYTE PTR [DI+78]
+0734:04ED F6955634          NOT     BYTE PTR [DI+3456]
+0734:04F1 F6D6              NOT     DH
+0734:04F3 F65678            NOT     BYTE PTR [BP+78]
+0734:04F6 F6965634          NOT     BYTE PTR [BP+3456]
+0734:04FA F6D4              NOT     AH
+0734:04FC F6D3              NOT     BL
+0734:04FE F6955634          NOT     BYTE PTR [DI+3456]
+0734:0502 7823              JS      0527
+0734:0504 9F                LAHF    
+0734:0505 7879              JS      0580
+0734:0507 7856              JS      055F
+0734:0509 7929              JNS     0534
+0734:050B 7856              JS      0563
+0734:050D 9C                PUSHF   
+0734:050E 9D                POPF    
+0734:050F 9E                SAHF    
+0734:0510 7A39              JPE     054B
+0734:0512 7856              JS      056A
+0734:0514 7B49              JPO     055F
+0734:0516 7856              JS      056E
+0734:0518 7821              JS      053B
+0734:051A 9F                LAHF    
+0734:051B B87856            MOV     AX,5678
+0734:051E 7149              JNO     0569
+0734:0520 B97856            MOV     CX,5678
+0734:0523 7821              JS      0546
+0734:0525 7821              JS      0548
+0734:0527 B556              MOV     CH,56
+0734:0529 7E00              JLE     052B
+0734:052B 7821              JS      054E
+0734:052D 7A59              JPE     0588
+0734:052F 7856              JS      0587
+0734:0531 7856              JS      0589
+0734:0533 7822              JS      0557
+0734:0535 BD5634            MOV     BP,3456
+0734:0538 7822              JS      055C
+0734:053A 9E                SAHF    
+0734:053B 7578              JNZ     05B5
+0734:053D BE5634            MOV     SI,3456
+0734:0540 7856              JS      0598
+0734:0542 7815              JS      0559
+0734:0544 8881A656          MOV     [BX+DI+56A6],AL
+0734:0548 A27856            MOV     [5678],AL
+0734:054B E115              LOOPZW  0562
+0734:054D E228              LOOPW   0577
+0734:054F 8881E334          MOV     [BX+DI+34E3],AL
+0734:0553 7885              JS      04DA
+0734:0555 9F                LAHF    
+0734:0556 7879              JS      05D1
+0734:0558 7856              JS      05B0
+0734:055A 7929              JNS     0585
+0734:055C 7856              JS      05B4
+0734:055E 9C                PUSHF   
+0734:055F 9D                POPF    
+0734:0560 9E                SAHF    
+0734:0561 7A39              JPE     059C
+0734:0563 7856              JS      05BB
+0734:0565 7B49              JPO     05B0
+0734:0567 7856              JS      05BF
+0734:0569 7885              JS      04F0
+0734:056B 9F                LAHF    
+0734:056C B87856            MOV     AX,5678
+0734:056F 7149              JNO     05BA
+0734:0571 B97856            MOV     CX,5678
+0734:0574 7885              JS      04FB
+0734:0576 7885              JS      04FD
+0734:0578 B556              MOV     CH,56
+0734:057A 7E00              JLE     057C
+0734:057C 7885              JS      0503
+0734:057E 7A59              JPE     05D9
+0734:0580 7856              JS      05D8
+0734:0582 7856              JS      05DA
+0734:0584 7884              JS      050A
+0734:0586 BD5634            MOV     BP,3456
+0734:0589 7884              JS      050F
+0734:058B 9E                SAHF    
+0734:058C 7578              JNZ     0606
+0734:058E BE5634            MOV     SI,3456
+0734:0591 7856              JS      05E9
+0734:0593 F64578            NOT     BYTE PTR [DI+78]
+0734:0596 F6855634          NOT     BYTE PTR [DI+3456]
+0734:059A F64600            NOT     BYTE PTR [BP+00]
+0734:059D F64656            NOT     BYTE PTR [BP+56]
+0734:05A0 88F7              MOV     BH,DH
+0734:05A2 F702              NOT     WORD PTR [BP+SI]
+0734:05A4 F74245            NOT     WORD PTR [BP+SI+45]
+0734:05A7 F7827856          NOT     WORD PTR [BP+SI+5678]
+0734:05AB F6C1              NOT     CL
+0734:05AD F6C5              NOT     CH
+0734:05AF F6C2              NOT     DL
+0734:05B1 F6C4              NOT     AH
+0734:05B3 88F7              MOV     BH,DH
+0734:05B5 C3                RET     
+0734:05B6 F7C7              NOT     DI
+0734:05B8 F7C4              NOT     SP
+0734:05BA F7C5              NOT     BP
+0734:05BC 780B              JS      05C9
+0734:05BE 9F                LAHF    
+0734:05BF 7879              JS      063A
+0734:05C1 7856              JS      0619
+0734:05C3 7929              JNS     05EE
+0734:05C5 7856              JS      061D
+0734:05C7 9C                PUSHF   
+0734:05C8 9D                POPF    
+0734:05C9 9E                SAHF    
+0734:05CA 7A39              JPE     0605
+0734:05CC 7856              JS      0624
+0734:05CE 7B49              JPO     0619
+0734:05D0 7856              JS      0628
+0734:05D2 7809              JS      05DD
+0734:05D4 9F                LAHF    
+0734:05D5 B87856            MOV     AX,5678
+0734:05D8 7149              JNO     0623
+0734:05DA B97856            MOV     CX,5678
+0734:05DD 7809              JS      05E8
+0734:05DF 7809              JS      05EA
+0734:05E1 B556              MOV     CH,56
+0734:05E3 7E00              JLE     05E5
+0734:05E5 7809              JS      05F0
+0734:05E7 7A59              JPE     0642
+0734:05E9 7856              JS      0641
+0734:05EB 7856              JS      0643
+0734:05ED 780A              JS      05F9
+0734:05EF BD5634            MOV     BP,3456
+0734:05F2 780A              JS      05FE
+0734:05F4 9E                SAHF    
+0734:05F5 7578              JNZ     066F
+0734:05F7 BE5634            MOV     SI,3456
+0734:05FA 7856              JS      0652
+0734:05FC 7815              JS      0613
+0734:05FE 8D5634            LEA     DX,[BP+34]
+0734:0601 88818E56          MOV     [BX+DI+568E],AL
+0734:0605 8A7856            MOV     BH,[BX+SI+56]
+0734:0608 CD16              INT     16
+0734:060A CA2880            RETF    8028
+0734:060D CC                INT     03
+0734:060E 8881CB34          MOV     [BX+DI+34CB],AL
+0734:0612 CF                IRET    
+0734:0613 CC                INT     03
+0734:0614 CD36              INT     36
+0734:0616 7833              JS      064B
+0734:0618 9F                LAHF    
+0734:0619 7879              JS      0694
+0734:061B 7856              JS      0673
+0734:061D 7929              JNS     0648
+0734:061F 7856              JS      0677
+0734:0621 9C                PUSHF   
+0734:0622 9D                POPF    
+0734:0623 9E                SAHF    
+0734:0624 7A39              JPE     065F
+0734:0626 7856              JS      067E
+0734:0628 7B49              JPO     0673
+0734:062A 7856              JS      0682
+0734:062C 7831              JS      065F
+0734:062E 9F                LAHF    
+0734:062F B87856            MOV     AX,5678
+0734:0632 7149              JNO     067D
+0734:0634 B97856            MOV     CX,5678
+0734:0637 7831              JS      066A
+0734:0639 7831              JS      066C
+0734:063B B556              MOV     CH,56
+0734:063D 7E00              JLE     063F
+0734:063F 7831              JS      0672
+0734:0641 7A59              JPE     069C
+0734:0643 7856              JS      069B
+0734:0645 7856              JS      069D
+0734:0647 7832              JS      067B
+0734:0649 BD5634            MOV     BP,3456
+0734:064C 7832              JS      0680
+0734:064E 9E                SAHF    
+0734:064F 7578              JNZ     06C9
+0734:0651 BE5634            MOV     SI,3456
+0734:0654 7856              JS      06AC
+0734:0656 7578              JNZ     06D0
+0734:0658 B556              MOV     CH,56
+0734:065A 7600              JBE     065C
+0734:065C 7656              JBE     06B4
+0734:065E 8881B656          MOV     [BX+DI+56B6],AL
+0734:0662 7245              JB      06A9
+0734:0664 B278              MOV     DL,78
+0734:0666 F5                CMC     
+0734:0667 F4                HLT     
+0734:0668 8881F334          MOV     [BX+DI+34F3],AL
+0734:066C F715              NOT     WORD PTR [DI]
+0734:066E F4                HLT     
+0734:066F F5                CMC     
+0734:0670 7756              JA      06C8
+0734:0672 F8                CLC     
+0734:0673 F5                CMC     
+0734:0674 F9                STC     
+0734:0675 FC                CLD     
+0734:0676 FD                STD     
+0734:0677 FA                CLI     
+0734:0678 FB                STI     
+0734:0679 F4                HLT     
+0734:067A 9B                WAIT    
+0734:067B F0                LOCK    
+0734:067C D0D9              RCR     CL,1
+0734:067E CB                RETF    
+0734:067F FA                CLI     
+0734:0680 9B                WAIT    
+0734:0681 2F                DAS     
+0734:0682 FF37              PUSH    [BX]
+0734:0684 FF7778            PUSH    [BX+78]
+0734:0687 FFB75634          PUSH    [BX+3456]
+0734:068B FF30              PUSH    [BX+SI]
+0734:068D FF7079            PUSH    [BX+SI+79]
+0734:0690 FFB07856          PUSH    [BX+SI+5678]
+0734:0694 FF31              PUSH    [BX+DI]
+0734:0696 FF35              PUSH    [DI]
+0734:0698 FF7558            PUSH    [DI+58]
+0734:069B FFB55634          PUSH    [DI+3456]
+0734:069F FF7600            PUSH    [BP+00]
+0734:06A2 FF7658            PUSH    [BP+58]
+0734:06A5 FFB65634          PUSH    [BP+3456]
+0734:06A9 FFB37856          PUSH    [BP+DI+5678]
+0734:06AD 8F07              POP     [BX]
+0734:06AF 8F4778            POP     [BX+78]
+0734:06B2 8F875634          POP     [BX+3456]
+0734:06B6 8F00              POP     [BX+SI]
+0734:06B8 8F4079            POP     [BX+SI+79]
+0734:06BB 8F807856          POP     [BX+SI+5678]
+0734:06BF 8F01              POP     [BX+DI]
+0734:06C1 8F05              POP     [DI]
+0734:06C3 8F4558            POP     [DI+58]
+0734:06C6 8F855634          POP     [DI+3456]
+0734:06CA 8F4600            POP     [BP+00]
+0734:06CD 8F4658            POP     [BP+58]
+0734:06D0 8F865634          POP     [BP+3456]
+0734:06D4 8F837856          POP     [BP+DI+5678]
+0734:06D8 E086              LOOPNZW 0660
+0734:06DA E186              LOOPZW  0662
+0734:06DC EA86FE87CB        JMP     CB87:FE86
+0734:06E1 CA87D9            RETF    D987
+0734:06E4 F9                STC     
+0734:06E5 F787CD87          NOT     WORD PTR [BX+87CD]
+0734:06E9 EA8607864E        JMP     4E86:0786
+0734:06EE B454              MOV     AH,54
+0734:06F0 37                AAA     
+0734:06F1 D7                XLAT    
+0734:06F2 8D985423          LEA     BX,[BX+SI+2354]
+0734:06F6 8D4A54            LEA     CX,[BP+SI+54]
+0734:06F9 8D5600            LEA     DX,[BP+00]
+0734:06FC 8D3E1200          LEA     DI,[0012]
+0734:0700 C4985423          LES     BX,[BX+SI+2354]
+0734:0704 C54A54            LDS     CX,[BP+SI+54]
+0734:0707 C45600            LES     DX,[BP+00]
+0734:070A 9F                LAHF    
+0734:070B 9E                SAHF    
+0734:070C 9C                PUSHF   
+0734:070D 9D                POPF    
+0734:070E 7803              JS      0713
+0734:0710 9F                LAHF    
+0734:0711 7879              JS      078C
+0734:0713 7856              JS      076B
+0734:0715 7929              JNS     0740
+0734:0717 7856              JS      076F
+0734:0719 9C                PUSHF   
+0734:071A 9D                POPF    
+0734:071B 9E                SAHF    
+0734:071C 7A39              JPE     0757
+0734:071E 7856              JS      0776
+0734:0720 7B49              JPO     076B
+0734:0722 7856              JS      077A
+0734:0724 7801              JS      0727
+0734:0726 9F                LAHF    
+0734:0727 B87856            MOV     AX,5678
+0734:072A 7149              JNO     0775
+0734:072C B97856            MOV     CX,5678
+0734:072F 7801              JS      0732
+0734:0731 7801              JS      0734
+0734:0733 B556              MOV     CH,56
+0734:0735 7E00              JLE     0737
+0734:0737 7801              JS      073A
+0734:0739 7A59              JPE     0794
+0734:073B 7856              JS      0793
+0734:073D 7856              JS      0795
+0734:073F 7802              JS      0743
+0734:0741 BD5634            MOV     BP,3456
+0734:0744 7802              JS      0748
+0734:0746 9E                SAHF    
+0734:0747 7578              JNZ     07C1
+0734:0749 BE5634            MOV     SI,3456
+0734:074C 7856              JS      07A4
+0734:074E 7815              JS      0765
+0734:0750 88818656          MOV     [BX+DI+5686],AL
+0734:0754 7856              JS      07AC
+0734:0756 7856              JS      07AE
+0734:0758 C51680C2          LDS     DX,[C280]
+0734:075C C48881C3          LES     CX,[BX+SI+C381]
+0734:0760 C7153481          MOV     WORD PTR [DI],8134
+0734:0764 C4854781          LES     AX,[DI+8147]
+0734:0768 C5361583          LDS     SI,[8315]
+0734:076C C3                RET     
+0734:076D C63583            MOV     BYTE PTR [DI],83
+0734:0770 C46583            LES     SP,[DI-7D]
+0734:0773 C5160417          LDS     DX,[1704]
+0734:0777 7813              JS      078C
+0734:0779 9F                LAHF    
+0734:077A 7879              JS      07F5
+0734:077C 7856              JS      07D4
+0734:077E 7929              JNS     07A9
+0734:0780 7856              JS      07D8
+0734:0782 9C                PUSHF   
+0734:0783 9D                POPF    
+0734:0784 9E                SAHF    
+0734:0785 7A39              JPE     07C0
+0734:0787 7856              JS      07DF
+0734:0789 7B49              JPO     07D4
+0734:078B 7856              JS      07E3
+0734:078D 7811              JS      07A0
+0734:078F 9F                LAHF    
+0734:0790 B87856            MOV     AX,5678
+0734:0793 7149              JNO     07DE
+0734:0795 B97856            MOV     CX,5678
+0734:0798 7811              JS      07AB
+0734:079A 7811              JS      07AD
+0734:079C B556              MOV     CH,56
+0734:079E 7E00              JLE     07A0
+0734:07A0 7811              JS      07B3
+0734:07A2 7A59              JPE     07FD
+0734:07A4 7856              JS      07FC
+0734:07A6 7856              JS      07FE
+0734:07A8 7812              JS      07BC
+0734:07AA BD5634            MOV     BP,3456
+0734:07AD 7812              JS      07C1
+0734:07AF 9E                SAHF    
+0734:07B0 7578              JNZ     082A
+0734:07B2 BE5634            MOV     SI,3456
+0734:07B5 7856              JS      080D
+0734:07B7 7815              JS      07CE
+0734:07B9 88819656          MOV     [BX+DI+5696],AL
+0734:07BD 7856              JS      0815
+0734:07BF 7856              JS      0817
+0734:07C1 D115              RCL     WORD PTR [DI],1
+0734:07C3 D228              SHR     BYTE PTR [BX+SI],CL
+0734:07C5 D7                XLAT    
+0734:07C6 D314              RCL     WORD PTR [SI],CL
+0734:07C8 783B              JS      0805
+0734:07CA 9F                LAHF    
+0734:07CB 7879              JS      0846
+0734:07CD 7856              JS      0825
+0734:07CF 7929              JNS     07FA
+0734:07D1 7856              JS      0829
+0734:07D3 9C                PUSHF   
+0734:07D4 9D                POPF    
+0734:07D5 9E                SAHF    
+0734:07D6 7A39              JPE     0811
+0734:07D8 7856              JS      0830
+0734:07DA 7B49              JPO     0825
+0734:07DC 7856              JS      0834
+0734:07DE 7839              JS      0819
+0734:07E0 9F                LAHF    
+0734:07E1 B87856            MOV     AX,5678
+0734:07E4 7149              JNO     082F
+0734:07E6 B97856            MOV     CX,5678
+0734:07E9 7839              JS      0824
+0734:07EB 7839              JS      0826
+0734:07ED B556              MOV     CH,56
+0734:07EF 7E00              JLE     07F1
+0734:07F1 7839              JS      082C
+0734:07F3 7A59              JPE     084E
+0734:07F5 7856              JS      084D
+0734:07F7 7856              JS      084F
+0734:07F9 783A              JS      0835
+0734:07FB BD5634            MOV     BP,3456
+0734:07FE 783A              JS      083A
+0734:0800 9E                SAHF    
+0734:0801 7578              JNZ     087B
+0734:0803 BE5634            MOV     SI,3456
+0734:0806 7856              JS      085E
+0734:0808 7D78              JGE     0882
+0734:080A BD5634            MOV     BP,3456
+0734:080D 7E00              JLE     080F
+0734:080F 7E56              JLE     0867
+0734:0811 8881BE56          MOV     [BX+DI+56BE],AL
+0734:0815 7A45              JPE     085C
+0734:0817 BA7856            MOV     DX,5678
+0734:081A BE5634            MOV     SI,3456
+0734:081D 7A45              JPE     0864
+0734:081F BA7856            MOV     DX,5678
+0734:0822 F9                STC     
+0734:0823 FD                STD     
+0734:0824 FA                CLI     
+0734:0825 FC                CLD     
+0734:0826 8881FB34          MOV     [BX+DI+34FB],AL
+0734:082A FF15              CALL    WORD PTR [DI]
+0734:082C FC                CLD     
+0734:082D FD                STD     
+0734:082E FB                STI     
+0734:082F FC                CLD     
+0734:0830 FD                STD     
+0734:0831 782B              JS      085E
+0734:0833 9F                LAHF    
+0734:0834 7879              JS      08AF
+0734:0836 7856              JS      088E
+0734:0838 7929              JNS     0863
+0734:083A 7856              JS      0892
+0734:083C 9C                PUSHF   
+0734:083D 9D                POPF    
+0734:083E 9E                SAHF    
+0734:083F 7A39              JPE     087A
+0734:0841 7856              JS      0899
+0734:0843 7B49              JPO     088E
+0734:0845 7856              JS      089D
+0734:0847 7829              JS      0872
+0734:0849 9F                LAHF    
+0734:084A B87856            MOV     AX,5678
+0734:084D 7149              JNO     0898
+0734:084F B97856            MOV     CX,5678
+0734:0852 7829              JS      087D
+0734:0854 7829              JS      087F
+0734:0856 B556              MOV     CH,56
+0734:0858 7E00              JLE     085A
+0734:085A 7829              JS      0885
+0734:085C 7A59              JPE     08B7
+0734:085E 7856              JS      08B6
+0734:0860 7856              JS      08B8
+0734:0862 782A              JS      088E
+0734:0864 BD5634            MOV     BP,3456
+0734:0867 782A              JS      0893
+0734:0869 9E                SAHF    
+0734:086A 7578              JNZ     08E4
+0734:086C BE5634            MOV     SI,3456
+0734:086F 7856              JS      08C7
+0734:0871 7815              JS      0888
+0734:0873 8881AE56          MOV     [BX+DI+56AE],AL
+0734:0877 7856              JS      08CF
+0734:0879 7856              JS      08D1
+0734:087B E91580            JMP     8893
+0734:087E EA2880EC88        JMP     88EC:8028
+0734:0883 EB34              JMP     08B9
+0734:0885 EB14              JMP     089B
+0734:0887 781B              JS      08A4
+0734:0889 9F                LAHF    
+0734:088A 7879              JS      0905
+0734:088C 7856              JS      08E4
+0734:088E 7929              JNS     08B9
+0734:0890 7856              JS      08E8
+0734:0892 9C                PUSHF   
+0734:0893 9D                POPF    
+0734:0894 9E                SAHF    
+0734:0895 7A39              JPE     08D0
+0734:0897 7856              JS      08EF
+0734:0899 7B49              JPO     08E4
+0734:089B 7856              JS      08F3
+0734:089D 7819              JS      08B8
+0734:089F 9F                LAHF    
+0734:08A0 B87856            MOV     AX,5678
+0734:08A3 7149              JNO     08EE
+0734:08A5 B97856            MOV     CX,5678
+0734:08A8 7819              JS      08C3
+0734:08AA 7819              JS      08C5
+0734:08AC B556              MOV     CH,56
+0734:08AE 7E00              JLE     08B0
+0734:08B0 7819              JS      08CB
+0734:08B2 7A59              JPE     090D
+0734:08B4 7856              JS      090C
+0734:08B6 7856              JS      090E
+0734:08B8 781A              JS      08D4
+0734:08BA BD5634            MOV     BP,3456
+0734:08BD 781A              JS      08D9
+0734:08BF 9E                SAHF    
+0734:08C0 7578              JNZ     093A
+0734:08C2 BE5634            MOV     SI,3456
+0734:08C5 7856              JS      091D
+0734:08C7 7815              JS      08DE
+0734:08C9 9D                POPF    
+0734:08CA 88819E56          MOV     [BX+DI+569E],AL
+0734:08CE 9A78563615        CALL    1536:5678
+0734:08D3 9E                SAHF    
+0734:08D4 9A78561680        CALL    8016:5678
+0734:08D9 8881DB34          MOV     [BX+DI+34DB],AL
+0734:08DD F727              NOT     WORD PTR [BX]
+0734:08DF F76778            NOT     WORD PTR [BX+78]
+0734:08E2 F7A75634          NOT     WORD PTR [BX+3456]
+0734:08E6 F720              NOT     WORD PTR [BX+SI]
+0734:08E8 F76079            NOT     WORD PTR [BX+SI+79]
+0734:08EB F7A07856          NOT     WORD PTR [BX+SI+5678]
+0734:08EF F721              NOT     WORD PTR [BX+DI]
+0734:08F1 F76129            NOT     WORD PTR [BX+DI+29]
+0734:08F4 F7A17856          NOT     WORD PTR [BX+DI+5678]
+0734:08F8 F724              NOT     WORD PTR [SI]
+0734:08FA F76428            NOT     WORD PTR [SI+28]
+0734:08FD F7A45634          NOT     WORD PTR [SI+3456]
+0734:0901 F725              NOT     WORD PTR [DI]
+0734:0903 F76558            NOT     WORD PTR [DI+58]
+0734:0906 F7A55634          NOT     WORD PTR [DI+3456]
+0734:090A F7E5              NOT     BP
+0734:090C F76658            NOT     WORD PTR [BP+58]
+0734:090F F7A65634          NOT     WORD PTR [BP+3456]
+0734:0913 F7E1              NOT     CX
+0734:0915 F76239            NOT     WORD PTR [BP+SI+39]
+0734:0918 F7A27856          NOT     WORD PTR [BP+SI+5678]
+0734:091C F7E2              NOT     DX
+0734:091E F76349            NOT     WORD PTR [BP+DI+49]
+0734:0921 F7E6              NOT     SI
+0734:0923 F66578            NOT     BYTE PTR [DI+78]
+0734:0926 F6A55634          NOT     BYTE PTR [DI+3456]
+0734:092A F6E6              NOT     DH
+0734:092C F66678            NOT     BYTE PTR [BP+78]
+0734:092F F6A65634          NOT     BYTE PTR [BP+3456]
+0734:0933 F6E4              NOT     AH
+0734:0935 F6E3              NOT     BL
+0734:0937 F6A55634          NOT     BYTE PTR [DI+3456]
+0734:093B F72F              NOT     WORD PTR [BX]
+0734:093D F76F78            NOT     WORD PTR [BX+78]
+0734:0940 F7AF5634          NOT     WORD PTR [BX+3456]
+0734:0944 F728              NOT     WORD PTR [BX+SI]
+0734:0946 F76879            NOT     WORD PTR [BX+SI+79]
+0734:0949 F7A87856          NOT     WORD PTR [BX+SI+5678]
+0734:094D F729              NOT     WORD PTR [BX+DI]
+0734:094F F76929            NOT     WORD PTR [BX+DI+29]
+0734:0952 F7A97856          NOT     WORD PTR [BX+DI+5678]
+0734:0956 F72C              NOT     WORD PTR [SI]
+0734:0958 F76C28            NOT     WORD PTR [SI+28]
+0734:095B F7AC5634          NOT     WORD PTR [SI+3456]
+0734:095F F72D              NOT     WORD PTR [DI]
+0734:0961 F76D58            NOT     WORD PTR [DI+58]
+0734:0964 F7AD5634          NOT     WORD PTR [DI+3456]
+0734:0968 F7ED              NOT     BP
+0734:096A F76E58            NOT     WORD PTR [BP+58]
+0734:096D F7AE5634          NOT     WORD PTR [BP+3456]
+0734:0971 F7E9              NOT     CX
+0734:0973 F76A39            NOT     WORD PTR [BP+SI+39]
+0734:0976 F7AA7856          NOT     WORD PTR [BP+SI+5678]
+0734:097A F7EF              NOT     DI
+0734:097C F76B49            NOT     WORD PTR [BP+DI+49]
+0734:097F F7EE              NOT     SI
+0734:0981 F66D78            NOT     BYTE PTR [DI+78]
+0734:0984 F6AD5634          NOT     BYTE PTR [DI+3456]
+0734:0988 F6EE              NOT     DH
+0734:098A F66E78            NOT     BYTE PTR [BP+78]
+0734:098D F6AE5634          NOT     BYTE PTR [BP+3456]
+0734:0991 F6EC              NOT     AH
+0734:0993 F6EB              NOT     BL
+0734:0995 F6AD5634          NOT     BYTE PTR [DI+3456]
+0734:0999 F737              NOT     WORD PTR [BX]
+0734:099B F77778            NOT     WORD PTR [BX+78]
+0734:099E F7B75634          NOT     WORD PTR [BX+3456]
+0734:09A2 F730              NOT     WORD PTR [BX+SI]
+0734:09A4 F77079            NOT     WORD PTR [BX+SI+79]
+0734:09A7 F7B07856          NOT     WORD PTR [BX+SI+5678]
+0734:09AB F731              NOT     WORD PTR [BX+DI]
+0734:09AD F77129            NOT     WORD PTR [BX+DI+29]
+0734:09B0 F7B17856          NOT     WORD PTR [BX+DI+5678]
+0734:09B4 F734              NOT     WORD PTR [SI]
+0734:09B6 F77428            NOT     WORD PTR [SI+28]
+0734:09B9 F7B45634          NOT     WORD PTR [SI+3456]
+0734:09BD F735              NOT     WORD PTR [DI]
+0734:09BF F77558            NOT     WORD PTR [DI+58]
+0734:09C2 F7B55634          NOT     WORD PTR [DI+3456]
+0734:09C6 F7F5              NOT     BP
+0734:09C8 F77658            NOT     WORD PTR [BP+58]
+0734:09CB F7B65634          NOT     WORD PTR [BP+3456]
+0734:09CF F7F1              NOT     CX
+0734:09D1 F77239            NOT     WORD PTR [BP+SI+39]
+0734:09D4 F7B27856          NOT     WORD PTR [BP+SI+5678]
+0734:09D8 F7F2              NOT     DX
+0734:09DA F77349            NOT     WORD PTR [BP+DI+49]
+0734:09DD F7F6              NOT     SI
+0734:09DF F67578            NOT     BYTE PTR [DI+78]
+0734:09E2 F6B55634          NOT     BYTE PTR [DI+3456]
+0734:09E6 F6F6              NOT     DH
+0734:09E8 F67678            NOT     BYTE PTR [BP+78]
+0734:09EB F6B65634          NOT     BYTE PTR [BP+3456]
+0734:09EF F6F2              NOT     DL
+0734:09F1 F6F3              NOT     BL
+0734:09F3 F6B55634          NOT     BYTE PTR [DI+3456]
+0734:09F7 F73F              NOT     WORD PTR [BX]
+0734:09F9 F77F78            NOT     WORD PTR [BX+78]
+0734:09FC F7BF5634          NOT     WORD PTR [BX+3456]
+0734:0A00 F738              NOT     WORD PTR [BX+SI]
+0734:0A02 F77879            NOT     WORD PTR [BX+SI+79]
+0734:0A05 F7B87856          NOT     WORD PTR [BX+SI+5678]
+0734:0A09 F739              NOT     WORD PTR [BX+DI]
+0734:0A0B F77929            NOT     WORD PTR [BX+DI+29]
+0734:0A0E F7B97856          NOT     WORD PTR [BX+DI+5678]
+0734:0A12 F73C              NOT     WORD PTR [SI]
+0734:0A14 F77C28            NOT     WORD PTR [SI+28]
+0734:0A17 F7BC5634          NOT     WORD PTR [SI+3456]
+0734:0A1B F73D              NOT     WORD PTR [DI]
+0734:0A1D F77D58            NOT     WORD PTR [DI+58]
+0734:0A20 F7BD5634          NOT     WORD PTR [DI+3456]
+0734:0A24 F7FD              NOT     BP
+0734:0A26 F77E58            NOT     WORD PTR [BP+58]
+0734:0A29 F7BE5634          NOT     WORD PTR [BP+3456]
+0734:0A2D F7F8              NOT     AX
+0734:0A2F F77A39            NOT     WORD PTR [BP+SI+39]
+0734:0A32 F7BA7856          NOT     WORD PTR [BP+SI+5678]
+0734:0A36 F7FA              NOT     DX
+0734:0A38 F77B49            NOT     WORD PTR [BP+DI+49]
+0734:0A3B F7FE              NOT     SI
+0734:0A3D F67D78            NOT     BYTE PTR [DI+78]
+0734:0A40 F6BD5634          NOT     BYTE PTR [DI+3456]
+0734:0A44 F6FE              NOT     DH
+0734:0A46 F67E78            NOT     BYTE PTR [BP+78]
+0734:0A49 F6BE5634          NOT     BYTE PTR [BP+3456]
+0734:0A4D F6FC              NOT     AH
+0734:0A4F F6FB              NOT     BL
+0734:0A51 F6BD5634          NOT     BYTE PTR [DI+3456]
+0734:0A55 78FF              JS      0A56
+0734:0A57 79FF              JNS     0A58
+0734:0A59 7856              JS      0AB1
+0734:0A5B 7856              JS      0AB3
+0734:0A5D C2FEC3            RET     C3FE
+0734:0A60 C4FE              LES     DI,SI
+0734:0A62 C5FE              LDS     DI,SI
+0734:0A64 C7FEC640          MOV     WORD PTR SI,40C6
+0734:0A68 78FF              JS      0A69
+0734:0A6A 79FF              JNS     0A6B
+0734:0A6C 887856            MOV     [BX+SI+56],BH
+0734:0A6F 7856              JS      0AC7
+0734:0A71 CAFECB            RETF    CBFE
+0734:0A74 CC                INT     03
+0734:0A75 CDFE              INT     FE
+0734:0A77 CF                IRET    
+0734:0A78 CE                INTO    
+0734:0A79 37                AAA     
+0734:0A7A D50A              AAD     
+0734:0A7C 3F                AAS     
+0734:0A7D D40A              AAM     
+0734:0A7F 27                DAA     
+0734:0A80 2F                DAS     
+0734:0A81 F7DD              NOT     BP
+0734:0A83 F75E58            NOT     WORD PTR [BP+58]
+0734:0A86 F79E5634          NOT     WORD PTR [BP+3456]
+0734:0A8A F7D9              NOT     CX
+0734:0A8C F75A39            NOT     WORD PTR [BP+SI+39]
+0734:0A8F F79A7856          NOT     WORD PTR [BP+SI+5678]
+0734:0A93 F7DA              NOT     DX
+0734:0A95 F75B49            NOT     WORD PTR [BP+DI+49]
+0734:0A98 F7DE              NOT     SI
+0734:0A9A F65D78            NOT     BYTE PTR [DI+78]
+0734:0A9D F69D5634          NOT     BYTE PTR [DI+3456]
+0734:0AA1 F6DE              NOT     DH
+0734:0AA3 F65E78            NOT     BYTE PTR [BP+78]
+0734:0AA6 F69E5634          NOT     BYTE PTR [BP+3456]
+0734:0AAA F6DC              NOT     AH
+0734:0AAC F6DB              NOT     BL
+0734:0AAE F69D5634          NOT     BYTE PTR [DI+3456]
+0734:0AB2 98                CBW     
+0734:0AB3 99                CWD     
