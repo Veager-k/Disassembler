@@ -1,3 +1,4 @@
+.gitignore
 7BITCMD.COM
 7bitcmd.asm
 cl.bat
@@ -11,4 +12,9 @@ je.asm
 JE.COM
 JMPs.asm
 JMPS.COM
-othr8bit
+othr8bit.asm
+OTHR8BIT.COM
+OUTPUT.TXT
+yasm.exe
+yasmlib.asm
+yasmmac.inc
