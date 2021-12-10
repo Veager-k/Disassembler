@@ -1026,9 +1026,6 @@ pradzia:
                 printNL
                 jmp .disassemble
         
-        ;partial jump?
-        ;.done_with_6_bit_jmp
-        ;jmp .disassemble
         ; 7 bit op code commands
         .7bitcmd
         mov al, [opCode]
