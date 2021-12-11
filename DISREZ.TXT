@@ -441,657 +441,1786 @@
 0734:0601 81E53615          AND     BP,1536
 0734:0605 2415              AND     AL,15
 0734:0607 251516            AND     AX,1615
-0734:060A 7885              JS      0591
-0734:060C 9F                LAHF    
-0734:060D 7879              JS      0688
-0734:060F 7856              JS      0667
-0734:0611 7929              JNS     063C
-0734:0613 7856              JS      066B
-0734:0615 2485              AND     AL,85
-0734:0617 9C                PUSHF   
-0734:0618 9D                POPF    
-0734:0619 9E                SAHF    
-0734:061A 7A39              JPE     0655
-0734:061C 7856              JS      0674
-0734:061E 7B49              JPO     0669
-0734:0620 7856              JS      0678
-0734:0622 7885              JS      05A9
-0734:0624 9F                LAHF    
-0734:0625 B87856            MOV     AX,5678
-0734:0628 7149              JNO     0673
-0734:062A B97856            MOV     CX,5678
-0734:062D 7885              JS      05B4
-0734:062F 7885              JS      05B6
-0734:0631 B556              MOV     CH,56
-0734:0633 7E00              JLE     0635
-0734:0635 7885              JS      05BC
-0734:0637 7A59              JPE     0692
-0734:0639 7856              JS      0691
-0734:063B 7856              JS      0693
-0734:063D 7884              JS      05C3
-0734:063F BD5634            MOV     BP,3456
-0734:0642 7884              JS      05C8
-0734:0644 9E                SAHF    
-0734:0645 7578              JNZ     06BF
-0734:0647 BE5634            MOV     SI,3456
-0734:064A 7856              JS      06A2
-0734:064C F64578            NOT     BYTE PTR [DI+78]
-0734:064F F6855634          NOT     BYTE PTR [DI+3456]
-0734:0653 F64600            NOT     BYTE PTR [BP+00]
-0734:0656 F64656            NOT     BYTE PTR [BP+56]
-0734:0659 88F7              MOV     BH,DH
-0734:065B F702              NOT     WORD PTR [BP+SI]
-0734:065D F74245            NOT     WORD PTR [BP+SI+45]
-0734:0660 F7827856          NOT     WORD PTR [BP+SI+5678]
-0734:0664 F6C1              NOT     CL
-0734:0666 F6C5              NOT     CH
-0734:0668 F6C2              NOT     DL
-0734:066A F6C4              NOT     AH
-0734:066C 88F7              MOV     BH,DH
-0734:066E C3                RET     
-0734:066F F7C7              NOT     DI
-0734:0671 F7C4              NOT     SP
-0734:0673 F7C5              NOT     BP
-0734:0675 780B              JS      0682
-0734:0677 9F                LAHF    
-0734:0678 7879              JS      06F3
-0734:067A 7856              JS      06D2
-0734:067C 7929              JNS     06A7
-0734:067E 7856              JS      06D6
-0734:0680 240B              AND     AL,0B
-0734:0682 9C                PUSHF   
-0734:0683 9D                POPF    
-0734:0684 9E                SAHF    
-0734:0685 7A39              JPE     06C0
-0734:0687 7856              JS      06DF
-0734:0689 7B49              JPO     06D4
-0734:068B 7856              JS      06E3
-0734:068D 7809              JS      0698
-0734:068F 9F                LAHF    
-0734:0690 B87856            MOV     AX,5678
-0734:0693 7149              JNO     06DE
-0734:0695 B97856            MOV     CX,5678
-0734:0698 7809              JS      06A3
-0734:069A 7809              JS      06A5
-0734:069C B556              MOV     CH,56
-0734:069E 7E00              JLE     06A0
-0734:06A0 7809              JS      06AB
-0734:06A2 7A59              JPE     06FD
-0734:06A4 7856              JS      06FC
-0734:06A6 7856              JS      06FE
-0734:06A8 780A              JS      06B4
-0734:06AA BD5634            MOV     BP,3456
-0734:06AD 780A              JS      06B9
-0734:06AF 9E                SAHF    
-0734:06B0 7578              JNZ     072A
-0734:06B2 BE5634            MOV     SI,3456
-0734:06B5 7856              JS      070D
-0734:06B7 804D7815          AND     BYTE PTR [DI+78],15
-0734:06BB 808D563416        AND     BYTE PTR [DI+3456],16
-0734:06C0 804E0028          AND     BYTE PTR [BP+00],28
-0734:06C4 804E5688          AND     BYTE PTR [BP+56],88
-0734:06C8 818E56343412      AND     WORD PTR [BP+3456],1234
-0734:06CE 810A1534          AND     WORD PTR [BP+SI],3415
-0734:06D2 814A458547        AND     WORD PTR [BP+SI+45],4785
-0734:06D7 818A78563615      AND     WORD PTR [BP+SI+5678],1536
-0734:06DD 80C915            AND     CL,15
-0734:06E0 80CD16            AND     CH,16
-0734:06E3 80CA28            AND     DL,28
-0734:06E6 80CC88            AND     AH,88
-0734:06E9 81CB3412          AND     BX,1234
-0734:06ED 81CF1534          AND     DI,3415
-0734:06F1 81CC8547          AND     SP,4785
-0734:06F5 81CD3615          AND     BP,1536
-0734:06F9 7833              JS      072E
-0734:06FB 9F                LAHF    
-0734:06FC 7879              JS      0777
-0734:06FE 7856              JS      0756
-0734:0700 7929              JNS     072B
-0734:0702 7856              JS      075A
-0734:0704 2433              AND     AL,33
-0734:0706 9C                PUSHF   
-0734:0707 9D                POPF    
-0734:0708 9E                SAHF    
-0734:0709 7A39              JPE     0744
-0734:070B 7856              JS      0763
-0734:070D 7B49              JPO     0758
-0734:070F 7856              JS      0767
-0734:0711 7831              JS      0744
-0734:0713 9F                LAHF    
-0734:0714 B87856            MOV     AX,5678
-0734:0717 7149              JNO     0762
-0734:0719 B97856            MOV     CX,5678
-0734:071C 7831              JS      074F
-0734:071E 7831              JS      0751
-0734:0720 B556              MOV     CH,56
-0734:0722 7E00              JLE     0724
-0734:0724 7831              JS      0757
-0734:0726 7A59              JPE     0781
-0734:0728 7856              JS      0780
-0734:072A 7856              JS      0782
-0734:072C 7832              JS      0760
-0734:072E BD5634            MOV     BP,3456
-0734:0731 7832              JS      0765
-0734:0733 9E                SAHF    
-0734:0734 7578              JNZ     07AE
-0734:0736 BE5634            MOV     SI,3456
-0734:0739 7856              JS      0791
-0734:073B 80757815          AND     BYTE PTR [DI+78],15
-0734:073F 80B5563416        AND     BYTE PTR [DI+3456],16
-0734:0744 80760028          AND     BYTE PTR [BP+00],28
-0734:0748 80765688          AND     BYTE PTR [BP+56],88
-0734:074C 81B656343412      AND     WORD PTR [BP+3456],1234
-0734:0752 81321534          AND     WORD PTR [BP+SI],3415
-0734:0756 8172458547        AND     WORD PTR [BP+SI+45],4785
-0734:075B 81B278563615      AND     WORD PTR [BP+SI+5678],1536
-0734:0761 80F115            AND     CL,15
-0734:0764 80F516            AND     CH,16
-0734:0767 80F228            AND     DL,28
-0734:076A 80F488            AND     AH,88
-0734:076D 81F33412          AND     BX,1234
-0734:0771 81F71534          AND     DI,3415
-0734:0775 81F48547          AND     SP,4785
-0734:0779 81F53615          AND     BP,1536
-0734:077D 7756              JA      07D5
-0734:077F F8                CLC     
-0734:0780 F5                CMC     
-0734:0781 F9                STC     
-0734:0782 FC                CLD     
-0734:0783 FD                STD     
-0734:0784 FA                CLI     
-0734:0785 FB                STI     
-0734:0786 F4                HLT     
-0734:0787 9B                WAIT    
-0734:0788 F0                LOCK    
-0734:0789 D0D9              RCR     CL,1
-0734:078B CB                RETF    
-0734:078C FA                CLI     
-0734:078D 9B                WAIT    
-0734:078E 2F                DAS     
-0734:078F FF37              PUSH    [BX]
-0734:0791 FF7778            PUSH    [BX+78]
-0734:0794 FFB75634          PUSH    [BX+3456]
-0734:0798 FF30              PUSH    [BX+SI]
-0734:079A FF7079            PUSH    [BX+SI+79]
-0734:079D FFB07856          PUSH    [BX+SI+5678]
-0734:07A1 FF31              PUSH    [BX+DI]
-0734:07A3 FF35              PUSH    [DI]
-0734:07A5 FF7558            PUSH    [DI+58]
-0734:07A8 FFB55634          PUSH    [DI+3456]
-0734:07AC FF7600            PUSH    [BP+00]
-0734:07AF FF7658            PUSH    [BP+58]
-0734:07B2 FFB65634          PUSH    [BP+3456]
-0734:07B6 FFB37856          PUSH    [BP+DI+5678]
-0734:07BA 8F07              POP     [BX]
-0734:07BC 8F4778            POP     [BX+78]
-0734:07BF 8F875634          POP     [BX+3456]
-0734:07C3 8F00              POP     [BX+SI]
-0734:07C5 8F4079            POP     [BX+SI+79]
-0734:07C8 8F807856          POP     [BX+SI+5678]
-0734:07CC 8F01              POP     [BX+DI]
-0734:07CE 8F05              POP     [DI]
-0734:07D0 8F4558            POP     [DI+58]
-0734:07D3 8F855634          POP     [DI+3456]
-0734:07D7 8F4600            POP     [BP+00]
-0734:07DA 8F4658            POP     [BP+58]
-0734:07DD 8F865634          POP     [BP+3456]
-0734:07E1 8F837856          POP     [BP+DI+5678]
-0734:07E5 E086              LOOPNZW 076D
-0734:07E7 E186              LOOPZW  076F
-0734:07E9 EA86FE87CB        JMP     CB87:FE86
-0734:07EE CA87D9            RETF    D987
-0734:07F1 F9                STC     
-0734:07F2 F787CD87          NOT     WORD PTR [BX+87CD]
-0734:07F6 EA8607864E        JMP     4E86:0786
-0734:07FB 2386B454          AND     AX,[BP+54B4]
-0734:07FF 23873787          AND     AX,[BX+8737]
-0734:0803 23879454          AND     AX,[BX+5494]
-0734:0807 23909192          AND     DX,[BX+SI+9291]
-0734:080B D7                XLAT    
-0734:080C 8D985423          LEA     BX,[BX+SI+2354]
-0734:0810 8D4A54            LEA     CX,[BP+SI+54]
-0734:0813 8D5600            LEA     DX,[BP+00]
-0734:0816 8D3E1200          LEA     DI,[0012]
-0734:081A C4985423          LES     BX,[BX+SI+2354]
-0734:081E C54A54            LDS     CX,[BP+SI+54]
-0734:0821 C45600            LES     DX,[BP+00]
-0734:0824 9F                LAHF    
-0734:0825 9E                SAHF    
-0734:0826 9C                PUSHF   
-0734:0827 9D                POPF    
-0734:0828 7803              JS      082D
-0734:082A 9F                LAHF    
-0734:082B 7879              JS      08A6
-0734:082D 7856              JS      0885
-0734:082F 7929              JNS     085A
-0734:0831 7856              JS      0889
-0734:0833 2403              AND     AL,03
-0734:0835 9C                PUSHF   
-0734:0836 9D                POPF    
-0734:0837 9E                SAHF    
-0734:0838 7A39              JPE     0873
-0734:083A 7856              JS      0892
-0734:083C 7B49              JPO     0887
-0734:083E 7856              JS      0896
-0734:0840 7801              JS      0843
-0734:0842 9F                LAHF    
-0734:0843 B87856            MOV     AX,5678
-0734:0846 7149              JNO     0891
-0734:0848 B97856            MOV     CX,5678
-0734:084B 7801              JS      084E
-0734:084D 7801              JS      0850
-0734:084F B556              MOV     CH,56
-0734:0851 7E00              JLE     0853
-0734:0853 7801              JS      0856
-0734:0855 7A59              JPE     08B0
-0734:0857 7856              JS      08AF
-0734:0859 7856              JS      08B1
-0734:085B 7802              JS      085F
-0734:085D BD5634            MOV     BP,3456
-0734:0860 7802              JS      0864
-0734:0862 9E                SAHF    
-0734:0863 7578              JNZ     08DD
-0734:0865 BE5634            MOV     SI,3456
-0734:0868 7856              JS      08C0
-0734:086A 80457815          AND     BYTE PTR [DI+78],15
-0734:086E 8085563416        AND     BYTE PTR [DI+3456],16
-0734:0873 80460028          AND     BYTE PTR [BP+00],28
-0734:0877 80465688          AND     BYTE PTR [BP+56],88
-0734:087B 818656343412      AND     WORD PTR [BP+3456],1234
-0734:0881 81021534          AND     WORD PTR [BP+SI],3415
-0734:0885 8142458547        AND     WORD PTR [BP+SI+45],4785
-0734:088A 818278563615      AND     WORD PTR [BP+SI+5678],1536
-0734:0890 7856              JS      08E8
-0734:0892 80C115            AND     CL,15
-0734:0895 80C516            AND     CH,16
-0734:0898 80C228            AND     DL,28
-0734:089B 80C488            AND     AH,88
-0734:089E 81C33412          AND     BX,1234
-0734:08A2 81C71534          AND     DI,3415
-0734:08A6 81C48547          AND     SP,4785
-0734:08AA 81C53615          AND     BP,1536
-0734:08AE C3                RET     
-0734:08AF C63583            MOV     BYTE PTR [DI],83
-0734:08B2 C46583            LES     SP,[DI-7D]
-0734:08B5 C5160417          LDS     DX,[1704]
-0734:08B9 7813              JS      08CE
-0734:08BB 9F                LAHF    
-0734:08BC 7879              JS      0937
-0734:08BE 7856              JS      0916
-0734:08C0 7929              JNS     08EB
-0734:08C2 7856              JS      091A
-0734:08C4 2413              AND     AL,13
-0734:08C6 9C                PUSHF   
-0734:08C7 9D                POPF    
-0734:08C8 9E                SAHF    
-0734:08C9 7A39              JPE     0904
-0734:08CB 7856              JS      0923
-0734:08CD 7B49              JPO     0918
-0734:08CF 7856              JS      0927
-0734:08D1 7811              JS      08E4
-0734:08D3 9F                LAHF    
-0734:08D4 B87856            MOV     AX,5678
-0734:08D7 7149              JNO     0922
-0734:08D9 B97856            MOV     CX,5678
-0734:08DC 7811              JS      08EF
-0734:08DE 7811              JS      08F1
-0734:08E0 B556              MOV     CH,56
-0734:08E2 7E00              JLE     08E4
-0734:08E4 7811              JS      08F7
-0734:08E6 7A59              JPE     0941
-0734:08E8 7856              JS      0940
-0734:08EA 7856              JS      0942
-0734:08EC 7812              JS      0900
-0734:08EE BD5634            MOV     BP,3456
-0734:08F1 7812              JS      0905
-0734:08F3 9E                SAHF    
-0734:08F4 7578              JNZ     096E
-0734:08F6 BE5634            MOV     SI,3456
-0734:08F9 7856              JS      0951
-0734:08FB 80557815          AND     BYTE PTR [DI+78],15
-0734:08FF 8095563416        AND     BYTE PTR [DI+3456],16
-0734:0904 80560028          AND     BYTE PTR [BP+00],28
-0734:0908 80565688          AND     BYTE PTR [BP+56],88
-0734:090C 819656343412      AND     WORD PTR [BP+3456],1234
-0734:0912 81121534          AND     WORD PTR [BP+SI],3415
-0734:0916 8152458547        AND     WORD PTR [BP+SI+45],4785
-0734:091B 819278563615      AND     WORD PTR [BP+SI+5678],1536
-0734:0921 7856              JS      0979
-0734:0923 80D115            AND     CL,15
-0734:0926 80D516            AND     CH,16
-0734:0929 80D228            AND     DL,28
-0734:092C 80D488            AND     AH,88
-0734:092F 81D33412          AND     BX,1234
-0734:0933 81D71534          AND     DI,3415
-0734:0937 81D48547          AND     SP,4785
-0734:093B 81D53615          AND     BP,1536
-0734:093F D314              RCL     WORD PTR [SI],CL
-0734:0941 783B              JS      097E
-0734:0943 9F                LAHF    
-0734:0944 7879              JS      09BF
-0734:0946 7856              JS      099E
-0734:0948 7929              JNS     0973
-0734:094A 7856              JS      09A2
-0734:094C 243B              AND     AL,3B
-0734:094E 9C                PUSHF   
-0734:094F 9D                POPF    
-0734:0950 9E                SAHF    
-0734:0951 7A39              JPE     098C
-0734:0953 7856              JS      09AB
-0734:0955 7B49              JPO     09A0
-0734:0957 7856              JS      09AF
-0734:0959 7839              JS      0994
-0734:095B 9F                LAHF    
-0734:095C B87856            MOV     AX,5678
-0734:095F 7149              JNO     09AA
-0734:0961 B97856            MOV     CX,5678
-0734:0964 7839              JS      099F
-0734:0966 7839              JS      09A1
-0734:0968 B556              MOV     CH,56
-0734:096A 7E00              JLE     096C
-0734:096C 7839              JS      09A7
-0734:096E 7A59              JPE     09C9
-0734:0970 7856              JS      09C8
-0734:0972 7856              JS      09CA
-0734:0974 783A              JS      09B0
-0734:0976 BD5634            MOV     BP,3456
-0734:0979 783A              JS      09B5
-0734:097B 9E                SAHF    
-0734:097C 7578              JNZ     09F6
-0734:097E BE5634            MOV     SI,3456
-0734:0981 7856              JS      09D9
-0734:0983 807D7815          AND     BYTE PTR [DI+78],15
-0734:0987 80BD563416        AND     BYTE PTR [DI+3456],16
-0734:098C 807E0028          AND     BYTE PTR [BP+00],28
-0734:0990 807E5688          AND     BYTE PTR [BP+56],88
-0734:0994 81BE56343412      AND     WORD PTR [BP+3456],1234
-0734:099A 813A1534          AND     WORD PTR [BP+SI],3415
-0734:099E 817A458547        AND     WORD PTR [BP+SI+45],4785
-0734:09A3 81BA78563615      AND     WORD PTR [BP+SI+5678],1536
-0734:09A9 BE5634            MOV     SI,3456
-0734:09AC 7A45              JPE     09F3
-0734:09AE BA7856            MOV     DX,5678
-0734:09B1 80F915            AND     CL,15
-0734:09B4 80FD16            AND     CH,16
-0734:09B7 80FA28            AND     DL,28
-0734:09BA 80FC88            AND     AH,88
-0734:09BD 81FB3412          AND     BX,1234
-0734:09C1 81FF1534          AND     DI,3415
-0734:09C5 81FC8547          AND     SP,4785
-0734:09C9 81FD3615          AND     BP,1536
-0734:09CD FB                STI     
-0734:09CE FC                CLD     
-0734:09CF FD                STD     
-0734:09D0 782B              JS      09FD
-0734:09D2 9F                LAHF    
-0734:09D3 7879              JS      0A4E
-0734:09D5 7856              JS      0A2D
-0734:09D7 7929              JNS     0A02
-0734:09D9 7856              JS      0A31
-0734:09DB 242B              AND     AL,2B
-0734:09DD 9C                PUSHF   
-0734:09DE 9D                POPF    
-0734:09DF 9E                SAHF    
-0734:09E0 7A39              JPE     0A1B
-0734:09E2 7856              JS      0A3A
-0734:09E4 7B49              JPO     0A2F
-0734:09E6 7856              JS      0A3E
-0734:09E8 7829              JS      0A13
-0734:09EA 9F                LAHF    
-0734:09EB B87856            MOV     AX,5678
-0734:09EE 7149              JNO     0A39
-0734:09F0 B97856            MOV     CX,5678
-0734:09F3 7829              JS      0A1E
-0734:09F5 7829              JS      0A20
-0734:09F7 B556              MOV     CH,56
-0734:09F9 7E00              JLE     09FB
-0734:09FB 7829              JS      0A26
-0734:09FD 7A59              JPE     0A58
-0734:09FF 7856              JS      0A57
-0734:0A01 7856              JS      0A59
-0734:0A03 782A              JS      0A2F
-0734:0A05 BD5634            MOV     BP,3456
-0734:0A08 782A              JS      0A34
-0734:0A0A 9E                SAHF    
-0734:0A0B 7578              JNZ     0A85
-0734:0A0D BE5634            MOV     SI,3456
-0734:0A10 7856              JS      0A68
-0734:0A12 806D7815          AND     BYTE PTR [DI+78],15
-0734:0A16 80AD563416        AND     BYTE PTR [DI+3456],16
-0734:0A1B 806E0028          AND     BYTE PTR [BP+00],28
-0734:0A1F 806E5688          AND     BYTE PTR [BP+56],88
-0734:0A23 81AE56343412      AND     WORD PTR [BP+3456],1234
-0734:0A29 812A1534          AND     WORD PTR [BP+SI],3415
-0734:0A2D 816A458547        AND     WORD PTR [BP+SI+45],4785
-0734:0A32 81AA78563615      AND     WORD PTR [BP+SI+5678],1536
-0734:0A38 7856              JS      0A90
-0734:0A3A 80E915            AND     CL,15
-0734:0A3D 80ED16            AND     CH,16
-0734:0A40 80EA28            AND     DL,28
-0734:0A43 80EC88            AND     AH,88
-0734:0A46 81EB3412          AND     BX,1234
-0734:0A4A 81EF1534          AND     DI,3415
-0734:0A4E 81EC8547          AND     SP,4785
-0734:0A52 81ED3615          AND     BP,1536
-0734:0A56 EB14              JMP     0A6C
-0734:0A58 781B              JS      0A75
-0734:0A5A 9F                LAHF    
-0734:0A5B 7879              JS      0AD6
-0734:0A5D 7856              JS      0AB5
-0734:0A5F 7929              JNS     0A8A
-0734:0A61 7856              JS      0AB9
-0734:0A63 241B              AND     AL,1B
-0734:0A65 9C                PUSHF   
-0734:0A66 9D                POPF    
-0734:0A67 9E                SAHF    
-0734:0A68 7A39              JPE     0AA3
-0734:0A6A 7856              JS      0AC2
-0734:0A6C 7B49              JPO     0AB7
-0734:0A6E 7856              JS      0AC6
-0734:0A70 7819              JS      0A8B
-0734:0A72 9F                LAHF    
-0734:0A73 B87856            MOV     AX,5678
-0734:0A76 7149              JNO     0AC1
-0734:0A78 B97856            MOV     CX,5678
-0734:0A7B 7819              JS      0A96
-0734:0A7D 7819              JS      0A98
-0734:0A7F B556              MOV     CH,56
-0734:0A81 7E00              JLE     0A83
-0734:0A83 7819              JS      0A9E
-0734:0A85 7A59              JPE     0AE0
-0734:0A87 7856              JS      0ADF
-0734:0A89 7856              JS      0AE1
-0734:0A8B 781A              JS      0AA7
-0734:0A8D BD5634            MOV     BP,3456
-0734:0A90 781A              JS      0AAC
-0734:0A92 9E                SAHF    
-0734:0A93 7578              JNZ     0B0D
-0734:0A95 BE5634            MOV     SI,3456
-0734:0A98 7856              JS      0AF0
-0734:0A9A 805D7815          AND     BYTE PTR [DI+78],15
-0734:0A9E 809D563416        AND     BYTE PTR [DI+3456],16
-0734:0AA3 805E0028          AND     BYTE PTR [BP+00],28
-0734:0AA7 805E5688          AND     BYTE PTR [BP+56],88
-0734:0AAB 819E56343412      AND     WORD PTR [BP+3456],1234
-0734:0AB1 811A1534          AND     WORD PTR [BP+SI],3415
-0734:0AB5 815A458547        AND     WORD PTR [BP+SI+45],4785
-0734:0ABA 819A78563615      AND     WORD PTR [BP+SI+5678],1536
-0734:0AC0 9E                SAHF    
-0734:0AC1 9A78561680        CALL    8016:5678
-0734:0AC6 80DD16            AND     CH,16
-0734:0AC9 80DA28            AND     DL,28
-0734:0ACC 80DC88            AND     AH,88
-0734:0ACF 81DB3412          AND     BX,1234
-0734:0AD3 81DF1534          AND     DI,3415
-0734:0AD7 81DC8547          AND     SP,4785
-0734:0ADB 81DD3615          AND     BP,1536
-0734:0ADF F727              NOT     WORD PTR [BX]
-0734:0AE1 F76778            NOT     WORD PTR [BX+78]
-0734:0AE4 F7A75634          NOT     WORD PTR [BX+3456]
-0734:0AE8 F720              NOT     WORD PTR [BX+SI]
-0734:0AEA F76079            NOT     WORD PTR [BX+SI+79]
-0734:0AED F7A07856          NOT     WORD PTR [BX+SI+5678]
-0734:0AF1 F721              NOT     WORD PTR [BX+DI]
-0734:0AF3 F76129            NOT     WORD PTR [BX+DI+29]
-0734:0AF6 F7A17856          NOT     WORD PTR [BX+DI+5678]
-0734:0AFA F724              NOT     WORD PTR [SI]
-0734:0AFC F76428            NOT     WORD PTR [SI+28]
-0734:0AFF F7A45634          NOT     WORD PTR [SI+3456]
-0734:0B03 F725              NOT     WORD PTR [DI]
-0734:0B05 F76558            NOT     WORD PTR [DI+58]
-0734:0B08 F7A55634          NOT     WORD PTR [DI+3456]
-0734:0B0C F7E5              NOT     BP
-0734:0B0E F76658            NOT     WORD PTR [BP+58]
-0734:0B11 F7A65634          NOT     WORD PTR [BP+3456]
-0734:0B15 F7E1              NOT     CX
-0734:0B17 F76239            NOT     WORD PTR [BP+SI+39]
-0734:0B1A F7A27856          NOT     WORD PTR [BP+SI+5678]
-0734:0B1E F7E2              NOT     DX
-0734:0B20 F76349            NOT     WORD PTR [BP+DI+49]
-0734:0B23 F7E6              NOT     SI
-0734:0B25 F66578            NOT     BYTE PTR [DI+78]
-0734:0B28 F6A55634          NOT     BYTE PTR [DI+3456]
-0734:0B2C F6E6              NOT     DH
-0734:0B2E F66678            NOT     BYTE PTR [BP+78]
-0734:0B31 F6A65634          NOT     BYTE PTR [BP+3456]
-0734:0B35 F6E4              NOT     AH
-0734:0B37 F6E3              NOT     BL
-0734:0B39 F6A55634          NOT     BYTE PTR [DI+3456]
-0734:0B3D F72F              NOT     WORD PTR [BX]
-0734:0B3F F76F78            NOT     WORD PTR [BX+78]
-0734:0B42 F7AF5634          NOT     WORD PTR [BX+3456]
-0734:0B46 F728              NOT     WORD PTR [BX+SI]
-0734:0B48 F76879            NOT     WORD PTR [BX+SI+79]
-0734:0B4B F7A87856          NOT     WORD PTR [BX+SI+5678]
-0734:0B4F F729              NOT     WORD PTR [BX+DI]
-0734:0B51 F76929            NOT     WORD PTR [BX+DI+29]
-0734:0B54 F7A97856          NOT     WORD PTR [BX+DI+5678]
-0734:0B58 F72C              NOT     WORD PTR [SI]
-0734:0B5A F76C28            NOT     WORD PTR [SI+28]
-0734:0B5D F7AC5634          NOT     WORD PTR [SI+3456]
-0734:0B61 F72D              NOT     WORD PTR [DI]
-0734:0B63 F76D58            NOT     WORD PTR [DI+58]
-0734:0B66 F7AD5634          NOT     WORD PTR [DI+3456]
-0734:0B6A F7ED              NOT     BP
-0734:0B6C F76E58            NOT     WORD PTR [BP+58]
-0734:0B6F F7AE5634          NOT     WORD PTR [BP+3456]
-0734:0B73 F7E9              NOT     CX
-0734:0B75 F76A39            NOT     WORD PTR [BP+SI+39]
-0734:0B78 F7AA7856          NOT     WORD PTR [BP+SI+5678]
-0734:0B7C F7EF              NOT     DI
-0734:0B7E F76B49            NOT     WORD PTR [BP+DI+49]
-0734:0B81 F7EE              NOT     SI
-0734:0B83 F66D78            NOT     BYTE PTR [DI+78]
-0734:0B86 F6AD5634          NOT     BYTE PTR [DI+3456]
-0734:0B8A F6EE              NOT     DH
-0734:0B8C F66E78            NOT     BYTE PTR [BP+78]
-0734:0B8F F6AE5634          NOT     BYTE PTR [BP+3456]
-0734:0B93 F6EC              NOT     AH
-0734:0B95 F6EB              NOT     BL
-0734:0B97 F6AD5634          NOT     BYTE PTR [DI+3456]
-0734:0B9B F737              NOT     WORD PTR [BX]
-0734:0B9D F77778            NOT     WORD PTR [BX+78]
-0734:0BA0 F7B75634          NOT     WORD PTR [BX+3456]
-0734:0BA4 F730              NOT     WORD PTR [BX+SI]
-0734:0BA6 F77079            NOT     WORD PTR [BX+SI+79]
-0734:0BA9 F7B07856          NOT     WORD PTR [BX+SI+5678]
-0734:0BAD F731              NOT     WORD PTR [BX+DI]
-0734:0BAF F77129            NOT     WORD PTR [BX+DI+29]
-0734:0BB2 F7B17856          NOT     WORD PTR [BX+DI+5678]
-0734:0BB6 F734              NOT     WORD PTR [SI]
-0734:0BB8 F77428            NOT     WORD PTR [SI+28]
-0734:0BBB F7B45634          NOT     WORD PTR [SI+3456]
-0734:0BBF F735              NOT     WORD PTR [DI]
-0734:0BC1 F77558            NOT     WORD PTR [DI+58]
-0734:0BC4 F7B55634          NOT     WORD PTR [DI+3456]
-0734:0BC8 F7F5              NOT     BP
-0734:0BCA F77658            NOT     WORD PTR [BP+58]
-0734:0BCD F7B65634          NOT     WORD PTR [BP+3456]
-0734:0BD1 F7F1              NOT     CX
-0734:0BD3 F77239            NOT     WORD PTR [BP+SI+39]
-0734:0BD6 F7B27856          NOT     WORD PTR [BP+SI+5678]
-0734:0BDA F7F2              NOT     DX
-0734:0BDC F77349            NOT     WORD PTR [BP+DI+49]
-0734:0BDF F7F6              NOT     SI
-0734:0BE1 F67578            NOT     BYTE PTR [DI+78]
-0734:0BE4 F6B55634          NOT     BYTE PTR [DI+3456]
-0734:0BE8 F6F6              NOT     DH
-0734:0BEA F67678            NOT     BYTE PTR [BP+78]
-0734:0BED F6B65634          NOT     BYTE PTR [BP+3456]
-0734:0BF1 F6F2              NOT     DL
-0734:0BF3 F6F3              NOT     BL
-0734:0BF5 F6B55634          NOT     BYTE PTR [DI+3456]
-0734:0BF9 F73F              NOT     WORD PTR [BX]
-0734:0BFB F77F78            NOT     WORD PTR [BX+78]
-0734:0BFE F7BF5634          NOT     WORD PTR [BX+3456]
-0734:0C02 F738              NOT     WORD PTR [BX+SI]
-0734:0C04 F77879            NOT     WORD PTR [BX+SI+79]
-0734:0C07 F7B87856          NOT     WORD PTR [BX+SI+5678]
-0734:0C0B F739              NOT     WORD PTR [BX+DI]
-0734:0C0D F77929            NOT     WORD PTR [BX+DI+29]
-0734:0C10 F7B97856          NOT     WORD PTR [BX+DI+5678]
-0734:0C14 F73C              NOT     WORD PTR [SI]
-0734:0C16 F77C28            NOT     WORD PTR [SI+28]
-0734:0C19 F7BC5634          NOT     WORD PTR [SI+3456]
-0734:0C1D F73D              NOT     WORD PTR [DI]
-0734:0C1F F77D58            NOT     WORD PTR [DI+58]
-0734:0C22 F7BD5634          NOT     WORD PTR [DI+3456]
-0734:0C26 F7FD              NOT     BP
-0734:0C28 F77E58            NOT     WORD PTR [BP+58]
-0734:0C2B F7BE5634          NOT     WORD PTR [BP+3456]
-0734:0C2F F7F8              NOT     AX
-0734:0C31 F77A39            NOT     WORD PTR [BP+SI+39]
-0734:0C34 F7BA7856          NOT     WORD PTR [BP+SI+5678]
-0734:0C38 F7FA              NOT     DX
-0734:0C3A F77B49            NOT     WORD PTR [BP+DI+49]
-0734:0C3D F7FE              NOT     SI
-0734:0C3F F67D78            NOT     BYTE PTR [DI+78]
-0734:0C42 F6BD5634          NOT     BYTE PTR [DI+3456]
-0734:0C46 F6FE              NOT     DH
-0734:0C48 F67E78            NOT     BYTE PTR [BP+78]
-0734:0C4B F6BE5634          NOT     BYTE PTR [BP+3456]
-0734:0C4F F6FC              NOT     AH
-0734:0C51 F6FB              NOT     BL
-0734:0C53 F6BD5634          NOT     BYTE PTR [DI+3456]
-0734:0C57 78FF              JS      0C58
-0734:0C59 79FF              JNS     0C5A
-0734:0C5B 807856FF          AND     BYTE PTR [BX+SI+56],FF
-0734:0C5F 7856              JS      0CB7
-0734:0C61 C2FEC3            RET     C3FE
-0734:0C64 C4FE              LES     DI,SI
-0734:0C66 C5FE              LDS     DI,SI
-0734:0C68 C7FEC640          MOV     SI,40C6
-0734:0C6C 78FF              JS      0C6D
-0734:0C6E 79FF              JNS     0C6F
-0734:0C70 887856            MOV     [BX+SI+56],BH
-0734:0C73 7856              JS      0CCB
-0734:0C75 CAFECB            RETF    CBFE
-0734:0C78 CC                INT     03
-0734:0C79 CDFE              INT     FE
-0734:0C7B CF                IRET    
-0734:0C7C CE                INTO    
-0734:0C7D 37                AAA     
-0734:0C7E D50A              AAD     
-0734:0C80 3F                AAS     
-0734:0C81 D40A              AAM     
-0734:0C83 27                DAA     
-0734:0C84 2F                DAS     
-0734:0C85 F7DD              NOT     BP
-0734:0C87 F75E58            NOT     WORD PTR [BP+58]
-0734:0C8A F79E5634          NOT     WORD PTR [BP+3456]
-0734:0C8E F7D9              NOT     CX
-0734:0C90 F75A39            NOT     WORD PTR [BP+SI+39]
-0734:0C93 F79A7856          NOT     WORD PTR [BP+SI+5678]
-0734:0C97 F7DA              NOT     DX
-0734:0C99 F75B49            NOT     WORD PTR [BP+DI+49]
-0734:0C9C F7DE              NOT     SI
-0734:0C9E F65D78            NOT     BYTE PTR [DI+78]
-0734:0CA1 F69D5634          NOT     BYTE PTR [DI+3456]
-0734:0CA5 F6DE              NOT     DH
-0734:0CA7 F65E78            NOT     BYTE PTR [BP+78]
-0734:0CAA F69E5634          NOT     BYTE PTR [BP+3456]
-0734:0CAE F6DC              NOT     AH
-0734:0CB0 F6DB              NOT     BL
-0734:0CB2 F69D5634          NOT     BYTE PTR [DI+3456]
-0734:0CB6 98                CBW     
-0734:0CB7 99                CWD     
+0734:060A 850F              TEST    [BX],CX
+0734:060C 855778            TEST    [BX+78],DX
+0734:060F 859F5634          TEST    [BX+3456],BX
+0734:0613 8530              TEST    [BX+SI],SI
+0734:0615 857879            TEST    [BX+SI+79],DI
+0734:0618 85A87856          TEST    [BX+SI+5678],BP
+0734:061C 8531              TEST    [BX+DI],SI
+0734:061E 857929            TEST    [BX+DI+29],DI
+0734:0621 85A97856          TEST    [BX+DI+5678],BP
+0734:0625 8524              TEST    [SI],SP
+0734:0627 855428            TEST    [SI+28],DX
+0734:062A 859C5634          TEST    [SI+3456],BX
+0734:062E 8505              TEST    [DI],AX
+0734:0630 855558            TEST    [DI+58],DX
+0734:0633 859D5634          TEST    [DI+3456],BX
+0734:0637 854E00            TEST    [BP+00],CX
+0734:063A 855658            TEST    [BP+58],DX
+0734:063D 859E5634          TEST    [BP+3456],BX
+0734:0641 8532              TEST    [BP+SI],SI
+0734:0643 857A39            TEST    [BP+SI+39],DI
+0734:0646 85AA7856          TEST    [BP+SI+5678],BP
+0734:064A 8533              TEST    [BP+DI],SI
+0734:064C 857B49            TEST    [BP+DI+49],DI
+0734:064F 85AB7856          TEST    [BP+DI+5678],BP
+0734:0653 850F              TEST    [BX],CX
+0734:0655 855778            TEST    [BX+78],DX
+0734:0658 859F5634          TEST    [BX+3456],BX
+0734:065C 8500              TEST    [BX+SI],AX
+0734:065E 856069            TEST    [BX+SI+69],SP
+0734:0661 85B87856          TEST    [BX+SI+5678],DI
+0734:0665 8529              TEST    [BX+DI],BP
+0734:0667 857149            TEST    [BX+DI+49],SI
+0734:066A 85B97856          TEST    [BX+DI+5678],DI
+0734:066E 8504              TEST    [SI],AX
+0734:0670 854C78            TEST    [SI+78],CX
+0734:0673 85945634          TEST    [SI+3456],DX
+0734:0677 852D              TEST    [DI],BP
+0734:0679 856578            TEST    [DI+78],SP
+0734:067C 85B55634          TEST    [DI+3456],SI
+0734:0680 857E00            TEST    [BP+00],DI
+0734:0683 854E78            TEST    [BP+78],CX
+0734:0686 85965634          TEST    [BP+3456],DX
+0734:068A 8532              TEST    [BP+SI],SI
+0734:068C 857A59            TEST    [BP+SI+59],DI
+0734:068F 85827856          TEST    [BP+SI+5678],AX
+0734:0693 853B              TEST    [BP+DI],DI
+0734:0695 855B19            TEST    [BP+DI+19],BX
+0734:0698 85937856          TEST    [BP+DI+5678],DX
+0734:069C 8405              TEST    [DI],AL
+0734:069E 846578            TEST    [DI+78],AH
+0734:06A1 84BD5634          TEST    [DI+3456],BH
+0734:06A5 844E00            TEST    [BP+00],CL
+0734:06A8 845678            TEST    [BP+78],DL
+0734:06AB 849E5634          TEST    [BP+3456],BL
+0734:06AF 842A              TEST    [BP+SI],CH
+0734:06B1 847578            TEST    [DI+78],DH
+0734:06B4 84955634          TEST    [DI+3456],DL
+0734:06B8 846E00            TEST    [BP+00],CH
+0734:06BB 844E56            TEST    [BP+56],CL
+0734:06BE 84BE5634          TEST    [BP+3456],BH
+0734:06C2 841A              TEST    [BP+SI],BL
+0734:06C4 846245            TEST    [BP+SI+45],AH
+0734:06C7 84827856          TEST    [BP+SI+5678],AL
+0734:06CB F6457815          TEST    BYTE PTR [DI+78],15
+0734:06CF F685563416        TEST    BYTE PTR [DI+3456],16
+0734:06D4 F6460028          TEST    BYTE PTR [BP+00],28
+0734:06D8 F6465688          TEST    BYTE PTR [BP+56],88
+0734:06DC F78656343412      TEST    WORD PTR [BP+3456],1234
+0734:06E2 F7021534          TEST    WORD PTR [BP+SI],3415
+0734:06E6 F742458547        TEST    WORD PTR [BP+SI+45],4785
+0734:06EB F78278563615      TEST    WORD PTR [BP+SI+5678],1536
+0734:06F1 F6C115            TEST    CL,15
+0734:06F4 F6C516            TEST    CH,16
+0734:06F7 F6C228            TEST    DL,28
+0734:06FA F6C488            TEST    AH,88
+0734:06FD F7C33412          TEST    BX,1234
+0734:0701 F7C71534          TEST    DI,3415
+0734:0705 F7C48547          TEST    SP,4785
+0734:0709 F7C53615          TEST    BP,1536
+0734:070D A815              TEST    AL,15
+0734:070F A91516            TEST    AX,1615
+0734:0712 0B0F              OR      CX,[BX]
+0734:0714 0B5778            OR      DX,[BX+78]
+0734:0717 0B9F5634          OR      BX,[BX+3456]
+0734:071B 0B30              OR      SI,[BX+SI]
+0734:071D 0B7879            OR      DI,[BX+SI+79]
+0734:0720 0BA87856          OR      BP,[BX+SI+5678]
+0734:0724 0B31              OR      SI,[BX+DI]
+0734:0726 0B7929            OR      DI,[BX+DI+29]
+0734:0729 0BA97856          OR      BP,[BX+DI+5678]
+0734:072D 0B24              OR      SP,[SI]
+0734:072F 0B5428            OR      DX,[SI+28]
+0734:0732 0B9C5634          OR      BX,[SI+3456]
+0734:0736 0B05              OR      AX,[DI]
+0734:0738 0B5558            OR      DX,[DI+58]
+0734:073B 0B9D5634          OR      BX,[DI+3456]
+0734:073F 0B4E00            OR      CX,[BP+00]
+0734:0742 0B5658            OR      DX,[BP+58]
+0734:0745 0B9E5634          OR      BX,[BP+3456]
+0734:0749 0B32              OR      SI,[BP+SI]
+0734:074B 0B7A39            OR      DI,[BP+SI+39]
+0734:074E 0BAA7856          OR      BP,[BP+SI+5678]
+0734:0752 0B33              OR      SI,[BP+DI]
+0734:0754 0B7B49            OR      DI,[BP+DI+49]
+0734:0757 0BAB7856          OR      BP,[BP+DI+5678]
+0734:075B 090F              OR      [BX],CX
+0734:075D 095778            OR      [BX+78],DX
+0734:0760 099F5634          OR      [BX+3456],BX
+0734:0764 0900              OR      [BX+SI],AX
+0734:0766 096069            OR      [BX+SI+69],SP
+0734:0769 09B87856          OR      [BX+SI+5678],DI
+0734:076D 0929              OR      [BX+DI],BP
+0734:076F 097149            OR      [BX+DI+49],SI
+0734:0772 09B97856          OR      [BX+DI+5678],DI
+0734:0776 0904              OR      [SI],AX
+0734:0778 094C78            OR      [SI+78],CX
+0734:077B 09945634          OR      [SI+3456],DX
+0734:077F 092D              OR      [DI],BP
+0734:0781 096578            OR      [DI+78],SP
+0734:0784 09B55634          OR      [DI+3456],SI
+0734:0788 097E00            OR      [BP+00],DI
+0734:078B 094E78            OR      [BP+78],CX
+0734:078E 09965634          OR      [BP+3456],DX
+0734:0792 0932              OR      [BP+SI],SI
+0734:0794 097A59            OR      [BP+SI+59],DI
+0734:0797 09827856          OR      [BP+SI+5678],AX
+0734:079B 093B              OR      [BP+DI],DI
+0734:079D 095B19            OR      [BP+DI+19],BX
+0734:07A0 09937856          OR      [BP+DI+5678],DX
+0734:07A4 0A05              OR      AL,[DI]
+0734:07A6 0A6578            OR      AH,[DI+78]
+0734:07A9 0ABD5634          OR      BH,[DI+3456]
+0734:07AD 0A4E00            OR      CL,[BP+00]
+0734:07B0 0A5678            OR      DL,[BP+78]
+0734:07B3 0A9E5634          OR      BL,[BP+3456]
+0734:07B7 0A2A              OR      CH,[BP+SI]
+0734:07B9 087578            OR      [DI+78],DH
+0734:07BC 08955634          OR      [DI+3456],DL
+0734:07C0 086E00            OR      [BP+00],CH
+0734:07C3 084E56            OR      [BP+56],CL
+0734:07C6 08BE5634          OR      [BP+3456],BH
+0734:07CA 081A              OR      [BP+SI],BL
+0734:07CC 086245            OR      [BP+SI+45],AH
+0734:07CF 08827856          OR      [BP+SI+5678],AL
+0734:07D3 804D7815          OR      BYTE PTR [DI+78],15
+0734:07D7 808D563416        OR      BYTE PTR [DI+3456],16
+0734:07DC 804E0028          OR      BYTE PTR [BP+00],28
+0734:07E0 804E5688          OR      BYTE PTR [BP+56],88
+0734:07E4 818E56343412      OR      WORD PTR [BP+3456],1234
+0734:07EA 810A1534          OR      WORD PTR [BP+SI],3415
+0734:07EE 814A458547        OR      WORD PTR [BP+SI+45],4785
+0734:07F3 818A78563615      OR      WORD PTR [BP+SI+5678],1536
+0734:07F9 80C915            OR      CL,15
+0734:07FC 80CD16            OR      CH,16
+0734:07FF 80CA28            OR      DL,28
+0734:0802 80CC88            OR      AH,88
+0734:0805 81CB3412          OR      BX,1234
+0734:0809 81CF1534          OR      DI,3415
+0734:080D 81CC8547          OR      SP,4785
+0734:0811 81CD3615          OR      BP,1536
+0734:0815 0C15              OR      AL,15
+0734:0817 0D1716            OR      AX,1617
+0734:081A 330F              XOR     CX,[BX]
+0734:081C 335778            XOR     DX,[BX+78]
+0734:081F 339F5634          XOR     BX,[BX+3456]
+0734:0823 3330              XOR     SI,[BX+SI]
+0734:0825 337879            XOR     DI,[BX+SI+79]
+0734:0828 33A87856          XOR     BP,[BX+SI+5678]
+0734:082C 3331              XOR     SI,[BX+DI]
+0734:082E 337929            XOR     DI,[BX+DI+29]
+0734:0831 33A97856          XOR     BP,[BX+DI+5678]
+0734:0835 3324              XOR     SP,[SI]
+0734:0837 335428            XOR     DX,[SI+28]
+0734:083A 339C5634          XOR     BX,[SI+3456]
+0734:083E 3305              XOR     AX,[DI]
+0734:0840 335558            XOR     DX,[DI+58]
+0734:0843 339D5634          XOR     BX,[DI+3456]
+0734:0847 334E00            XOR     CX,[BP+00]
+0734:084A 335658            XOR     DX,[BP+58]
+0734:084D 339E5634          XOR     BX,[BP+3456]
+0734:0851 3332              XOR     SI,[BP+SI]
+0734:0853 337A39            XOR     DI,[BP+SI+39]
+0734:0856 33AA7856          XOR     BP,[BP+SI+5678]
+0734:085A 3333              XOR     SI,[BP+DI]
+0734:085C 337B49            XOR     DI,[BP+DI+49]
+0734:085F 33AB7856          XOR     BP,[BP+DI+5678]
+0734:0863 310F              XOR     [BX],CX
+0734:0865 315778            XOR     [BX+78],DX
+0734:0868 319F5634          XOR     [BX+3456],BX
+0734:086C 3100              XOR     [BX+SI],AX
+0734:086E 316069            XOR     [BX+SI+69],SP
+0734:0871 31B87856          XOR     [BX+SI+5678],DI
+0734:0875 3129              XOR     [BX+DI],BP
+0734:0877 317149            XOR     [BX+DI+49],SI
+0734:087A 31B97856          XOR     [BX+DI+5678],DI
+0734:087E 3104              XOR     [SI],AX
+0734:0880 314C78            XOR     [SI+78],CX
+0734:0883 31945634          XOR     [SI+3456],DX
+0734:0887 312D              XOR     [DI],BP
+0734:0889 316578            XOR     [DI+78],SP
+0734:088C 31B55634          XOR     [DI+3456],SI
+0734:0890 317E00            XOR     [BP+00],DI
+0734:0893 314E78            XOR     [BP+78],CX
+0734:0896 31965634          XOR     [BP+3456],DX
+0734:089A 3132              XOR     [BP+SI],SI
+0734:089C 317A59            XOR     [BP+SI+59],DI
+0734:089F 31827856          XOR     [BP+SI+5678],AX
+0734:08A3 313B              XOR     [BP+DI],DI
+0734:08A5 315B19            XOR     [BP+DI+19],BX
+0734:08A8 31937856          XOR     [BP+DI+5678],DX
+0734:08AC 3205              XOR     AL,[DI]
+0734:08AE 326578            XOR     AH,[DI+78]
+0734:08B1 32BD5634          XOR     BH,[DI+3456]
+0734:08B5 324E00            XOR     CL,[BP+00]
+0734:08B8 325678            XOR     DL,[BP+78]
+0734:08BB 329E5634          XOR     BL,[BP+3456]
+0734:08BF 322A              XOR     CH,[BP+SI]
+0734:08C1 307578            XOR     [DI+78],DH
+0734:08C4 30955634          XOR     [DI+3456],DL
+0734:08C8 306E00            XOR     [BP+00],CH
+0734:08CB 304E56            XOR     [BP+56],CL
+0734:08CE 30BE5634          XOR     [BP+3456],BH
+0734:08D2 301A              XOR     [BP+SI],BL
+0734:08D4 306245            XOR     [BP+SI+45],AH
+0734:08D7 30827856          XOR     [BP+SI+5678],AL
+0734:08DB 80757815          XOR     BYTE PTR [DI+78],15
+0734:08DF 80B5563416        XOR     BYTE PTR [DI+3456],16
+0734:08E4 80760028          XOR     BYTE PTR [BP+00],28
+0734:08E8 80765688          XOR     BYTE PTR [BP+56],88
+0734:08EC 81B656343412      XOR     WORD PTR [BP+3456],1234
+0734:08F2 81321534          XOR     WORD PTR [BP+SI],3415
+0734:08F6 8172458547        XOR     WORD PTR [BP+SI+45],4785
+0734:08FB 81B278563615      XOR     WORD PTR [BP+SI+5678],1536
+0734:0901 80F115            XOR     CL,15
+0734:0904 80F516            XOR     CH,16
+0734:0907 80F228            XOR     DL,28
+0734:090A 80F488            XOR     AH,88
+0734:090D 81F33412          XOR     BX,1234
+0734:0911 81F71534          XOR     DI,3415
+0734:0915 81F48547          XOR     SP,4785
+0734:0919 81F53615          XOR     BP,1536
+0734:091D 3418              XOR     AL,18
+0734:091F 357756            XOR     AX,5677
+0734:0922 AC                LODSB   
+0734:0923 AD                LODSW   
+0734:0924 A4                MOVSB   
+0734:0925 A5                MOVSW   
+0734:0926 A6                CMPSB   
+0734:0927 A7                CMPSW   
+0734:0928 AE                SCASB   
+0734:0929 AF                SCASW   
+0734:092A AA                STOSB   
+0734:092B AB                STOSW   
+0734:092C F3A6              REPE    CMPSB
+0734:092E F2A6              REPNE   CMPSB
+0734:0930 F8                CLC     
+0734:0931 F5                CMC     
+0734:0932 F9                STC     
+0734:0933 FC                CLD     
+0734:0934 FD                STD     
+0734:0935 FA                CLI     
+0734:0936 FB                STI     
+0734:0937 F4                HLT     
+0734:0938 9B                WAIT    (unused)
+0734:0939 F0                LOCK    (unused)
+0734:093A D9                DB      D9
+0734:093B D0D9              RCR     CL,1
+0734:093D 04                DB      04
+0734:093E DD                DB      DD
+0734:093F 00                DB      00
+0734:0940 DF                DB      DF
+0734:0941 05                DB      05
+0734:0942 DF                DB      DF
+0734:0943 67                DB      67
+0734:0944 12                DB      12
+0734:0945 D9                DB      D9
+0734:0946 CB                RETF    
+0734:0947 D9                DB      D9
+0734:0948 E4DF              IN      AL,DF
+0734:094A 1E                PUSH    DS
+0734:094B 67                DB      67
+0734:094C 45                DB      45
+0734:094D D9                DB      D9
+0734:094E FA                CLI     
+0734:094F D9                DB      D9
+0734:0950 F39B              REPE    CMPSB
+0734:0952 D9                DB      D9
+0734:0953 2F                DAS     
+0734:0954 FF37              PUSH    WORD PTR [BX]
+0734:0956 FF7778            PUSH    WORD PTR [BX+78]
+0734:0959 FFB75634          PUSH    WORD PTR [BX+3456]
+0734:095D FF30              PUSH    WORD PTR [BX+SI]
+0734:095F FF7079            PUSH    WORD PTR [BX+SI+79]
+0734:0962 FFB07856          PUSH    WORD PTR [BX+SI+5678]
+0734:0966 FF31              PUSH    WORD PTR [BX+DI]
+0734:0968 FF35              PUSH    WORD PTR [DI]
+0734:096A FF7558            PUSH    WORD PTR [DI+58]
+0734:096D FFB55634          PUSH    WORD PTR [DI+3456]
+0734:0971 FF7600            PUSH    WORD PTR [BP+00]
+0734:0974 FF7658            PUSH    WORD PTR [BP+58]
+0734:0977 FFB65634          PUSH    WORD PTR [BP+3456]
+0734:097B FFB37856          PUSH    WORD PTR [BP+DI+5678]
+0734:097F 1E                PUSH    DS
+0734:0980 0E                PUSH    CS
+0734:0981 16                PUSH    SS
+0734:0982 06                PUSH    ES
+0734:0983 8F07              POP     WORD PTR [BX]
+0734:0985 8F4778            POP     WORD PTR [BX+78]
+0734:0988 8F875634          POP     WORD PTR [BX+3456]
+0734:098C 8F00              POP     WORD PTR [BX+SI]
+0734:098E 8F4079            POP     WORD PTR [BX+SI+79]
+0734:0991 8F807856          POP     WORD PTR [BX+SI+5678]
+0734:0995 8F01              POP     WORD PTR [BX+DI]
+0734:0997 8F05              POP     WORD PTR [DI]
+0734:0999 8F4558            POP     WORD PTR [DI+58]
+0734:099C 8F855634          POP     WORD PTR [DI+3456]
+0734:09A0 8F4600            POP     WORD PTR [BP+00]
+0734:09A3 8F4658            POP     WORD PTR [BP+58]
+0734:09A6 8F865634          POP     WORD PTR [BP+3456]
+0734:09AA 8F837856          POP     WORD PTR [BP+DI+5678]
+0734:09AE 1F                POP     DS
+0734:09AF 0F                POP     CS
+0734:09B0 17                POP     SS
+0734:09B1 07                POP     ES
+0734:09B2 50                PUSH    AX
+0734:09B3 51                PUSH    CX
+0734:09B4 52                PUSH    DX
+0734:09B5 53                PUSH    BX
+0734:09B6 54                PUSH    SP
+0734:09B7 55                PUSH    BP
+0734:09B8 56                PUSH    SI
+0734:09B9 57                PUSH    DI
+0734:09BA 58                POP     AX
+0734:09BB 59                POP     CX
+0734:09BC 5A                POP     DX
+0734:09BD 5B                POP     BX
+0734:09BE 5C                POP     SP
+0734:09BF 5D                POP     BP
+0734:09C0 5E                POP     SI
+0734:09C1 5F                POP     DI
+0734:09C2 86E0              XCHG    AH,AL
+0734:09C4 86E1              XCHG    AH,CL
+0734:09C6 86D8              XCHG    BL,AL
+0734:09C8 86EA              XCHG    CH,DL
+0734:09CA 86FE              XCHG    BH,DH
+0734:09CC 87CB              XCHG    CX,BX
+0734:09CE 87DB              XCHG    BX,BX
+0734:09D0 87CA              XCHG    CX,DX
+0734:09D2 87D9              XCHG    BX,CX
+0734:09D4 87EC              XCHG    BP,SP
+0734:09D6 87FE              XCHG    DI,SI
+0734:09D8 87F9              XCHG    DI,CX
+0734:09DA 87F7              XCHG    SI,DI
+0734:09DC 87CD              XCHG    CX,BP
+0734:09DE 87EA              XCHG    BP,DX
+0734:09E0 8607              XCHG    AL,[BX]
+0734:09E2 864E00            XCHG    CL,[BP+00]
+0734:09E5 8600              XCHG    AL,[BX+SI]
+0734:09E7 86964523          XCHG    DL,[BP+2345]
+0734:09EB 86B45423          XCHG    DH,[SI+2354]
+0734:09EF 8737              XCHG    SI,[BX]
+0734:09F1 870B              XCHG    CX,[BP+DI]
+0734:09F3 874015            XCHG    AX,[BX+SI+15]
+0734:09F6 87AB4523          XCHG    BP,[BP+DI+2345]
+0734:09FA 87945423          XCHG    DX,[SI+2354]
+0734:09FE 90                XCHG    AX,AX
+0734:09FF 91                XCHG    AX,CX
+0734:0A00 92                XCHG    AX,DX
+0734:0A01 93                XCHG    AX,BX
+0734:0A02 94                XCHG    AX,SP
+0734:0A03 95                XCHG    AX,BP
+0734:0A04 96                XCHG    AX,SI
+0734:0A05 97                XCHG    AX,DI
+0734:0A06 E412              IN      AL,12
+0734:0A08 E515              IN      AX,15
+0734:0A0A EC                IN      AL,DX
+0734:0A0B ED                IN      AX,DX
+0734:0A0C E617              OUT     17,AL
+0734:0A0E E745              OUT     45,AX
+0734:0A10 EE                OUT     DX,AL
+0734:0A11 EF                OUT     DX,AX
+0734:0A12 D7                XLATB   
+0734:0A13 8D985423          LEA     BX,[BX+SI+2354]
+0734:0A17 8D4A54            LEA     CX,[BP+SI+54]
+0734:0A1A 8D5600            LEA     DX,[BP+00]
+0734:0A1D 8D3E1200          LEA     DI,[0012]
+0734:0A21 C4985423          LES     BX,[BX+SI+2354]
+0734:0A25 C54A54            LDS     CX,[BP+SI+54]
+0734:0A28 C45600            LES     DX,[BP+00]
+0734:0A2B 9F                LAHF    
+0734:0A2C 9E                SAHF    
+0734:0A2D 9C                PUSHF   
+0734:0A2E 9D                POPF    
+0734:0A2F 03                DB      03
+0734:0A30 0F                POP     CS
+0734:0A31 03                DB      03
+0734:0A32 57                PUSH    DI
+0734:0A33 7803              JS      0A38
+0734:0A35 9F                LAHF    
+0734:0A36 56                PUSH    SI
+0734:0A37 3403              XOR     AL,03
+0734:0A39 3003              XOR     [BP+DI],AL
+0734:0A3B 7879              JS      0AB6
+0734:0A3D 03                DB      03
+0734:0A3E A878              TEST    AL,78
+0734:0A40 56                PUSH    SI
+0734:0A41 03                DB      03
+0734:0A42 3103              XOR     [BP+DI],AX
+0734:0A44 7929              JNS     0A6F
+0734:0A46 03                DB      03
+0734:0A47 A97856            TEST    AX,5678
+0734:0A4A 03                DB      03
+0734:0A4B 2403              AND     AL,03
+0734:0A4D 54                PUSH    SP
+0734:0A4E 28                DB      28
+0734:0A4F 03                DB      03
+0734:0A50 9C                PUSHF   
+0734:0A51 56                PUSH    SI
+0734:0A52 3403              XOR     AL,03
+0734:0A54 05                DB      05
+0734:0A55 03                DB      03
+0734:0A56 55                PUSH    BP
+0734:0A57 58                POP     AX
+0734:0A58 03                DB      03
+0734:0A59 9D                POPF    
+0734:0A5A 56                PUSH    SI
+0734:0A5B 3403              XOR     AL,03
+0734:0A5D 4E                DB      4E
+0734:0A5E 00                DB      00
+0734:0A5F 03                DB      03
+0734:0A60 56                PUSH    SI
+0734:0A61 58                POP     AX
+0734:0A62 03                DB      03
+0734:0A63 9E                SAHF    
+0734:0A64 56                PUSH    SI
+0734:0A65 3403              XOR     AL,03
+0734:0A67 3203              XOR     AL,[BP+DI]
+0734:0A69 7A39              JPE     0AA4
+0734:0A6B 03                DB      03
+0734:0A6C AA                STOSB   
+0734:0A6D 7856              JS      0AC5
+0734:0A6F 03                DB      03
+0734:0A70 3303              XOR     AX,[BP+DI]
+0734:0A72 7B49              JPO     0ABD
+0734:0A74 03                DB      03
+0734:0A75 AB                STOSW   
+0734:0A76 7856              JS      0ACE
+0734:0A78 01                DB      01
+0734:0A79 0F                POP     CS
+0734:0A7A 01                DB      01
+0734:0A7B 57                PUSH    DI
+0734:0A7C 7801              JS      0A7F
+0734:0A7E 9F                LAHF    
+0734:0A7F 56                PUSH    SI
+0734:0A80 3401              XOR     AL,01
+0734:0A82 00                DB      00
+0734:0A83 01                DB      01
+0734:0A84 60                DB      60
+0734:0A85 69                DB      69
+0734:0A86 01                DB      01
+0734:0A87 B87856            MOV     AX,5678
+0734:0A8A 01                DB      01
+0734:0A8B 29                DB      29
+0734:0A8C 01                DB      01
+0734:0A8D 7149              JNO     0AD8
+0734:0A8F 01                DB      01
+0734:0A90 B97856            MOV     CX,5678
+0734:0A93 01                DB      01
+0734:0A94 04                DB      04
+0734:0A95 01                DB      01
+0734:0A96 4C                DB      4C
+0734:0A97 7801              JS      0A9A
+0734:0A99 94                XCHG    AX,SP
+0734:0A9A 56                PUSH    SI
+0734:0A9B 3401              XOR     AL,01
+0734:0A9D 2D                DB      2D
+0734:0A9E 01                DB      01
+0734:0A9F 65                DB      65
+0734:0AA0 7801              JS      0AA3
+0734:0AA2 B556              MOV     CH,56
+0734:0AA4 3401              XOR     AL,01
+0734:0AA6 7E00              JLE     0AA8
+0734:0AA8 01                DB      01
+0734:0AA9 4E                DB      4E
+0734:0AAA 7801              JS      0AAD
+0734:0AAC 96                XCHG    AX,SI
+0734:0AAD 56                PUSH    SI
+0734:0AAE 3401              XOR     AL,01
+0734:0AB0 3201              XOR     AL,[BX+DI]
+0734:0AB2 7A59              JPE     0B0D
+0734:0AB4 01                DB      01
+0734:0AB5 82                DB      82
+0734:0AB6 7856              JS      0B0E
+0734:0AB8 01                DB      01
+0734:0AB9 3B                DB      3B
+0734:0ABA 01                DB      01
+0734:0ABB 5B                POP     BX
+0734:0ABC 19                DB      19
+0734:0ABD 01                DB      01
+0734:0ABE 93                XCHG    AX,BX
+0734:0ABF 7856              JS      0B17
+0734:0AC1 02                DB      02
+0734:0AC2 05                DB      05
+0734:0AC3 02                DB      02
+0734:0AC4 65                DB      65
+0734:0AC5 7802              JS      0AC9
+0734:0AC7 BD5634            MOV     BP,3456
+0734:0ACA 02                DB      02
+0734:0ACB 4E                DB      4E
+0734:0ACC 00                DB      00
+0734:0ACD 02                DB      02
+0734:0ACE 56                PUSH    SI
+0734:0ACF 7802              JS      0AD3
+0734:0AD1 9E                SAHF    
+0734:0AD2 56                PUSH    SI
+0734:0AD3 3402              XOR     AL,02
+0734:0AD5 2A                DB      2A
+0734:0AD6 00                DB      00
+0734:0AD7 7578              JNZ     0B51
+0734:0AD9 00                DB      00
+0734:0ADA 95                XCHG    AX,BP
+0734:0ADB 56                PUSH    SI
+0734:0ADC 3400              XOR     AL,00
+0734:0ADE 6E                DB      6E
+0734:0ADF 00                DB      00
+0734:0AE0 00                DB      00
+0734:0AE1 4E                DB      4E
+0734:0AE2 56                PUSH    SI
+0734:0AE3 00                DB      00
+0734:0AE4 BE5634            MOV     SI,3456
+0734:0AE7 00                DB      00
+0734:0AE8 1A                DB      1A
+0734:0AE9 00                DB      00
+0734:0AEA 62                DB      62
+0734:0AEB 45                DB      45
+0734:0AEC 00                DB      00
+0734:0AED 82                DB      82
+0734:0AEE 7856              JS      0B46
+0734:0AF0 80                DB      80
+0734:0AF1 7815              JS      0B08
+0734:0AF3 80                DB      80
+0734:0AF4 56                PUSH    SI
+0734:0AF5 3416              XOR     AL,16
+0734:0AF7 80                DB      80
+0734:0AF8 00                DB      00
+0734:0AF9 28                DB      28
+0734:0AFA 80                DB      80
+0734:0AFB 56                PUSH    SI
+0734:0AFC 88818656          MOV     [BX+DI+5686],AL
+0734:0B00 3434              XOR     AL,34
+0734:0B02 12                DB      12
+0734:0B03 81                DB      81
+0734:0B04 15                DB      15
+0734:0B05 3481              XOR     AL,81
+0734:0B07 42                DB      42
+0734:0B08 45                DB      45
+0734:0B09 854781            TEST    [BX-7F],AX
+0734:0B0C 82                DB      82
+0734:0B0D 7856              JS      0B65
+0734:0B0F 36                DB      36
+0734:0B10 15                DB      15
+0734:0B11 83                DB      83
+0734:0B12 865634            XCHG    DL,[BP+34]
+0734:0B15 12                DB      12
+0734:0B16 83                DB      83
+0734:0B17 02                DB      02
+0734:0B18 358342            XOR     AX,4283
+0734:0B1B 45                DB      45
+0734:0B1C 45                DB      45
+0734:0B1D 83                DB      83
+0734:0B1E 82                DB      82
+0734:0B1F 7856              JS      0B77
+0734:0B21 16                PUSH    SS
+0734:0B22 80                DB      80
+0734:0B23 15                DB      15
+0734:0B24 80                DB      80
+0734:0B25 16                PUSH    SS
+0734:0B26 80                DB      80
+0734:0B27 28                DB      28
+0734:0B28 80                DB      80
+0734:0B29 8881C334          MOV     [BX+DI+34C3],AL
+0734:0B2D 12                DB      12
+0734:0B2E 81                DB      81
+0734:0B2F 15                DB      15
+0734:0B30 3481              XOR     AL,81
+0734:0B32 C4854781          LES     AX,[DI+8147]
+0734:0B36 C5361583          LDS     SI,[8315]
+0734:0B3A C3                RET     
+0734:0B3B 14                DB      14
+0734:0B3C 83                DB      83
+0734:0B3D C63583            MOV     BYTE PTR [DI],83
+0734:0B40 C46583            LES     SP,[DI-7D]
+0734:0B43 C5160417          LDS     DX,[1704]
+0734:0B47 05                DB      05
+0734:0B48 17                POP     SS
+0734:0B49 52                PUSH    DX
+0734:0B4A 13                DB      13
+0734:0B4B 0F                POP     CS
+0734:0B4C 13                DB      13
+0734:0B4D 57                PUSH    DI
+0734:0B4E 7813              JS      0B63
+0734:0B50 9F                LAHF    
+0734:0B51 56                PUSH    SI
+0734:0B52 3413              XOR     AL,13
+0734:0B54 3013              XOR     [BP+DI],DL
+0734:0B56 7879              JS      0BD1
+0734:0B58 13                DB      13
+0734:0B59 A878              TEST    AL,78
+0734:0B5B 56                PUSH    SI
+0734:0B5C 13                DB      13
+0734:0B5D 3113              XOR     [BP+DI],DX
+0734:0B5F 7929              JNS     0B8A
+0734:0B61 13                DB      13
+0734:0B62 A97856            TEST    AX,5678
+0734:0B65 13                DB      13
+0734:0B66 2413              AND     AL,13
+0734:0B68 54                PUSH    SP
+0734:0B69 28                DB      28
+0734:0B6A 13                DB      13
+0734:0B6B 9C                PUSHF   
+0734:0B6C 56                PUSH    SI
+0734:0B6D 3413              XOR     AL,13
+0734:0B6F 05                DB      05
+0734:0B70 13                DB      13
+0734:0B71 55                PUSH    BP
+0734:0B72 58                POP     AX
+0734:0B73 13                DB      13
+0734:0B74 9D                POPF    
+0734:0B75 56                PUSH    SI
+0734:0B76 3413              XOR     AL,13
+0734:0B78 4E                DB      4E
+0734:0B79 00                DB      00
+0734:0B7A 13                DB      13
+0734:0B7B 56                PUSH    SI
+0734:0B7C 58                POP     AX
+0734:0B7D 13                DB      13
+0734:0B7E 9E                SAHF    
+0734:0B7F 56                PUSH    SI
+0734:0B80 3413              XOR     AL,13
+0734:0B82 3213              XOR     DL,[BP+DI]
+0734:0B84 7A39              JPE     0BBF
+0734:0B86 13                DB      13
+0734:0B87 AA                STOSB   
+0734:0B88 7856              JS      0BE0
+0734:0B8A 13                DB      13
+0734:0B8B 3313              XOR     DX,[BP+DI]
+0734:0B8D 7B49              JPO     0BD8
+0734:0B8F 13                DB      13
+0734:0B90 AB                STOSW   
+0734:0B91 7856              JS      0BE9
+0734:0B93 11                DB      11
+0734:0B94 0F                POP     CS
+0734:0B95 11                DB      11
+0734:0B96 57                PUSH    DI
+0734:0B97 7811              JS      0BAA
+0734:0B99 9F                LAHF    
+0734:0B9A 56                PUSH    SI
+0734:0B9B 3411              XOR     AL,11
+0734:0B9D 00                DB      00
+0734:0B9E 11                DB      11
+0734:0B9F 60                DB      60
+0734:0BA0 69                DB      69
+0734:0BA1 11                DB      11
+0734:0BA2 B87856            MOV     AX,5678
+0734:0BA5 11                DB      11
+0734:0BA6 29                DB      29
+0734:0BA7 11                DB      11
+0734:0BA8 7149              JNO     0BF3
+0734:0BAA 11                DB      11
+0734:0BAB B97856            MOV     CX,5678
+0734:0BAE 11                DB      11
+0734:0BAF 04                DB      04
+0734:0BB0 11                DB      11
+0734:0BB1 4C                DB      4C
+0734:0BB2 7811              JS      0BC5
+0734:0BB4 94                XCHG    AX,SP
+0734:0BB5 56                PUSH    SI
+0734:0BB6 3411              XOR     AL,11
+0734:0BB8 2D                DB      2D
+0734:0BB9 11                DB      11
+0734:0BBA 65                DB      65
+0734:0BBB 7811              JS      0BCE
+0734:0BBD B556              MOV     CH,56
+0734:0BBF 3411              XOR     AL,11
+0734:0BC1 7E00              JLE     0BC3
+0734:0BC3 11                DB      11
+0734:0BC4 4E                DB      4E
+0734:0BC5 7811              JS      0BD8
+0734:0BC7 96                XCHG    AX,SI
+0734:0BC8 56                PUSH    SI
+0734:0BC9 3411              XOR     AL,11
+0734:0BCB 3211              XOR     DL,[BX+DI]
+0734:0BCD 7A59              JPE     0C28
+0734:0BCF 11                DB      11
+0734:0BD0 82                DB      82
+0734:0BD1 7856              JS      0C29
+0734:0BD3 11                DB      11
+0734:0BD4 3B                DB      3B
+0734:0BD5 11                DB      11
+0734:0BD6 5B                POP     BX
+0734:0BD7 19                DB      19
+0734:0BD8 11                DB      11
+0734:0BD9 93                XCHG    AX,BX
+0734:0BDA 7856              JS      0C32
+0734:0BDC 12                DB      12
+0734:0BDD 05                DB      05
+0734:0BDE 12                DB      12
+0734:0BDF 65                DB      65
+0734:0BE0 7812              JS      0BF4
+0734:0BE2 BD5634            MOV     BP,3456
+0734:0BE5 12                DB      12
+0734:0BE6 4E                DB      4E
+0734:0BE7 00                DB      00
+0734:0BE8 12                DB      12
+0734:0BE9 56                PUSH    SI
+0734:0BEA 7812              JS      0BFE
+0734:0BEC 9E                SAHF    
+0734:0BED 56                PUSH    SI
+0734:0BEE 3412              XOR     AL,12
+0734:0BF0 2A                DB      2A
+0734:0BF1 10                DB      10
+0734:0BF2 7578              JNZ     0C6C
+0734:0BF4 10                DB      10
+0734:0BF5 95                XCHG    AX,BP
+0734:0BF6 56                PUSH    SI
+0734:0BF7 3410              XOR     AL,10
+0734:0BF9 6E                DB      6E
+0734:0BFA 00                DB      00
+0734:0BFB 10                DB      10
+0734:0BFC 4E                DB      4E
+0734:0BFD 56                PUSH    SI
+0734:0BFE 10                DB      10
+0734:0BFF BE5634            MOV     SI,3456
+0734:0C02 10                DB      10
+0734:0C03 1A                DB      1A
+0734:0C04 10                DB      10
+0734:0C05 62                DB      62
+0734:0C06 45                DB      45
+0734:0C07 10                DB      10
+0734:0C08 82                DB      82
+0734:0C09 7856              JS      0C61
+0734:0C0B 80                DB      80
+0734:0C0C 7815              JS      0C23
+0734:0C0E 80                DB      80
+0734:0C0F 56                PUSH    SI
+0734:0C10 3416              XOR     AL,16
+0734:0C12 80                DB      80
+0734:0C13 00                DB      00
+0734:0C14 28                DB      28
+0734:0C15 80                DB      80
+0734:0C16 56                PUSH    SI
+0734:0C17 88819656          MOV     [BX+DI+5696],AL
+0734:0C1B 3434              XOR     AL,34
+0734:0C1D 12                DB      12
+0734:0C1E 81                DB      81
+0734:0C1F 15                DB      15
+0734:0C20 3481              XOR     AL,81
+0734:0C22 52                PUSH    DX
+0734:0C23 45                DB      45
+0734:0C24 854781            TEST    [BX-7F],AX
+0734:0C27 92                XCHG    AX,DX
+0734:0C28 7856              JS      0C80
+0734:0C2A 36                DB      36
+0734:0C2B 15                DB      15
+0734:0C2C 83                DB      83
+0734:0C2D 96                XCHG    AX,SI
+0734:0C2E 56                PUSH    SI
+0734:0C2F 3412              XOR     AL,12
+0734:0C31 83                DB      83
+0734:0C32 12                DB      12
+0734:0C33 358352            XOR     AX,5283
+0734:0C36 45                DB      45
+0734:0C37 45                DB      45
+0734:0C38 83                DB      83
+0734:0C39 92                XCHG    AX,DX
+0734:0C3A 7856              JS      0C92
+0734:0C3C 16                PUSH    SS
+0734:0C3D 80                DB      80
+0734:0C3E 15                DB      15
+0734:0C3F 80                DB      80
+0734:0C40 16                PUSH    SS
+0734:0C41 80                DB      80
+0734:0C42 28                DB      28
+0734:0C43 80                DB      80
+0734:0C44 8881D334          MOV     [BX+DI+34D3],AL
+0734:0C48 12                DB      12
+0734:0C49 81                DB      81
+0734:0C4A 15                DB      15
+0734:0C4B 3481              XOR     AL,81
+0734:0C4D D4                DB      D4
+0734:0C4E 47                DB      47
+0734:0C4F 81                DB      81
+0734:0C50 36                DB      36
+0734:0C51 15                DB      15
+0734:0C52 83                DB      83
+0734:0C53 D314              RCL     WORD PTR [SI],CL
+0734:0C55 83                DB      83
+0734:0C56 D6                DB      D6
+0734:0C57 3583D4            XOR     AX,D483
+0734:0C5A 65                DB      65
+0734:0C5B 83                DB      83
+0734:0C5C D5                DB      D5
+0734:0C5D 04                DB      04
+0734:0C5E 17                POP     SS
+0734:0C5F 05                DB      05
+0734:0C60 17                POP     SS
+0734:0C61 52                PUSH    DX
+0734:0C62 3B                DB      3B
+0734:0C63 0F                POP     CS
+0734:0C64 3B                DB      3B
+0734:0C65 57                PUSH    DI
+0734:0C66 783B              JS      0CA3
+0734:0C68 9F                LAHF    
+0734:0C69 56                PUSH    SI
+0734:0C6A 343B              XOR     AL,3B
+0734:0C6C 303B              XOR     [BP+DI],BH
+0734:0C6E 7879              JS      0CE9
+0734:0C70 3B                DB      3B
+0734:0C71 A878              TEST    AL,78
+0734:0C73 56                PUSH    SI
+0734:0C74 3B                DB      3B
+0734:0C75 313B              XOR     [BP+DI],DI
+0734:0C77 7929              JNS     0CA2
+0734:0C79 3B                DB      3B
+0734:0C7A A97856            TEST    AX,5678
+0734:0C7D 3B                DB      3B
+0734:0C7E 243B              AND     AL,3B
+0734:0C80 54                PUSH    SP
+0734:0C81 28                DB      28
+0734:0C82 3B                DB      3B
+0734:0C83 9C                PUSHF   
+0734:0C84 56                PUSH    SI
+0734:0C85 343B              XOR     AL,3B
+0734:0C87 05                DB      05
+0734:0C88 3B                DB      3B
+0734:0C89 55                PUSH    BP
+0734:0C8A 58                POP     AX
+0734:0C8B 3B                DB      3B
+0734:0C8C 9D                POPF    
+0734:0C8D 56                PUSH    SI
+0734:0C8E 343B              XOR     AL,3B
+0734:0C90 4E                DB      4E
+0734:0C91 00                DB      00
+0734:0C92 3B                DB      3B
+0734:0C93 56                PUSH    SI
+0734:0C94 58                POP     AX
+0734:0C95 3B                DB      3B
+0734:0C96 9E                SAHF    
+0734:0C97 56                PUSH    SI
+0734:0C98 343B              XOR     AL,3B
+0734:0C9A 323B              XOR     BH,[BP+DI]
+0734:0C9C 7A39              JPE     0CD7
+0734:0C9E 3B                DB      3B
+0734:0C9F AA                STOSB   
+0734:0CA0 7856              JS      0CF8
+0734:0CA2 3B                DB      3B
+0734:0CA3 333B              XOR     DI,[BP+DI]
+0734:0CA5 7B49              JPO     0CF0
+0734:0CA7 3B                DB      3B
+0734:0CA8 AB                STOSW   
+0734:0CA9 7856              JS      0D01
+0734:0CAB 39                DB      39
+0734:0CAC 0F                POP     CS
+0734:0CAD 39                DB      39
+0734:0CAE 57                PUSH    DI
+0734:0CAF 7839              JS      0CEA
+0734:0CB1 9F                LAHF    
+0734:0CB2 56                PUSH    SI
+0734:0CB3 3439              XOR     AL,39
+0734:0CB5 00                DB      00
+0734:0CB6 39                DB      39
+0734:0CB7 60                DB      60
+0734:0CB8 69                DB      69
+0734:0CB9 39                DB      39
+0734:0CBA B87856            MOV     AX,5678
+0734:0CBD 39                DB      39
+0734:0CBE 29                DB      29
+0734:0CBF 39                DB      39
+0734:0CC0 7149              JNO     0D0B
+0734:0CC2 39                DB      39
+0734:0CC3 B97856            MOV     CX,5678
+0734:0CC6 39                DB      39
+0734:0CC7 04                DB      04
+0734:0CC8 39                DB      39
+0734:0CC9 4C                DB      4C
+0734:0CCA 7839              JS      0D05
+0734:0CCC 94                XCHG    AX,SP
+0734:0CCD 56                PUSH    SI
+0734:0CCE 3439              XOR     AL,39
+0734:0CD0 2D                DB      2D
+0734:0CD1 39                DB      39
+0734:0CD2 65                DB      65
+0734:0CD3 7839              JS      0D0E
+0734:0CD5 B556              MOV     CH,56
+0734:0CD7 3439              XOR     AL,39
+0734:0CD9 7E00              JLE     0CDB
+0734:0CDB 39                DB      39
+0734:0CDC 4E                DB      4E
+0734:0CDD 7839              JS      0D18
+0734:0CDF 96                XCHG    AX,SI
+0734:0CE0 56                PUSH    SI
+0734:0CE1 3439              XOR     AL,39
+0734:0CE3 3239              XOR     BH,[BX+DI]
+0734:0CE5 7A59              JPE     0D40
+0734:0CE7 39                DB      39
+0734:0CE8 82                DB      82
+0734:0CE9 7856              JS      0D41
+0734:0CEB 39                DB      39
+0734:0CEC 3B                DB      3B
+0734:0CED 39                DB      39
+0734:0CEE 5B                POP     BX
+0734:0CEF 19                DB      19
+0734:0CF0 39                DB      39
+0734:0CF1 93                XCHG    AX,BX
+0734:0CF2 7856              JS      0D4A
+0734:0CF4 3A                DB      3A
+0734:0CF5 05                DB      05
+0734:0CF6 3A                DB      3A
+0734:0CF7 65                DB      65
+0734:0CF8 783A              JS      0D34
+0734:0CFA BD5634            MOV     BP,3456
+0734:0CFD 3A                DB      3A
+0734:0CFE 4E                DB      4E
+0734:0CFF 00                DB      00
+0734:0D00 3A                DB      3A
+0734:0D01 56                PUSH    SI
+0734:0D02 783A              JS      0D3E
+0734:0D04 9E                SAHF    
+0734:0D05 56                PUSH    SI
+0734:0D06 343A              XOR     AL,3A
+0734:0D08 2A                DB      2A
+0734:0D09 38                DB      38
+0734:0D0A 7578              JNZ     0D84
+0734:0D0C 38                DB      38
+0734:0D0D 95                XCHG    AX,BP
+0734:0D0E 56                PUSH    SI
+0734:0D0F 3438              XOR     AL,38
+0734:0D11 6E                DB      6E
+0734:0D12 00                DB      00
+0734:0D13 38                DB      38
+0734:0D14 4E                DB      4E
+0734:0D15 56                PUSH    SI
+0734:0D16 38                DB      38
+0734:0D17 BE5634            MOV     SI,3456
+0734:0D1A 38                DB      38
+0734:0D1B 1A                DB      1A
+0734:0D1C 38                DB      38
+0734:0D1D 62                DB      62
+0734:0D1E 45                DB      45
+0734:0D1F 38                DB      38
+0734:0D20 82                DB      82
+0734:0D21 7856              JS      0D79
+0734:0D23 80                DB      80
+0734:0D24 7815              JS      0D3B
+0734:0D26 80                DB      80
+0734:0D27 56                PUSH    SI
+0734:0D28 3416              XOR     AL,16
+0734:0D2A 80                DB      80
+0734:0D2B 00                DB      00
+0734:0D2C 28                DB      28
+0734:0D2D 80                DB      80
+0734:0D2E 56                PUSH    SI
+0734:0D2F 8881BE56          MOV     [BX+DI+56BE],AL
+0734:0D33 3434              XOR     AL,34
+0734:0D35 12                DB      12
+0734:0D36 81                DB      81
+0734:0D37 15                DB      15
+0734:0D38 3481              XOR     AL,81
+0734:0D3A 7A45              JPE     0D81
+0734:0D3C 854781            TEST    [BX-7F],AX
+0734:0D3F BA7856            MOV     DX,5678
+0734:0D42 36                DB      36
+0734:0D43 15                DB      15
+0734:0D44 83                DB      83
+0734:0D45 BE5634            MOV     SI,3456
+0734:0D48 12                DB      12
+0734:0D49 83                DB      83
+0734:0D4A 3A                DB      3A
+0734:0D4B 35837A            XOR     AX,7A83
+0734:0D4E 45                DB      45
+0734:0D4F 45                DB      45
+0734:0D50 83                DB      83
+0734:0D51 BA7856            MOV     DX,5678
+0734:0D54 16                PUSH    SS
+0734:0D55 80                DB      80
+0734:0D56 15                DB      15
+0734:0D57 80                DB      80
+0734:0D58 16                PUSH    SS
+0734:0D59 80                DB      80
+0734:0D5A 28                DB      28
+0734:0D5B 80                DB      80
+0734:0D5C 8881FB34          MOV     [BX+DI+34FB],AL
+0734:0D60 12                DB      12
+0734:0D61 81                DB      81
+0734:0D62 15                DB      15
+0734:0D63 3481              XOR     AL,81
+0734:0D65 FC                CLD     
+0734:0D66 854781            TEST    [BX-7F],AX
+0734:0D69 FD                STD     
+0734:0D6A 36                DB      36
+0734:0D6B 15                DB      15
+0734:0D6C 83                DB      83
+0734:0D6D FB                STI     
+0734:0D6E 14                DB      14
+0734:0D6F 83                DB      83
+0734:0D70 FE                DB      FE
+0734:0D71 3583FC            XOR     AX,FC83
+0734:0D74 65                DB      65
+0734:0D75 83                DB      83
+0734:0D76 FD                STD     
+0734:0D77 16                PUSH    SS
+0734:0D78 04                DB      04
+0734:0D79 17                POP     SS
+0734:0D7A 05                DB      05
+0734:0D7B 17                POP     SS
+0734:0D7C 52                PUSH    DX
+0734:0D7D 2B                DB      2B
+0734:0D7E 0F                POP     CS
+0734:0D7F 2B                DB      2B
+0734:0D80 57                PUSH    DI
+0734:0D81 782B              JS      0DAE
+0734:0D83 9F                LAHF    
+0734:0D84 56                PUSH    SI
+0734:0D85 342B              XOR     AL,2B
+0734:0D87 302B              XOR     [BP+DI],CH
+0734:0D89 7879              JS      0E04
+0734:0D8B 2B                DB      2B
+0734:0D8C A878              TEST    AL,78
+0734:0D8E 56                PUSH    SI
+0734:0D8F 2B                DB      2B
+0734:0D90 312B              XOR     [BP+DI],BP
+0734:0D92 7929              JNS     0DBD
+0734:0D94 2B                DB      2B
+0734:0D95 A97856            TEST    AX,5678
+0734:0D98 2B                DB      2B
+0734:0D99 242B              AND     AL,2B
+0734:0D9B 54                PUSH    SP
+0734:0D9C 28                DB      28
+0734:0D9D 2B                DB      2B
+0734:0D9E 9C                PUSHF   
+0734:0D9F 56                PUSH    SI
+0734:0DA0 342B              XOR     AL,2B
+0734:0DA2 05                DB      05
+0734:0DA3 2B                DB      2B
+0734:0DA4 55                PUSH    BP
+0734:0DA5 58                POP     AX
+0734:0DA6 2B                DB      2B
+0734:0DA7 9D                POPF    
+0734:0DA8 56                PUSH    SI
+0734:0DA9 342B              XOR     AL,2B
+0734:0DAB 4E                DB      4E
+0734:0DAC 00                DB      00
+0734:0DAD 2B                DB      2B
+0734:0DAE 56                PUSH    SI
+0734:0DAF 58                POP     AX
+0734:0DB0 2B                DB      2B
+0734:0DB1 9E                SAHF    
+0734:0DB2 56                PUSH    SI
+0734:0DB3 342B              XOR     AL,2B
+0734:0DB5 322B              XOR     CH,[BP+DI]
+0734:0DB7 7A39              JPE     0DF2
+0734:0DB9 2B                DB      2B
+0734:0DBA AA                STOSB   
+0734:0DBB 7856              JS      0E13
+0734:0DBD 2B                DB      2B
+0734:0DBE 332B              XOR     BP,[BP+DI]
+0734:0DC0 7B49              JPO     0E0B
+0734:0DC2 2B                DB      2B
+0734:0DC3 AB                STOSW   
+0734:0DC4 7856              JS      0E1C
+0734:0DC6 29                DB      29
+0734:0DC7 0F                POP     CS
+0734:0DC8 29                DB      29
+0734:0DC9 57                PUSH    DI
+0734:0DCA 7829              JS      0DF5
+0734:0DCC 9F                LAHF    
+0734:0DCD 56                PUSH    SI
+0734:0DCE 3429              XOR     AL,29
+0734:0DD0 00                DB      00
+0734:0DD1 29                DB      29
+0734:0DD2 60                DB      60
+0734:0DD3 69                DB      69
+0734:0DD4 29                DB      29
+0734:0DD5 B87856            MOV     AX,5678
+0734:0DD8 29                DB      29
+0734:0DD9 29                DB      29
+0734:0DDA 29                DB      29
+0734:0DDB 7149              JNO     0E26
+0734:0DDD 29                DB      29
+0734:0DDE B97856            MOV     CX,5678
+0734:0DE1 29                DB      29
+0734:0DE2 04                DB      04
+0734:0DE3 29                DB      29
+0734:0DE4 4C                DB      4C
+0734:0DE5 7829              JS      0E10
+0734:0DE7 94                XCHG    AX,SP
+0734:0DE8 56                PUSH    SI
+0734:0DE9 3429              XOR     AL,29
+0734:0DEB 2D                DB      2D
+0734:0DEC 29                DB      29
+0734:0DED 65                DB      65
+0734:0DEE 7829              JS      0E19
+0734:0DF0 B556              MOV     CH,56
+0734:0DF2 3429              XOR     AL,29
+0734:0DF4 7E00              JLE     0DF6
+0734:0DF6 29                DB      29
+0734:0DF7 4E                DB      4E
+0734:0DF8 7829              JS      0E23
+0734:0DFA 96                XCHG    AX,SI
+0734:0DFB 56                PUSH    SI
+0734:0DFC 3429              XOR     AL,29
+0734:0DFE 3229              XOR     CH,[BX+DI]
+0734:0E00 7A59              JPE     0E5B
+0734:0E02 29                DB      29
+0734:0E03 82                DB      82
+0734:0E04 7856              JS      0E5C
+0734:0E06 29                DB      29
+0734:0E07 3B                DB      3B
+0734:0E08 29                DB      29
+0734:0E09 5B                POP     BX
+0734:0E0A 19                DB      19
+0734:0E0B 29                DB      29
+0734:0E0C 93                XCHG    AX,BX
+0734:0E0D 7856              JS      0E65
+0734:0E0F 2A                DB      2A
+0734:0E10 05                DB      05
+0734:0E11 2A                DB      2A
+0734:0E12 65                DB      65
+0734:0E13 782A              JS      0E3F
+0734:0E15 BD5634            MOV     BP,3456
+0734:0E18 2A                DB      2A
+0734:0E19 4E                DB      4E
+0734:0E1A 00                DB      00
+0734:0E1B 2A                DB      2A
+0734:0E1C 56                PUSH    SI
+0734:0E1D 782A              JS      0E49
+0734:0E1F 9E                SAHF    
+0734:0E20 56                PUSH    SI
+0734:0E21 342A              XOR     AL,2A
+0734:0E23 2A                DB      2A
+0734:0E24 28                DB      28
+0734:0E25 7578              JNZ     0E9F
+0734:0E27 28                DB      28
+0734:0E28 95                XCHG    AX,BP
+0734:0E29 56                PUSH    SI
+0734:0E2A 3428              XOR     AL,28
+0734:0E2C 6E                DB      6E
+0734:0E2D 00                DB      00
+0734:0E2E 28                DB      28
+0734:0E2F 4E                DB      4E
+0734:0E30 56                PUSH    SI
+0734:0E31 28                DB      28
+0734:0E32 BE5634            MOV     SI,3456
+0734:0E35 28                DB      28
+0734:0E36 1A                DB      1A
+0734:0E37 28                DB      28
+0734:0E38 62                DB      62
+0734:0E39 45                DB      45
+0734:0E3A 28                DB      28
+0734:0E3B 82                DB      82
+0734:0E3C 7856              JS      0E94
+0734:0E3E 80                DB      80
+0734:0E3F 7815              JS      0E56
+0734:0E41 80                DB      80
+0734:0E42 56                PUSH    SI
+0734:0E43 3416              XOR     AL,16
+0734:0E45 80                DB      80
+0734:0E46 00                DB      00
+0734:0E47 28                DB      28
+0734:0E48 80                DB      80
+0734:0E49 56                PUSH    SI
+0734:0E4A 8881AE56          MOV     [BX+DI+56AE],AL
+0734:0E4E 3434              XOR     AL,34
+0734:0E50 12                DB      12
+0734:0E51 81                DB      81
+0734:0E52 15                DB      15
+0734:0E53 3481              XOR     AL,81
+0734:0E55 6A                DB      6A
+0734:0E56 45                DB      45
+0734:0E57 854781            TEST    [BX-7F],AX
+0734:0E5A AA                STOSB   
+0734:0E5B 7856              JS      0EB3
+0734:0E5D 36                DB      36
+0734:0E5E 15                DB      15
+0734:0E5F 83                DB      83
+0734:0E60 AE                SCASB   
+0734:0E61 56                PUSH    SI
+0734:0E62 3412              XOR     AL,12
+0734:0E64 83                DB      83
+0734:0E65 2A                DB      2A
+0734:0E66 35836A            XOR     AX,6A83
+0734:0E69 45                DB      45
+0734:0E6A 45                DB      45
+0734:0E6B 83                DB      83
+0734:0E6C AA                STOSB   
+0734:0E6D 7856              JS      0EC5
+0734:0E6F 16                PUSH    SS
+0734:0E70 80                DB      80
+0734:0E71 15                DB      15
+0734:0E72 80                DB      80
+0734:0E73 16                PUSH    SS
+0734:0E74 80                DB      80
+0734:0E75 28                DB      28
+0734:0E76 80                DB      80
+0734:0E77 8881EB34          MOV     [BX+DI+34EB],AL
+0734:0E7B 12                DB      12
+0734:0E7C 81                DB      81
+0734:0E7D 15                DB      15
+0734:0E7E 3481              XOR     AL,81
+0734:0E80 EC                IN      AL,DX
+0734:0E81 854781            TEST    [BX-7F],AX
+0734:0E84 ED                IN      AX,DX
+0734:0E85 36                DB      36
+0734:0E86 15                DB      15
+0734:0E87 83                DB      83
+0734:0E88 EB14              JMP     0E9E
+0734:0E8A 83                DB      83
+0734:0E8B EE                OUT     DX,AL
+0734:0E8C 3583EC            XOR     AX,EC83
+0734:0E8F 65                DB      65
+0734:0E90 83                DB      83
+0734:0E91 ED                IN      AX,DX
+0734:0E92 16                PUSH    SS
+0734:0E93 04                DB      04
+0734:0E94 17                POP     SS
+0734:0E95 05                DB      05
+0734:0E96 17                POP     SS
+0734:0E97 52                PUSH    DX
+0734:0E98 1B                DB      1B
+0734:0E99 0F                POP     CS
+0734:0E9A 1B                DB      1B
+0734:0E9B 57                PUSH    DI
+0734:0E9C 781B              JS      0EB9
+0734:0E9E 9F                LAHF    
+0734:0E9F 56                PUSH    SI
+0734:0EA0 341B              XOR     AL,1B
+0734:0EA2 301B              XOR     [BP+DI],BL
+0734:0EA4 7879              JS      0F1F
+0734:0EA6 1B                DB      1B
+0734:0EA7 A878              TEST    AL,78
+0734:0EA9 56                PUSH    SI
+0734:0EAA 1B                DB      1B
+0734:0EAB 311B              XOR     [BP+DI],BX
+0734:0EAD 7929              JNS     0ED8
+0734:0EAF 1B                DB      1B
+0734:0EB0 A97856            TEST    AX,5678
+0734:0EB3 1B                DB      1B
+0734:0EB4 241B              AND     AL,1B
+0734:0EB6 54                PUSH    SP
+0734:0EB7 28                DB      28
+0734:0EB8 1B                DB      1B
+0734:0EB9 9C                PUSHF   
+0734:0EBA 56                PUSH    SI
+0734:0EBB 341B              XOR     AL,1B
+0734:0EBD 05                DB      05
+0734:0EBE 1B                DB      1B
+0734:0EBF 55                PUSH    BP
+0734:0EC0 58                POP     AX
+0734:0EC1 1B                DB      1B
+0734:0EC2 9D                POPF    
+0734:0EC3 56                PUSH    SI
+0734:0EC4 341B              XOR     AL,1B
+0734:0EC6 4E                DB      4E
+0734:0EC7 00                DB      00
+0734:0EC8 1B                DB      1B
+0734:0EC9 56                PUSH    SI
+0734:0ECA 58                POP     AX
+0734:0ECB 1B                DB      1B
+0734:0ECC 9E                SAHF    
+0734:0ECD 56                PUSH    SI
+0734:0ECE 341B              XOR     AL,1B
+0734:0ED0 321B              XOR     BL,[BP+DI]
+0734:0ED2 7A39              JPE     0F0D
+0734:0ED4 1B                DB      1B
+0734:0ED5 AA                STOSB   
+0734:0ED6 7856              JS      0F2E
+0734:0ED8 1B                DB      1B
+0734:0ED9 331B              XOR     BX,[BP+DI]
+0734:0EDB 7B49              JPO     0F26
+0734:0EDD 1B                DB      1B
+0734:0EDE AB                STOSW   
+0734:0EDF 7856              JS      0F37
+0734:0EE1 19                DB      19
+0734:0EE2 0F                POP     CS
+0734:0EE3 19                DB      19
+0734:0EE4 57                PUSH    DI
+0734:0EE5 7819              JS      0F00
+0734:0EE7 9F                LAHF    
+0734:0EE8 56                PUSH    SI
+0734:0EE9 3419              XOR     AL,19
+0734:0EEB 00                DB      00
+0734:0EEC 19                DB      19
+0734:0EED 60                DB      60
+0734:0EEE 69                DB      69
+0734:0EEF 19                DB      19
+0734:0EF0 B87856            MOV     AX,5678
+0734:0EF3 19                DB      19
+0734:0EF4 29                DB      29
+0734:0EF5 19                DB      19
+0734:0EF6 7149              JNO     0F41
+0734:0EF8 19                DB      19
+0734:0EF9 B97856            MOV     CX,5678
+0734:0EFC 19                DB      19
+0734:0EFD 04                DB      04
+0734:0EFE 19                DB      19
+0734:0EFF 4C                DB      4C
+0734:0F00 7819              JS      0F1B
+0734:0F02 94                XCHG    AX,SP
+0734:0F03 56                PUSH    SI
+0734:0F04 3419              XOR     AL,19
+0734:0F06 2D                DB      2D
+0734:0F07 19                DB      19
+0734:0F08 65                DB      65
+0734:0F09 7819              JS      0F24
+0734:0F0B B556              MOV     CH,56
+0734:0F0D 3419              XOR     AL,19
+0734:0F0F 7E00              JLE     0F11
+0734:0F11 19                DB      19
+0734:0F12 4E                DB      4E
+0734:0F13 7819              JS      0F2E
+0734:0F15 96                XCHG    AX,SI
+0734:0F16 56                PUSH    SI
+0734:0F17 3419              XOR     AL,19
+0734:0F19 3219              XOR     BL,[BX+DI]
+0734:0F1B 7A59              JPE     0F76
+0734:0F1D 19                DB      19
+0734:0F1E 82                DB      82
+0734:0F1F 7856              JS      0F77
+0734:0F21 19                DB      19
+0734:0F22 3B                DB      3B
+0734:0F23 19                DB      19
+0734:0F24 5B                POP     BX
+0734:0F25 19                DB      19
+0734:0F26 19                DB      19
+0734:0F27 93                XCHG    AX,BX
+0734:0F28 7856              JS      0F80
+0734:0F2A 1A                DB      1A
+0734:0F2B 05                DB      05
+0734:0F2C 1A                DB      1A
+0734:0F2D 65                DB      65
+0734:0F2E 781A              JS      0F4A
+0734:0F30 BD5634            MOV     BP,3456
+0734:0F33 1A                DB      1A
+0734:0F34 4E                DB      4E
+0734:0F35 00                DB      00
+0734:0F36 1A                DB      1A
+0734:0F37 56                PUSH    SI
+0734:0F38 781A              JS      0F54
+0734:0F3A 9E                SAHF    
+0734:0F3B 56                PUSH    SI
+0734:0F3C 341A              XOR     AL,1A
+0734:0F3E 2A                DB      2A
+0734:0F3F 18                DB      18
+0734:0F40 7578              JNZ     0FBA
+0734:0F42 18                DB      18
+0734:0F43 95                XCHG    AX,BP
+0734:0F44 56                PUSH    SI
+0734:0F45 3418              XOR     AL,18
+0734:0F47 6E                DB      6E
+0734:0F48 00                DB      00
+0734:0F49 18                DB      18
+0734:0F4A 4E                DB      4E
+0734:0F4B 56                PUSH    SI
+0734:0F4C 18                DB      18
+0734:0F4D BE5634            MOV     SI,3456
+0734:0F50 18                DB      18
+0734:0F51 1A                DB      1A
+0734:0F52 18                DB      18
+0734:0F53 62                DB      62
+0734:0F54 45                DB      45
+0734:0F55 18                DB      18
+0734:0F56 82                DB      82
+0734:0F57 7856              JS      0FAF
+0734:0F59 80                DB      80
+0734:0F5A 7815              JS      0F71
+0734:0F5C 80                DB      80
+0734:0F5D 56                PUSH    SI
+0734:0F5E 3416              XOR     AL,16
+0734:0F60 80                DB      80
+0734:0F61 00                DB      00
+0734:0F62 28                DB      28
+0734:0F63 80                DB      80
+0734:0F64 56                PUSH    SI
+0734:0F65 88819E56          MOV     [BX+DI+569E],AL
+0734:0F69 3434              XOR     AL,34
+0734:0F6B 12                DB      12
+0734:0F6C 81                DB      81
+0734:0F6D 15                DB      15
+0734:0F6E 3481              XOR     AL,81
+0734:0F70 5A                POP     DX
+0734:0F71 45                DB      45
+0734:0F72 854781            TEST    [BX-7F],AX
+0734:0F75 9A78563615        CALL    1536:5678
+0734:0F7A 83                DB      83
+0734:0F7B 9E                SAHF    
+0734:0F7C 56                PUSH    SI
+0734:0F7D 3412              XOR     AL,12
+0734:0F7F 83                DB      83
+0734:0F80 1A                DB      1A
+0734:0F81 35835A            XOR     AX,5A83
+0734:0F84 45                DB      45
+0734:0F85 45                DB      45
+0734:0F86 83                DB      83
+0734:0F87 9A78561680        CALL    8016:5678
+0734:0F8C D9                DB      D9
+0734:0F8D 15                DB      15
+0734:0F8E 80                DB      80
+0734:0F8F 16                PUSH    SS
+0734:0F90 80                DB      80
+0734:0F91 28                DB      28
+0734:0F92 80                DB      80
+0734:0F93 8881DB34          MOV     [BX+DI+34DB],AL
+0734:0F97 12                DB      12
+0734:0F98 81                DB      81
+0734:0F99 15                DB      15
+0734:0F9A 3481              XOR     AL,81
+0734:0F9C DC                DB      DC
+0734:0F9D 854781            TEST    [BX-7F],AX
+0734:0FA0 DD                DB      DD
+0734:0FA1 36                DB      36
+0734:0FA2 15                DB      15
+0734:0FA3 83                DB      83
+0734:0FA4 DB                DB      DB
+0734:0FA5 14                DB      14
+0734:0FA6 83                DB      83
+0734:0FA7 DE                DB      DE
+0734:0FA8 3583DC            XOR     AX,DC83
+0734:0FAB 65                DB      65
+0734:0FAC 83                DB      83
+0734:0FAD DD                DB      DD
+0734:0FAE 16                PUSH    SS
+0734:0FAF 04                DB      04
+0734:0FB0 17                POP     SS
+0734:0FB1 05                DB      05
+0734:0FB2 17                POP     SS
+0734:0FB3 52                PUSH    DX
+0734:0FB4 F7                DB      F7
+0734:0FB5 F7                DB      F7
+0734:0FB6 78F7              JS      0FAF
+0734:0FB8 A7                CMPSW   
+0734:0FB9 56                PUSH    SI
+0734:0FBA 34F7              XOR     AL,F7
+0734:0FBC 20F7              AND     BH,DH
+0734:0FBE 60                DB      60
+0734:0FBF 79F7              JNS     0FB8
+0734:0FC1 A07856            MOV     AL,[5678]
+0734:0FC4 F7                DB      F7
+0734:0FC5 F7                DB      F7
+0734:0FC6 29                DB      29
+0734:0FC7 F7                DB      F7
+0734:0FC8 7856              JS      1020
+0734:0FCA F7                DB      F7
+0734:0FCB F7                DB      F7
+0734:0FCC 28                DB      28
+0734:0FCD F7                DB      F7
+0734:0FCE 56                PUSH    SI
+0734:0FCF 34F7              XOR     AL,F7
+0734:0FD1 25F765            AND     AX,65F7
+0734:0FD4 58                POP     AX
+0734:0FD5 F7                DB      F7
+0734:0FD6 56                PUSH    SI
+0734:0FD7 34F7              XOR     AL,F7
+0734:0FD9 E5F7              IN      AX,F7
+0734:0FDB 66                DB      66
+0734:0FDC 58                POP     AX
+0734:0FDD F7                DB      F7
+0734:0FDE 56                PUSH    SI
+0734:0FDF 34F7              XOR     AL,F7
+0734:0FE1 E1F7              LOOPZW  0FDA
+0734:0FE3 62                DB      62
+0734:0FE4 39                DB      39
+0734:0FE5 F7                DB      F7
+0734:0FE6 7856              JS      103E
+0734:0FE8 F7                DB      F7
+0734:0FE9 F7                DB      F7
+0734:0FEA 49                DB      49
+0734:0FEB F7                DB      F7
+0734:0FEC F6                DB      F6
+0734:0FED 78F6              JS      0FE5
+0734:0FEF A5                MOVSW   
+0734:0FF0 56                PUSH    SI
+0734:0FF1 34F6              XOR     AL,F6
+0734:0FF3 E6F6              OUT     F6,AL
+0734:0FF5 66                DB      66
+0734:0FF6 78F6              JS      0FEE
+0734:0FF8 A6                CMPSB   
+0734:0FF9 56                PUSH    SI
+0734:0FFA 34F6              XOR     AL,F6
+0734:0FFC E4F6              IN      AL,F6
+0734:0FFE E3F6              JCXZ    0FF6
+0734:1000 A5                MOVSW   
+0734:1001 56                PUSH    SI
+0734:1002 34F7              XOR     AL,F7
+0734:1004 2F                DAS     
+0734:1005 F7                DB      F7
+0734:1006 78F7              JS      0FFF
+0734:1008 AF                SCASW   
+0734:1009 56                PUSH    SI
+0734:100A 34F7              XOR     AL,F7
+0734:100C 28                DB      28
+0734:100D F7                DB      F7
+0734:100E 79F7              JNS     1007
+0734:1010 A878              TEST    AL,78
+0734:1012 56                PUSH    SI
+0734:1013 F7                DB      F7
+0734:1014 F7                DB      F7
+0734:1015 29                DB      29
+0734:1016 F7                DB      F7
+0734:1017 7856              JS      106F
+0734:1019 F7                DB      F7
+0734:101A F7                DB      F7
+0734:101B 28                DB      28
+0734:101C F7                DB      F7
+0734:101D 56                PUSH    SI
+0734:101E 34F7              XOR     AL,F7
+0734:1020 2D                DB      2D
+0734:1021 F7                DB      F7
+0734:1022 58                POP     AX
+0734:1023 F7                DB      F7
+0734:1024 56                PUSH    SI
+0734:1025 34F7              XOR     AL,F7
+0734:1027 ED                IN      AX,DX
+0734:1028 F7                DB      F7
+0734:1029 58                POP     AX
+0734:102A F7                DB      F7
+0734:102B 56                PUSH    SI
+0734:102C 34F7              XOR     AL,F7
+0734:102E E9F76A            JMP     7B28
+0734:1031 39                DB      39
+0734:1032 F7                DB      F7
+0734:1033 7856              JS      108B
+0734:1035 F7                DB      F7
+0734:1036 F7                DB      F7
+0734:1037 49                DB      49
+0734:1038 F7                DB      F7
+0734:1039 F6                DB      F6
+0734:103A 78F6              JS      1032
+0734:103C AD                LODSW   
+0734:103D 56                PUSH    SI
+0734:103E 34F6              XOR     AL,F6
+0734:1040 EE                OUT     DX,AL
+0734:1041 F6                DB      F6
+0734:1042 78F6              JS      103A
+0734:1044 AE                SCASB   
+0734:1045 56                PUSH    SI
+0734:1046 34F6              XOR     AL,F6
+0734:1048 EC                IN      AL,DX
+0734:1049 F6                DB      F6
+0734:104A F6                DB      F6
+0734:104B 56                PUSH    SI
+0734:104C 34F7              XOR     AL,F7
+0734:104E 37                AAA     
+0734:104F F7                DB      F7
+0734:1050 78F7              JS      1049
+0734:1052 B756              MOV     BH,56
+0734:1054 34F7              XOR     AL,F7
+0734:1056 30F7              XOR     BH,DH
+0734:1058 7079              JO      10D3
+0734:105A F7                DB      F7
+0734:105B 7856              JS      10B3
+0734:105D F7                DB      F7
+0734:105E F7                DB      F7
+0734:105F 29                DB      29
+0734:1060 F7                DB      F7
+0734:1061 7856              JS      10B9
+0734:1063 F7                DB      F7
+0734:1064 F7                DB      F7
+0734:1065 28                DB      28
+0734:1066 F7                DB      F7
+0734:1067 56                PUSH    SI
+0734:1068 34F7              XOR     AL,F7
+0734:106A 35F775            XOR     AX,75F7
+0734:106D 58                POP     AX
+0734:106E F7                DB      F7
+0734:106F 56                PUSH    SI
+0734:1070 34F7              XOR     AL,F7
+0734:1072 F5                CMC     
+0734:1073 F7                DB      F7
+0734:1074 58                POP     AX
+0734:1075 F7                DB      F7
+0734:1076 56                PUSH    SI
+0734:1077 34F7              XOR     AL,F7
+0734:1079 F1                DB      F1
+0734:107A F7                DB      F7
+0734:107B 39                DB      39
+0734:107C F7                DB      F7
+0734:107D 7856              JS      10D5
+0734:107F F7                DB      F7
+0734:1080 F7                DB      F7
+0734:1081 49                DB      49
+0734:1082 F7                DB      F7
+0734:1083 F6                DB      F6
+0734:1084 78F6              JS      107C
+0734:1086 B556              MOV     CH,56
+0734:1088 34F6              XOR     AL,F6
+0734:108A F6                DB      F6
+0734:108B 7678              JBE     1105
+0734:108D F6                DB      F6
+0734:108E 56                PUSH    SI
+0734:108F 34F6              XOR     AL,F6
+0734:1091 F2F6              REPNE   CMPSB
+0734:1093 F3F6              REPE    CMPSB
+0734:1095 B556              MOV     CH,56
+0734:1097 34F7              XOR     AL,F7
+0734:1099 3F                AAS     
+0734:109A F7                DB      F7
+0734:109B 78F7              JS      1094
+0734:109D BF5634            MOV     DI,3456
+0734:10A0 F7                DB      F7
+0734:10A1 F7                DB      F7
+0734:10A2 79F7              JNS     109B
+0734:10A4 B87856            MOV     AX,5678
+0734:10A7 F7                DB      F7
+0734:10A8 F7                DB      F7
+0734:10A9 29                DB      29
+0734:10AA F7                DB      F7
+0734:10AB 7856              JS      1103
+0734:10AD F7                DB      F7
+0734:10AE F7                DB      F7
+0734:10AF 28                DB      28
+0734:10B0 F7                DB      F7
+0734:10B1 56                PUSH    SI
+0734:10B2 34F7              XOR     AL,F7
+0734:10B4 3D                DB      3D
+0734:10B5 F7                DB      F7
+0734:10B6 58                POP     AX
+0734:10B7 F7                DB      F7
+0734:10B8 56                PUSH    SI
+0734:10B9 34F7              XOR     AL,F7
+0734:10BB FD                STD     
+0734:10BC F7                DB      F7
+0734:10BD 58                POP     AX
+0734:10BE F7                DB      F7
+0734:10BF 56                PUSH    SI
+0734:10C0 34F7              XOR     AL,F7
+0734:10C2 F8                CLC     
+0734:10C3 F7                DB      F7
+0734:10C4 39                DB      39
+0734:10C5 F7                DB      F7
+0734:10C6 7856              JS      111E
+0734:10C8 F7                DB      F7
+0734:10C9 F7                DB      F7
+0734:10CA 49                DB      49
+0734:10CB F7                DB      F7
+0734:10CC F6                DB      F6
+0734:10CD 78F6              JS      10C5
+0734:10CF BD5634            MOV     BP,3456
+0734:10D2 F6                DB      F6
+0734:10D3 F6                DB      F6
+0734:10D4 78F6              JS      10CC
+0734:10D6 BE5634            MOV     SI,3456
+0734:10D9 F6                DB      F6
+0734:10DA F6                DB      F6
+0734:10DB F6                DB      F6
+0734:10DC 56                PUSH    SI
+0734:10DD 34FF              XOR     AL,FF
+0734:10DF 07                POP     ES
+0734:10E0 FF                DB      FF
+0734:10E1 78FF              JS      10E2
+0734:10E3 875634            XCHG    DX,[BP+34]
+0734:10E6 FF                DB      FF
+0734:10E7 FF                DB      FF
+0734:10E8 79FF              JNS     10E9
+0734:10EA 80                DB      80
+0734:10EB 56                PUSH    SI
+0734:10EC FF                DB      FF
+0734:10ED FF                DB      FF
+0734:10EE 29                DB      29
+0734:10EF FF                DB      FF
+0734:10F0 7856              JS      1148
+0734:10F2 FF                DB      FF
+0734:10F3 FF                DB      FF
+0734:10F4 28                DB      28
+0734:10F5 FF                DB      FF
+0734:10F6 56                PUSH    SI
+0734:10F7 34FF              XOR     AL,FF
+0734:10F9 05                DB      05
+0734:10FA FF                DB      FF
+0734:10FB 58                POP     AX
+0734:10FC FF                DB      FF
+0734:10FD 56                PUSH    SI
+0734:10FE 34FE              XOR     AL,FE
+0734:1000 C0                DB      C0
+0734:1001 FE                DB      FE
+0734:1002 C1                DB      C1
+0734:1003 FE                DB      FE
+0734:1004 C2FEC3            RET     C3FE
+0734:1007 FE                DB      FE
+0734:1008 C4FE              LES     DI,SI
+0734:100A C5FE              LDS     DI,SI
+0734:100C C7FEC640          MOV     SI,40C6
+0734:1010 41                DB      41
+0734:1011 42                DB      42
+0734:1012 43                DB      43
+0734:1013 44                DB      44
+0734:1014 45                DB      45
+0734:1015 46                DB      46
+0734:1016 47                DB      47
+0734:1017 FF                DB      FF
+0734:1018 FF                DB      FF
+0734:1019 78FF              JS      101A
+0734:101B 8F                DB      8F
+0734:101C 34FF              XOR     AL,FF
+0734:101E 08FF              OR      BH,BH
+0734:1020 48                DB      48
+0734:1021 79FF              JNS     1022
+0734:1023 887856            MOV     [BX+SI+56],BH
+0734:1026 FF                DB      FF
+0734:1027 FF                DB      FF
+0734:1028 29                DB      29
+0734:1029 FF                DB      FF
+0734:102A 7856              JS      1082
+0734:102C FF                DB      FF
+0734:102D FF                DB      FF
+0734:102E 28                DB      28
+0734:102F FF                DB      FF
+0734:1030 56                PUSH    SI
+0734:1031 34FF              XOR     AL,FF
+0734:1033 0DFF4D            OR      AX,4DFF
+0734:1036 58                POP     AX
+0734:1037 FF                DB      FF
+0734:1038 56                PUSH    SI
+0734:1039 34FE              XOR     AL,FE
+0734:103B C8                DB      C8
+0734:103C FE                DB      FE
+0734:103D C9                DB      C9
+0734:103E FE                DB      FE
+0734:103F CAFECB            RETF    CBFE
+0734:1042 FE                DB      FE
+0734:1043 CC                INT     03
+0734:1044 FE                DB      FE
+0734:1045 CDFE              INT     FE
+0734:1047 CF                IRET    
+0734:1048 FE                DB      FE
+0734:1049 CE                INTO    
+0734:104A 48                DB      48
+0734:104B 49                DB      49
+0734:104C 4A                DB      4A
+0734:104D 4B                DB      4B
+0734:104E 4C                DB      4C
+0734:104F 4D                DB      4D
+0734:1050 4E                DB      4E
+0734:1051 4F                DB      4F
+0734:1052 37                AAA     
+0734:1053 D50A              AAD     
+0734:1055 3F                AAS     
+0734:1056 D40A              AAM     
+0734:1058 D5                DB      D5
+0734:1059 D4                DB      D4
+0734:105A 27                DAA     
+0734:105B 2F                DAS     
+0734:105C F7                DB      F7
+0734:105D F7                DB      F7
+0734:105E 58                POP     AX
+0734:105F F7                DB      F7
+0734:1060 56                PUSH    SI
+0734:1061 34F7              XOR     AL,F7
+0734:1063 D9                DB      D9
+0734:1064 F7                DB      F7
+0734:1065 39                DB      39
+0734:1066 F7                DB      F7
+0734:1067 7856              JS      10BF
+0734:1069 F7                DB      F7
+0734:106A F7                DB      F7
+0734:106B 49                DB      49
+0734:106C F7                DB      F7
+0734:106D F6                DB      F6
+0734:106E 78F6              JS      1066
+0734:1070 9D                POPF    
+0734:1071 56                PUSH    SI
+0734:1072 34F6              XOR     AL,F6
+0734:1074 DE                DB      DE
+0734:1075 F6                DB      F6
+0734:1076 78F6              JS      106E
+0734:1078 9E                SAHF    
+0734:1079 56                PUSH    SI
+0734:107A 34F6              XOR     AL,F6
+0734:107C DC                DB      DC
+0734:107D F6                DB      F6
+0734:107E F6                DB      F6
+0734:107F 56                PUSH    SI
+0734:1080 3498              XOR     AL,98
+0734:1082 99                CWD     
