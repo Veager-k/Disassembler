@@ -6,7 +6,7 @@
 
     jmp %%skip
     %%string:        
-        db %2, '$'
+        db %2
     
     %%skip:
 
@@ -37,13 +37,15 @@
         inc di
     loop .%%printCode
     
-    printStr 1, " "
+    mov bx, space
+    call printString
     mov cx, 8
     mov al, %1
     mov ah, 0
     sub cx, ax
     .%%printSpace
-        printStr 2, "  "
+        call printString
+        call printString
     loop .%%printSpace
 
     pop di
@@ -57,22 +59,20 @@
     push cx
     push di
 
-    printStr 1, " "
+    mov bx, space
+    call printString
     printStr %1, %2
     
     mov cx, 8
     sub cx, %1
     .%%printSpace
-        printStr 1, " "
+        mov bx, space
+        call printString
     loop .%%printSpace
 
     pop di
     pop cx
     pop bx
-%endmacro
-
-%macro printNL 0
-    printStr 2, 0dh, 0ah
 %endmacro
 
 %macro interpretMod 1
@@ -174,7 +174,7 @@ pradzia:
             mov bx, [opCode+1]
             add bx, word [codeLine]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
 
         .JMP_Dir_wSeg_Short
@@ -191,7 +191,7 @@ pradzia:
             mov bl, [opCode+1]
             add bx, word [codeLine]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
             
         .JMP_Dir_intSeg
@@ -212,7 +212,7 @@ pradzia:
             printStr 1, ":"
             mov bx, [opCode+1]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .RET_wSeg
@@ -222,7 +222,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "RET"
-            printNL
+            call printNL
             jmp .disassemble
         
         .RET_wSegSP
@@ -236,7 +236,7 @@ pradzia:
             printCMDname 3, "RET"
             mov bx, [opCode+1]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
 
         .RET_intSeg
@@ -246,7 +246,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "RETF"
-            printNL
+            call printNL
             jmp .disassemble
         
         .RET_intSegSP
@@ -260,7 +260,7 @@ pradzia:
             printCMDname 4, "RETF"
             mov bx, [opCode+1]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .JZ_
@@ -273,7 +273,7 @@ pradzia:
             printCMDname 2, "JZ"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JL_
@@ -286,7 +286,7 @@ pradzia:
             printCMDname 2, "JL"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JLE_
@@ -299,7 +299,7 @@ pradzia:
             printCMDname 3, "JLE"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JB_
@@ -312,7 +312,7 @@ pradzia:
             printCMDname 2, "JB"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JBE_
@@ -325,7 +325,7 @@ pradzia:
             printCMDname 3, "JBE"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JPE_
@@ -338,7 +338,7 @@ pradzia:
             printCMDname 3, "JPE"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JO_
@@ -351,7 +351,7 @@ pradzia:
             printCMDname 2, "JO"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JS_
@@ -364,7 +364,7 @@ pradzia:
             printCMDname 2, "JS"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JNZ_
@@ -377,7 +377,7 @@ pradzia:
             printCMDname 3, "JNZ"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JGE_
@@ -390,7 +390,7 @@ pradzia:
             printCMDname 3, "JGE"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JG_
@@ -403,7 +403,7 @@ pradzia:
             printCMDname 2, "JG"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JAE_
@@ -416,7 +416,7 @@ pradzia:
             printCMDname 3, "JAE"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JA_
@@ -429,7 +429,7 @@ pradzia:
             printCMDname 2, "JA"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JPO_
@@ -442,7 +442,7 @@ pradzia:
             printCMDname 3, "JPO"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JNO_
@@ -455,7 +455,7 @@ pradzia:
             printCMDname 3, "JNO"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
 
         .JNS_
@@ -468,7 +468,7 @@ pradzia:
             printCMDname 3, "JNS"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .LOOPW_
@@ -481,7 +481,7 @@ pradzia:
             printCMDname 5, "LOOPW"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .LOOPZW_
@@ -494,7 +494,7 @@ pradzia:
             printCMDname 6, "LOOPZW"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .LOOPNZW_
@@ -507,7 +507,7 @@ pradzia:
             printCMDname 7, "LOOPNZW"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .JCXZ_
@@ -520,7 +520,7 @@ pradzia:
             printCMDname 4, "JCXZ"
 
             call negJumpByte
-            printNL
+            call printNL
             jmp .disassemble
         
         .INT_
@@ -534,7 +534,7 @@ pradzia:
 
             mov bl, [opCode+1]
             call printBHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .INT3_
@@ -547,7 +547,7 @@ pradzia:
 
             mov bl, 3
             call printBHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .INTO_
@@ -557,7 +557,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "INTO"
-            printNL
+            call printNL
             jmp .disassemble
 
         .IRET_
@@ -567,7 +567,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "IRET"
-            printNL
+            call printNL
             jmp .disassemble
 
         .CLC_
@@ -577,7 +577,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CLC"
-            printNL
+            call printNL
             jmp .disassemble
 
         .CMC_
@@ -587,7 +587,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CMC"
-            printNL
+            call printNL
             jmp .disassemble
 
         .STC_
@@ -597,7 +597,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "STC"
-            printNL
+            call printNL
             jmp .disassemble
 
         .CLD_
@@ -607,7 +607,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CLD"
-            printNL
+            call printNL
             jmp .disassemble
         
         .STD_
@@ -617,7 +617,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "STD"
-            printNL
+            call printNL
             jmp .disassemble
         
         .CLI_
@@ -627,7 +627,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CLI"
-            printNL
+            call printNL
             jmp .disassemble
             
         .STI_
@@ -637,7 +637,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "STI"
-            printNL
+            call printNL
             jmp .disassemble
         
         .HLT_
@@ -647,7 +647,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "HLT"
-            printNL
+            call printNL
             jmp .disassemble
 
         .WAIT_
@@ -657,7 +657,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "WAIT"
-            printNL
+            call printNL
             jmp .disassemble
         
         .LOCK_
@@ -667,7 +667,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "LOCK"
-            printNL
+            call printNL
             jmp .disassemble
         
         .CALL_dir_wSeg
@@ -683,7 +683,7 @@ pradzia:
             mov bx, [opCode+1]
             add bx, word [codeLine]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .CALL_dir_intSeg
@@ -703,7 +703,7 @@ pradzia:
             printStr 1, ":"
             mov bx, [opCode+1]
             call printWHex
-            printNL
+            call printNL
             jmp .disassemble
         
         .CWD_
@@ -713,7 +713,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CWD"
-            printNL
+            call printNL
             jmp .disassemble
         
         .CBW_
@@ -723,7 +723,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "CBW"
-            printNL
+            call printNL
             jmp .disassemble
         
         .DAS_
@@ -733,7 +733,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "DAS"
-            printNL
+            call printNL
             jmp .disassemble
         
         .AAS_
@@ -743,7 +743,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "AAS"
-            printNL
+            call printNL
             jmp .disassemble
         
         .DAA_
@@ -753,7 +753,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "DAA"
-            printNL
+            call printNL
             jmp .disassemble
         
         .AAA_
@@ -763,7 +763,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 3, "AAA"
-            printNL
+            call printNL
             jmp .disassemble
         
         .POPF_
@@ -773,7 +773,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "POPF"
-            printNL
+            call printNL
             jmp .disassemble
         
         .PUSHF_
@@ -783,7 +783,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 5, "PUSHF"
-            printNL
+            call printNL
             jmp .disassemble
         
         .SAHF_
@@ -793,7 +793,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "SAHF"
-            printNL
+            call printNL
             jmp .disassemble
         
         .LAHF_
@@ -803,7 +803,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "LAHF"
-            printNL
+            call printNL
             jmp .disassemble
         
         .XLAT_
@@ -813,7 +813,7 @@ pradzia:
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "XLAT"
-            printNL
+            call printNL
             jmp .disassemble
         
         .LEA_
@@ -828,9 +828,10 @@ pradzia:
             mov [reg], bl 
             printCMDname 3, "LEA"
             call print16Reg
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printRMdisp
-            printNL
+            call printNL
             jmp .disassemble
         
         .LDS_
@@ -845,9 +846,10 @@ pradzia:
             mov [reg], bl 
             printCMDname 3, "LDS"
             call print16Reg
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printRMdisp
-            printNL
+            call printNL
             jmp .disassemble
         
         .LES_
@@ -862,9 +864,10 @@ pradzia:
             mov [reg], bl 
             printCMDname 3, "LES"
             call print16Reg
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printRMdisp
-            printNL
+            call printNL
             jmp .disassemble
         
         .MOV_rm_sr
@@ -881,7 +884,7 @@ pradzia:
             call printSegReg
             printStr 10, ",WORD PTR "
             call printRMdisp
-            printNL
+            call printNL
             jmp .disassemble
         
         .MOV_sr_rm
@@ -897,9 +900,10 @@ pradzia:
             printCMDname 3, "MOV"
             printStr 9, "WORD PTR "
             call printRMdisp
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printSegReg
-            printNL
+            call printNL
             jmp .disassemble
         
         .opcode_10001111
@@ -917,7 +921,7 @@ pradzia:
                 interpretMod 0
                 printCMDname 3, "POP"
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
         
         .opcode_11010101
@@ -932,7 +936,7 @@ pradzia:
                 add word [codeLine], 2
                 printOpCode 2
                 printCMDname 3, "AAD"
-                printNL
+                call printNL
                 jmp .disassemble
             
         .opcode_11010100
@@ -947,7 +951,7 @@ pradzia:
                 add word [codeLine], 2
                 printOpCode 2
                 printCMDname 3, "AAM"
-                printNL
+                call printNL
                 jmp .disassemble
 
 
@@ -972,7 +976,7 @@ pradzia:
                 .JMP_indir_wSeg_reg
 
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
 
             .JMP_Indir_intseg
@@ -984,7 +988,7 @@ pradzia:
                 printCMDname 3, "JMP"
                 printStr 4, "FAR "
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
             
             .CALL_indir_wSeg
@@ -1000,7 +1004,7 @@ pradzia:
                 .CALL_indir_wSeg_reg
 
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
             
             .CALL_indir_intSeg
@@ -1012,7 +1016,7 @@ pradzia:
                 printCMDname 4, "CALL"
                 printStr 4, "FAR "
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
             
             .PUSH_rm
@@ -1023,7 +1027,7 @@ pradzia:
                 interpretMod 0
                 printCMDname 4, "PUSH"
                 call printRMdisp
-                printNL
+                call printNL
                 jmp .disassemble
         
         ; 7 bit op code commands
@@ -1043,13 +1047,14 @@ pradzia:
 
             printCMDname 3, "MOV"
 
-            call printWordOrByte
+            call printWordOrByteMod
             call printRMdisp
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printDataWhenMod
             
 
-            printNL
+            call printNL
             jmp .disassemble
         
         .MOV_mem_to_ax
@@ -1066,7 +1071,7 @@ pradzia:
             call printAcc
             call printAdress
             
-            printNL
+            call printNL
             jmp .disassemble
 
         .MOV_ax_to_mem
@@ -1089,12 +1094,12 @@ pradzia:
                 printStr 3, ",AL"
             .MOV_ax_to_mem_done
 
-            printNL
+            call printNL
             jmp .disassemble
         
         .NOT_
         cmp byte al, 07Bh
-        jne .6bitcmd
+        jne .AND_Im_to_RegMem
             call printCodeLine
             call readByte
             interpretMod 0
@@ -1103,7 +1108,46 @@ pradzia:
             call printWordOrByteMod
             call printRMdisp
 
-            printNL
+            call printNL
+            jmp .disassemble
+        
+        .AND_Im_to_RegMem
+        cmp byte al, 040h
+        jne .AND_Imd_to_ax
+            call printCodeLine
+            call readByte
+            interpretMod 1
+
+            printCMDname 3, "AND"
+
+            call printWordOrByteMod
+            call printRMdisp
+            mov bx, comma
+            call printString
+            call printDataWhenMod
+            
+
+            call printNL
+            jmp .disassemble
+        
+        .AND_Imd_to_ax
+        cmp byte al, 012h
+        jne .6bitcmd
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "AND"
+
+            cmp byte [lastBit], 1
+            jne .AND_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .AND_ax_to_mem_done
+            .AND_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .AND_ax_to_mem_done
+            call printData
+
+            call printNL
             jmp .disassemble
 
         ;6 bit op code
@@ -1117,7 +1161,7 @@ pradzia:
 
         .Mov_RegMem_TF_Reg
         cmp byte al, 22h
-        jne .opCode_110100
+        jne .AND_RegMem_Reg
             call printCodeLine
             call readByte
             interpretMod 0
@@ -1131,16 +1175,48 @@ pradzia:
             cmp byte [secondToLastBit], 1
             jne .MOV_d_0
                 call printReg
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printRMdisp
                 jmp .MOV_d_done
             .MOV_d_0
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printReg
             
             .MOV_d_done
-            printNL
+            call printNL
+            jmp .disassemble
+        
+        .AND_RegMem_Reg
+        cmp byte al, 8h
+        jne .opCode_110100
+            call printCodeLine
+            call readByte
+            interpretMod 0
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "AND"
+
+            cmp byte [secondToLastBit], 1
+            jne .AND_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .AND_d_done
+            .AND_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .AND_d_done
+            call printNL
             jmp .disassemble
         
         .opCode_110100
@@ -1159,9 +1235,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
             
             .ROR_
@@ -1173,9 +1250,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
             
             .RCL_
@@ -1187,9 +1265,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
             
             .RCR_
@@ -1201,9 +1280,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
             
 
@@ -1216,9 +1296,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
 
             .shr_
@@ -1230,9 +1311,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
             
             .SAR_
@@ -1244,9 +1326,10 @@ pradzia:
 
                 call printWordOrByteMod
                 call printRMdisp
-                printStr 1, ","
+                mov bx, comma
+                call printString
                 call printV
-                printNL
+                call printNL
                 jmp .disassemble
 
 
@@ -1281,9 +1364,10 @@ pradzia:
 
             printCMDname 3, "MOV"
             call printReg
-            printStr 1, ","
+            mov bx, comma
+            call printString
             call printData
-            printNL
+            call printNL
             jmp .disassemble
 
         jmp .disassemble
@@ -1406,6 +1490,41 @@ closeFile:
 
     pop bx
     pop ax
+    ret
+
+printString:
+    push ax
+    push bx
+    push cx
+    push dx
+    push di
+    mov di, 0
+
+    .loop_
+        cmp byte [bx+di], '$'
+        je .exitLoop
+        inc di
+        jmp .loop_
+    .exitLoop
+
+    mov dx, bx
+    mov cx, di
+    mov bx, [outputFileHandle]
+    mov ah, 40h
+    int 21h
+
+    pop di
+    pop dx
+    pop cx
+    pop bx  
+    pop ax
+    ret
+
+printNL:
+    push bx
+    mov bx, newline
+    call printString
+    pop bx
     ret
 
 printBHex:
@@ -1911,6 +2030,19 @@ readData:
 
     ret
 
+readDataprintOpcode:
+    call readData
+    cmp byte [lastBit], 1
+    jne .w_0
+        printOpCode 3
+        add byte [codeLine], 3
+        jmp .done
+    .w_0
+    printOpCode 2
+    add byte [codeLine], 2
+    .done
+    ret
+
 printWordOrByte:
 
     cmp byte [lastBit], 1
@@ -2022,5 +2154,7 @@ section .data
     secondToLastBit: db 0
     num: db 0
     space: db ' ', '$'
+    newline: db 0dh, 0ah, '$'
+    comma: db ',', '$'
     currByte: db 0
     hexNum: db 0, 0
