@@ -75,74 +75,6 @@
     pop bx
 %endmacro
 
-%macro interpretMod 1
-    push bx
-    push dx
-
-    mov dx, 0
-    call readMOD_rm
-    mov bx, %1
-    cmp bx, 1
-    jne .%%no_data
-        cmp byte [lastBit], 1
-        jne .%%w_0
-            add dl, 2
-            call readData
-            jmp .%%no_data
-        .%%w_0
-            add dl, 1
-            call readData
-    .%%no_data
-
-            cmp byte [mod], 0
-            jne .%%mod1
-                cmp byte [rm], 110b
-                jne .%%rmNot110
-                    call readByte
-                    call readByte
-                    add dl, 4
-                    printOpCode dl
-                    add word [codeLine], dx
-                    jmp .%%next
-                    
-                .%%rmNot110
-                add dl, 2
-                printOpCode dl
-                add word [codeLine], dx
-                jmp .%%next
-
-            .%%mod1
-            cmp byte [mod], 1
-            jne .%%mod2
-                call readByte
-                add dl, 3
-                printOpCode dl
-                add word [codeLine], dx
-                jmp .%%next
-
-            .%%mod2
-            cmp byte [mod], 2
-            jne .%%mod3
-                call readByte
-                call readByte
-                add dl, 4
-                printOpCode dl
-                add word [codeLine], dx
-                jmp .%%next
-
-            .%%mod3
-                cmp byte [mod], 3
-                add dl, 2
-                printOpCode dl
-                add word [codeLine], dx
-            jmp .%%next
-
-    .%%next
-
-    pop dx
-    pop bx
-%endmacro
-
 org 100h
 section .text
 
@@ -823,7 +755,7 @@ pradzia:
         jne .LDS_
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             shl bl, 2
             shr bl, 5
@@ -841,7 +773,7 @@ pradzia:
         jne .LES_
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             shl bl, 2
             shr bl, 5
@@ -859,7 +791,7 @@ pradzia:
         jne .MOV_rm_sr
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             shl bl, 2
             shr bl, 5
@@ -877,7 +809,7 @@ pradzia:
         jne .MOV_sr_rm
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             shl bl, 3
             shr bl, 6
@@ -894,7 +826,7 @@ pradzia:
         jne .opcode_10001111
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             shl bl, 3
             shr bl, 6
@@ -920,7 +852,7 @@ pradzia:
             jne .opcode_11010101
 
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "POP"
                 CALL printWordOrByteMod
                 call printRMdisp
@@ -933,12 +865,24 @@ pradzia:
 
             call readByte
             cmp byte [opCode+1], 0ah
-            jne .opcode_11010100
+            jne .AAD_weird
 
                 call printCodeLine
                 add word [codeLine], 2
                 printOpCode 2
                 printCMDname 3, "AAD"
+                mov bl, [opCode+1]
+                call printBHex
+                call printNL
+                jmp .disassemble
+            
+            .AAD_weird
+                call printCodeLine
+                add word [codeLine], 2
+                printOpCode 2
+                printCMDname 3, "AAD"
+                mov bl, [opCode+1]
+                call printBHex
                 call printNL
                 jmp .disassemble
             
@@ -948,12 +892,24 @@ pradzia:
 
             call readByte
             cmp byte [opCode+1], 0ah
-            jne .opCode_1111_1111
+            jne .AAM_weird
 
                 call printCodeLine
                 add word [codeLine], 2
                 printOpCode 2
                 printCMDname 3, "AAM"
+                mov bl, [opCode+1]
+                call printBHex
+                call printNL
+                jmp .disassemble
+            
+            .AAM_weird
+                call printCodeLine
+                add word [codeLine], 2
+                printOpCode 2
+                printCMDname 3, "AAM"
+                mov bl, [opCode+1]
+                call printBHex
                 call printNL
                 jmp .disassemble
 
@@ -970,7 +926,7 @@ pradzia:
             jne .JMP_Indir_intseg
                 
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "JMP"
 
                 cmp byte [mod], 3
@@ -987,7 +943,7 @@ pradzia:
             jne .CALL_indir_wSeg
 
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "JMP"
                 printStr 4, "FAR "
                 call printRMdisp
@@ -999,7 +955,7 @@ pradzia:
             jne .CALL_indir_intSeg
             
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 4, "CALL"
                 cmp byte [mod], 3
                 je .CALL_indir_wSeg_reg
@@ -1015,7 +971,7 @@ pradzia:
             jne .PUSH_rm
             
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 4, "CALL"
                 printStr 4, "FAR "
                 call printRMdisp
@@ -1024,10 +980,10 @@ pradzia:
             
             .PUSH_rm
             cmp al, 110b
-            jne .CMD_not_found
+            jne .7bitcmd
             
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 4, "PUSH"
                 call printWordOrByteMod
                 call printRMdisp
@@ -1047,7 +1003,7 @@ pradzia:
         jne .MOV_mem_to_ax
             call printCodeLine
             call readByte
-            interpretMod 1
+            call interpretModData
 
             printCMDname 3, "MOV"
 
@@ -1103,7 +1059,7 @@ pradzia:
         
         .AND_Imd_to_ax
         cmp byte al, 012h
-        jne .TEST_RegMem_Reg
+        jne .ADD_Imd_to_ax
             call printCodeLine
             call readDataprintOpcode
 
@@ -1121,12 +1077,112 @@ pradzia:
             call printNL
             jmp .disassemble
         
+        .ADD_Imd_to_ax
+        cmp byte al, 02h
+        jne .ADC_Imd_to_ax
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "ADD"
+
+            cmp byte [lastBit], 1
+            jne .ADD_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .ADD_ax_to_mem_done
+            .ADD_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .ADD_ax_to_mem_done
+            call printData
+
+            call printNL
+            jmp .disassemble
+        
+        .ADC_Imd_to_ax
+        cmp byte al, 0Ah
+        jne .CMP_Imd_to_ax
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "ADC"
+
+            cmp byte [lastBit], 1
+            jne .ADC_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .ADC_ax_to_mem_done
+            .ADC_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .ADC_ax_to_mem_done
+            call printData
+
+            call printNL
+            jmp .disassemble
+        
+        .CMP_Imd_to_ax
+        cmp byte al, 1Eh
+        jne .TEST_RegMem_Reg
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "CMP"
+
+            cmp byte [lastBit], 1
+            jne .CMP_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .CMP_ax_to_mem_done
+            .CMP_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .CMP_ax_to_mem_done
+            call printData
+
+            call printNL
+            jmp .disassemble
+        
+        .SUB_Imd_to_ax
+        cmp byte al, 16h
+        jne .SBB_Imd_to_ax
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "SUB"
+
+            cmp byte [lastBit], 1
+            jne .SUB_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .SUB_ax_to_mem_done
+            .SUB_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .SUB_ax_to_mem_done
+            call printData
+
+            call printNL
+            jmp .disassemble
+        
+        .SBB_Imd_to_ax
+        cmp byte al, 7h
+        jne .TEST_RegMem_Reg
+            call printCodeLine
+            call readDataprintOpcode
+
+            printCMDname 3, "SBB"
+
+            cmp byte [lastBit], 1
+            jne .SBB_ax_to_mem_w_0
+                printStr 3, "AX,"
+                jmp .SBB_ax_to_mem_done
+            .SBB_ax_to_mem_w_0
+                printStr 3, "AL,"
+            .SBB_ax_to_mem_done
+            call printData
+
+            call printNL
+            jmp .disassemble
+        
         .TEST_RegMem_Reg
         cmp byte al, 42h
         jne .TEST_Imd_to_ax
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1319,7 +1375,7 @@ pradzia:
         jne .IN_
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1414,6 +1470,7 @@ pradzia:
             call printNL
             jmp .disassemble
         
+        
         .opcode_1000000
         cmp al, 040h
         jne .opcode_1111011
@@ -1426,7 +1483,7 @@ pradzia:
             cmp ah, 1
             jne .XOR_Im_to_RegMem
                 call printCodeLine
-                interpretMod 1
+                call interpretModData
 
                 printCMDname 2, "OR"
 
@@ -1443,7 +1500,7 @@ pradzia:
             cmp ah, 110b
             jne .AND_Im_to_RegMem
                 call printCodeLine
-                interpretMod 1
+                call interpretModData
 
                 printCMDname 3, "XOR"
 
@@ -1458,9 +1515,9 @@ pradzia:
             
             .AND_Im_to_RegMem
             cmp ah, 100b
-            jne .CMD_not_found
+            jne .opcode_1111011
                 call printCodeLine
-                interpretMod 1
+                call interpretModData
 
                 printCMDname 3, "AND"
 
@@ -1476,7 +1533,7 @@ pradzia:
         
         .opcode_1111011
         cmp al, 07Bh
-        jne .6bitcmd
+        jne .opcode_1111111
             call readByte
             mov ah, [opCode+1]
             and ah, 00111000b
@@ -1486,7 +1543,7 @@ pradzia:
             .TEST_Im_to_RegMem
                 jne .TEST_Imd_to_ax
                 call printCodeLine
-                interpretMod 1
+                call interpretModData
 
                 printCMDname 4, "TEST"
 
@@ -1501,9 +1558,9 @@ pradzia:
             
             .NOT_
             cmp byte ah, 010b
-            jne .CMD_not_found
+            jne .MUL_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
 
                 printCMDname 3, "NOT"
                 call printWordOrByteMod
@@ -1511,8 +1568,112 @@ pradzia:
 
                 call printNL
                 jmp .disassemble
+            
+            .MUL_
+            cmp byte ah, 100b
+            jne .IMUL_
+                call printCodeLine
+                call interpretMod
 
+                printCMDname 3, "MUL"
+                call printWordOrByteMod
+                call printRMdisp
 
+                call printNL
+                jmp .disassemble
+            
+            .IMUL_
+            cmp byte ah, 101b
+            jne .DIV_
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 4, "IMUL"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+            
+            .DIV_
+            cmp byte ah, 110b
+            jne .IDIV_
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 3, "DIV"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+            
+            .IDIV_
+            cmp byte ah, 111b
+            jne .NEG_
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 4, "IDIV"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+            
+            .NEG_
+            cmp ah, 011b
+            jne .CMD_not_found
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 3, "NEG"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+
+        .opcode_1111111
+        cmp al, 1111111b
+        jne .6bitcmd
+            mov al, [opCode]
+            and al, 00000001b
+            cmp al, 0
+            jne .opcode_1111111_byte_read
+            call readByte
+            .opcode_1111111_byte_read
+            mov al, [opCode+1]
+            and al, 00111000b
+            shr al, 3
+            .INC_
+            cmp al, 000b
+            jne .DEC_
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 3, "INC"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+
+            .DEC_
+            cmp al, 001b
+            jne .CMD_not_found
+                call printCodeLine
+                call interpretMod
+
+                printCMDname 3, "DEC"
+                call printWordOrByteMod
+                call printRMdisp
+
+                call printNL
+                jmp .disassemble
+        
+            
+        
         ;6 bit op code
         .6bitcmd
         mov al, [opCode]
@@ -1527,7 +1688,7 @@ pradzia:
         jne .AND_RegMem_Reg
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1557,7 +1718,7 @@ pradzia:
         jne .OR_RegMem_Reg
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1587,7 +1748,7 @@ pradzia:
         jne .XOR_RegMem_Reg
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1614,10 +1775,10 @@ pradzia:
         
         .XOR_RegMem_Reg
         cmp byte al, 0Ch
-        jne .opCode_110100
+        jne .ADD_RegMem_Reg
             call printCodeLine
             call readByte
-            interpretMod 0
+            call interpretMod
             mov bl, [opCode+1]
             and bl, 00111000b
             shr bl, 3
@@ -1642,6 +1803,255 @@ pradzia:
             call printNL
             jmp .disassemble
         
+        .ADD_RegMem_Reg
+        cmp byte al, 0h
+        jne .ADC_RegMem_Reg
+            call printCodeLine
+            call readByte
+            call interpretMod
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "ADD"
+
+            cmp byte [secondToLastBit], 1
+            jne .ADD_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .ADD_d_done
+            .ADD_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .ADD_d_done
+            call printNL
+            jmp .disassemble
+        
+        .ADC_RegMem_Reg
+        cmp byte al, 4h
+        jne .CMP_RegMem_Reg
+            call printCodeLine
+            call readByte
+            call interpretMod
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "ADC"
+
+            cmp byte [secondToLastBit], 1
+            jne .ADC_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .ADC_d_done
+            .ADC_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .ADC_d_done
+            call printNL
+            jmp .disassemble
+        
+        .CMP_RegMem_Reg
+        cmp byte al, 0Eh
+        jne .SUB_RegMem_Reg
+            call printCodeLine
+            call readByte
+            call interpretMod
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "CMP"
+
+            cmp byte [secondToLastBit], 1
+            jne .CMP_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .CMP_d_done
+            .CMP_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .CMP_d_done
+            call printNL
+            jmp .disassemble
+        
+        .SUB_RegMem_Reg
+        cmp byte al, 0Ah
+        jne .SBB_RegMem_Reg
+            call printCodeLine
+            call readByte
+            call interpretMod
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "SUB"
+
+            cmp byte [secondToLastBit], 1
+            jne .SUB_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .SUB_d_done
+            .SUB_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .SUB_d_done
+            call printNL
+            jmp .disassemble
+        
+        .SBB_RegMem_Reg
+        cmp byte al, 06h
+        jne .opCode_100000
+            call printCodeLine
+            call readByte
+            call interpretMod
+            mov bl, [opCode+1]
+            and bl, 00111000b
+            shr bl, 3
+            mov [reg], bl 
+
+            printCMDname 3, "SBB"
+
+            cmp byte [secondToLastBit], 1
+            jne .SBB_d_0
+                call printReg
+                mov bx, comma
+                call printString
+                call printRMdisp
+                jmp .SBB_d_done
+            .SBB_d_0
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printReg
+            
+            .SBB_d_done
+            call printNL
+            jmp .disassemble
+        
+        .opCode_100000
+        cmp byte al, 20h
+        jne .opCode_110100
+            mov al, [opCode]
+            and al, 00000010b
+            shr al, 1
+            cmp al, 1
+            jne .opCode_100000_next
+                call readByte
+            .opCode_100000_next
+            mov al, [opCode+1]
+            and al, 00111000b
+            shr al, 3
+
+            .ADD_Im_to_RegMem
+            cmp al, 0
+            jne .ADC_Im_to_RegMem
+                call printCodeLine
+                call interpretModDataSW
+
+                printCMDname 3, "ADD"
+
+                call printWordOrByteMod
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printDataWhenModSW
+            
+                call printNL
+                jmp .disassemble
+
+            .ADC_Im_to_RegMem
+            cmp al, 010b
+            jne .CMP_Im_to_RegMem
+                call printCodeLine
+                call interpretModDataSW
+
+                printCMDname 3, "ADC"
+
+                call printWordOrByteMod
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printDataWhenModSW
+
+                call printNL
+                jmp .disassemble
+            
+            .CMP_Im_to_RegMem
+            cmp al, 111b
+            jne .SUB_Im_to_RegMem
+                call printCodeLine
+                call interpretModDataSW
+
+                printCMDname 3, "CMP"
+
+                call printWordOrByteMod
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printDataWhenModSW
+
+                call printNL
+                jmp .disassemble
+            
+            .SUB_Im_to_RegMem
+            cmp al, 101b
+            jne .SBB_Im_to_RegMem
+                call printCodeLine
+                call interpretModDataSW
+
+                printCMDname 3, "SUB"
+
+                call printWordOrByteMod
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printDataWhenModSW
+                
+                call printNL
+                jmp .disassemble
+
+            .SBB_Im_to_RegMem
+            cmp al, 011b
+            jne .CMD_not_found
+                call printCodeLine
+                call interpretModDataSW
+
+                printCMDname 3, "SBB"
+
+                call printWordOrByteMod
+                call printRMdisp
+                mov bx, comma
+                call printString
+                call printDataWhenModSW
+                
+                call printNL
+                jmp .disassemble
+        
         .opCode_110100
         cmp byte al, 34h
         jne .5bit_cmd
@@ -1653,7 +2063,7 @@ pradzia:
             cmp ah, 0
             jne .ROR_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "ROL"
 
                 call printWordOrByteMod
@@ -1668,7 +2078,7 @@ pradzia:
             cmp ah, 1
             jne .RCL_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "ROR"
 
                 call printWordOrByteMod
@@ -1683,7 +2093,7 @@ pradzia:
             cmp ah, 2
             jne .RCR_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "RCL"
 
                 call printWordOrByteMod
@@ -1698,7 +2108,7 @@ pradzia:
             cmp ah, 3
             jne .shl_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "RCR"
 
                 call printWordOrByteMod
@@ -1714,7 +2124,7 @@ pradzia:
             cmp ah, 4
             jne .shr_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "SHL"
 
                 call printWordOrByteMod
@@ -1729,7 +2139,7 @@ pradzia:
             cmp ah, 5
             jne .SAR_
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "SHR"
 
                 call printWordOrByteMod
@@ -1744,7 +2154,7 @@ pradzia:
             cmp ah, 7
             jne .CMD_not_found
                 call printCodeLine
-                interpretMod 0
+                call interpretMod
                 printCMDname 3, "SAR"
 
                 call printWordOrByteMod
@@ -1786,12 +2196,34 @@ pradzia:
         
         .XCHG_Reg
         cmp al, 12h
-        jne .mov_imd_to_reg
+        jne .INC_Reg
             call printCodeLine
             add word [codeLine], 1
             printOpCode 1
             printCMDname 4, "XCHG"
             printStr 3, "AX,"
+            call print16Reg
+            call printNL
+            jmp .disassemble
+        
+        .INC_Reg
+        cmp al, 8h
+        jne .DEC_Reg
+            call printCodeLine
+            add word [codeLine], 1
+            printOpCode 1
+            printCMDname 3, "INC"
+            call print16Reg
+            call printNL
+            jmp .disassemble
+        
+        .DEC_Reg
+        cmp al, 9h
+        jne .mov_imd_to_reg
+            call printCodeLine
+            add word [codeLine], 1
+            printOpCode 1
+            printCMDname 3, "DEC"
             call print16Reg
             call printNL
             jmp .disassemble
@@ -2451,6 +2883,179 @@ printSegReg:
     .donePrintingREG
     ret
 
+interpretMod:
+    call readMOD_rm
+    cmp byte [mod], 0
+    jne .mod1
+        cmp byte [rm], 110b
+        jne .rmNot110
+            call readByte
+            call readByte
+            printOpCode 4
+            add word [codeLine], 4
+            jmp .next
+            
+        .rmNot110
+        printOpCode 2
+        add word [codeLine], 2
+        jmp .next
+
+    .mod1
+    cmp byte [mod], 1
+    jne .mod2
+        call readByte
+        printOpCode 3
+        add word [codeLine], 3
+        jmp .next
+
+    .mod2
+    cmp byte [mod], 2
+    jne .mod3
+        call readByte
+        call readByte
+        printOpCode 4
+        add word [codeLine], 4
+        jmp .next
+
+    .mod3
+        cmp byte [mod], 3
+        printOpCode 2
+        add word [codeLine], 2
+    jmp .next
+
+    .next
+
+    ret
+
+interpretModData:
+    push dx
+
+    mov dx, 0
+    call readMOD_rm
+    cmp byte [lastBit], 1
+    jne .w_0
+        add dl, 2
+        call readData
+        jmp .done
+    .w_0
+        add dl, 1
+        call readData
+    .done
+
+            cmp byte [mod], 0
+            jne .mod1
+                cmp byte [rm], 110b
+                jne .rmNot110
+                    call readByte
+                    call readByte
+                    add dl, 4
+                    printOpCode dl
+                    add word [codeLine], dx
+                    jmp .next
+                    
+                .rmNot110
+                add dl, 2
+                printOpCode dl
+                add word [codeLine], dx
+                jmp .next
+
+            .mod1
+            cmp byte [mod], 1
+            jne .mod2
+                call readByte
+                add dl, 3
+                printOpCode dl
+                add word [codeLine], dx
+                jmp .next
+
+            .mod2
+            cmp byte [mod], 2
+            jne .mod3
+                call readByte
+                call readByte
+                add dl, 4
+                printOpCode dl
+                add word [codeLine], dx
+                jmp .next
+
+            .mod3
+                cmp byte [mod], 3
+                add dl, 2
+                printOpCode dl
+                add word [codeLine], dx
+            jmp .next
+
+    .next
+
+    pop dx
+    ret
+
+interpretModDataSW:
+    push dx
+
+    mov dx, 0
+    call readMOD_rm
+    cmp byte [secondToLastBit], 0
+    jne .w_0
+        cmp byte [lastBit], 1
+        jne .w_0
+            add dl, 2
+            call readByte
+            call readByte
+            jmp .done
+        .w_0
+            add dl, 1
+            call readByte
+    .done
+
+    cmp byte [mod], 0
+    jne .mod1
+        cmp byte [rm], 110b
+        jne .rmNot110
+            call readByte
+            call readByte
+            add dl, 4
+            printOpCode dl
+            add word [codeLine], dx
+            jmp .next
+            
+        .rmNot110
+        add dl, 2
+        printOpCode dl
+        add word [codeLine], dx
+        jmp .next
+
+    .mod1
+    cmp byte [mod], 1
+    jne .mod2
+        call readByte
+        add dl, 3
+        printOpCode dl
+        add word [codeLine], dx
+        jmp .next
+
+    .mod2
+    cmp byte [mod], 2
+    jne .mod3
+        call readByte
+        call readByte
+        add dl, 4
+        printOpCode dl
+        add word [codeLine], dx
+        jmp .next
+
+    .mod3
+        cmp byte [mod], 3
+        add dl, 2
+        printOpCode dl
+        add word [codeLine], dx
+    jmp .next
+
+    .next
+
+    pop dx
+    ret
+
 negJumpByte:
     push ax
     push bx
@@ -2476,6 +3081,7 @@ negJumpByte:
 
 printDataWhenMod:
     push di
+
     cmp byte [mod], 0
     jne .mod1
         mov di, 0
@@ -2501,6 +3107,54 @@ printDataWhenMod:
     .w0
         mov bl, [opCode+2+di]
         call printBHex
+    .done_w_0
+
+    pop di
+    ret
+
+printDataWhenModSW:
+    push di
+
+    cmp byte [mod], 0
+    jne .mod1
+        mov di, 0
+    .mod1
+    cmp byte [mod], 1
+    jne .mod2
+        mov di, 1
+    .mod2
+    cmp byte [mod], 2
+    jne .mod3
+        mov di, 2
+    .mod3
+    cmp byte [mod], 3
+    jne .done
+        mov di, 0
+    .done
+
+    cmp byte [secondToLastBit], 0
+    jne .w0_s1
+        cmp byte [lastBit], 1
+        jne .w0
+            mov bx, [opCode+2+di]
+            call printWHex
+            jmp .done_w_0
+        .w0
+            mov bl, [opCode+2+di]
+            call printBHex
+            jmp .done_w_0
+        .w0_s1
+            mov bl, [opCode+2+di]
+            cmp bl, 127
+            jb .not_neg
+                neg bl
+                printStr 1, "-"
+                call printBHex
+                jmp .done_w_0
+            .not_neg
+                printStr 1, "+"
+                call printBHex
+                jmp .done_w_0
     .done_w_0
 
     pop di
